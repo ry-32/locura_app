@@ -23,3 +23,4 @@ Things you may want to cover:
 
 * ...
 # locura_app
+# locura_app
