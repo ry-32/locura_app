@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+header{
+    height: 90px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+    margin-bottom: 20px;
+}
+
+.header-container{
+    height: 100%;
+    
+}
+
+.site-title{
+    display: flex;
+    letter-spacing: 0.055em;
+    font-size: 2em;
+    color: #19BBDD;
+}
+
