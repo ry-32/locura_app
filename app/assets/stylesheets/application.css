@@ -17,20 +17,39 @@
 
 
 header{
-    height: 90px;
-    border-bottom: 1px solid rgba(0,0,0,.3);
-    margin-bottom: 20px;
+    height: 70px;
 }
 
-.header-container{
-    height: 100%;
+body{
+    margin: 0;
     
+}
+.header-container{
+    height: auto;
+    padding: 20px 20px 0 20px;
+}
+
+.header-ul{
+    font-family: "游明朝" ;
+    float: right;
+    list-style: none;
+}
+
+.header-ul li{
+    font-size: .8em;
+    float: left;
+    margin-right: 5px;
+}
+
+
+.site-title-wrapper{
+    width: 200px;
 }
 
 .site-title{
     display: flex;
     letter-spacing: 0.055em;
-    font-size: 2em;
+    font-size: 1.6em;
     color: #19BBDD;
 }
 
