@@ -212,29 +212,36 @@ footer a{
     margin: auto;
     height: 400px;
     width: 650px;
-    border: 1px solid rgba(0,0,0,.3);
 }
 
 .form-body{
     height: 100%;
     width: 70%;
     margin: auto;
+    box-sizing:border-box;
+    padding: 40px 10px;
+    font-size: 14px;
 }
 
 .form-text-area{
-    height: 21px;
-    width: 189px;
-    display: flex;
-    margin: 5px auto;
+    height: 26px;
+    width: 259px;
+    margin: 15px auto;
     border: .45px solid rgba(0,0,0,.3);
     border-radius: 4px;
+}
+
+
+.form-btn-wrapper{
+    box-sizing: border-box;
+    padding-left: 257px;
 }
 
 .form-btn{
     background-color: #19BBDD;
     border: none;
-    height: 34px;
-    width: 45px;
+    height: 33px;
+    width: 55px;
     color: white;
-    border-radius: 7px;
+    border-radius: 5px;
 }

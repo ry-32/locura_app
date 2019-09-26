@@ -13,7 +13,23 @@
             <h2 class="contact-title">番組の収益化を始める</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
             <div class="contact-form-wrapper">
-                this part involves creating model and stuff so do this later
+                <div class="contact-form-wrapper">
+                <div class="form-body">
+                    <%= form_for @podcaster do |f|%>
+                        <div class="form-name-wrapper">
+                            <%= f.label :name, "お名前" %>
+                            <%= f.text_field :name, :class => "form-text-area" %>
+                        </div>
+                        <div class="form-email-wrapper">
+                            <%= f.label :email, "メール" %>
+                            <%= f.text_field :email, :class => "form-text-area" %>
+                        </div>
+                        <div class="form-btn-wrapper">
+                            <%= f.submit '送信', :class =>"form-btn"%>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
             </div>
         </div>
     </section>

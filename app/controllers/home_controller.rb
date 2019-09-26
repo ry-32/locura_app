@@ -13,6 +13,7 @@ class HomeController < ApplicationController
   end
   
   def podcaster_contact
+    @podcaster = Podcaster.new
   end
   
 
