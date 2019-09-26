@@ -223,6 +223,23 @@ footer a{
     font-size: 14px;
 }
 
+.form-items{
+    width: 87%;
+    margin:auto;
+}
+
+.form-container{
+    display: table-row;    
+}
+
+.form-container label{
+    width: 80px;
+}
+
+.form-item{
+    display: table-cell;
+}
+
 .form-text-area{
     height: 26px;
     width: 259px;
