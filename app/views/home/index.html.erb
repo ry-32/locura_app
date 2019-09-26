@@ -2,7 +2,7 @@
     
     <section class="top-wrapper">
         <div class="top-h1-wrapper">
-            <h1>
+            <h1 class="top-h1">
                 GREAT PODCASTERS,<br>
                 MEET GREAT ADVERTISERS
             </h1>
@@ -18,43 +18,54 @@
                 </div>
                 <h2>Podcaster</h2>
                 <p>番組に収益化を支援しあなたの<br>クリエイティブさを最大化</p>
+                <button class="info-button">詳細を見る</button>
             </div>
         </div>
+        
         <div class="info-box">
             <div class="info-wrapper">
                 <div class="info-icon-wrapper">
-                    <%= image_tag 'people_icon.png', :size => "40×40" %>
+                    <%= image_tag 'people_icon.png'%>
                 </div>
                 <div>
                     <h2>Podcaster</h2>
                     <p>番組に収益化を支援しあなたの<br>クリエイティブさを最大化</p>
+                    <button class="info-button">詳細を見る</button>
                 </div>
 
             </div>
         </div>
-    </secton>
+    </section>
     
     <section class="middle2-wrapper">
+        <h2>LOCURAとは？</h2>
+        <p>LOCURAとは、Podcasterと、Podcastに広告を出稿したい広告主をつなげるマッチングサービスです。</p>
         
         <div class="info-box">
             <div class="info-wrapper">
-                <span></span>
-                <p></p>
+                <div class="info-icon-wrapper">
+                    <%= image_tag 'person_radio.png', style:"height:80px;width:80px" %>
+                </div>
+                <p>簡単無料依頼<br>2分でスマホやPCで楽々依頼内容</p>
             </div>
         </div>
         
         <div class="info-box">
             <div class="info-wrapper">
-                <span></span>
-                <p></p>
+                <div class="info-icon-wrapper">
+                    <%= image_tag 'pointing.png', style:"height:80px;width:80px" %>
+                </div>
+                <p>簡単無料依頼<br>2分でスマホやPCで楽々依頼内容</p>
 
             </div>
         </div>
         
         <div class="info-box">
             <div class="info-wrapper">
-                <span></span>
-                <p></p>
+                <div class="info-icon-wrapper">
+                    <%= image_tag 'handshake.png', style:"height:80px;width:80px"%>
+                </div>
+                <p>簡単無料依頼<br>2分でスマホやPCで楽々依頼内容</p>
 
             </div>
         </div>
@@ -62,13 +73,19 @@
     </section>
     
     <section class="cta-wrapper">
+        <div class="cta-container">
+            <button class="cta-button info-button">
+                開始する
+            </button>
+            
+        </div>
         
     </section>
     
     <footer>
         <div class="footer-wrapper">
             <div class="footer-ul-wrapper">
-                <ul>
+                <ul class="footer-ul">
                     <li>
                         <a>広告主</a>
                     </li>
