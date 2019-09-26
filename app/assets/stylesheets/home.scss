@@ -61,13 +61,19 @@ body{
     width: 124px;
     border: none;
     border-radius: 6px;
+    background-color: #19BBDD;
+    color: white;
     font-family: "Lobster";
     font-weight: 600;
     font-size: .83em;
     letter-spacing: .074em;
-    background-color: #19BBDD;
-    color: white;
+    text-decoration: none;
 }
+
+.info-button:hover{
+    cursor: pointer;
+}
+
 
 .middle2-wrapper{
     margin: 42px 0 40px 0;
@@ -111,6 +117,10 @@ footer{
     height: 90px;
     border: 1px solid rgba(0,0,0,.3);
     background-color: #131B39;
+}
+
+footer a{
+    text-decoration: none;
 }
 
 .footer-wrapper{
@@ -183,3 +193,48 @@ footer{
 
 // advertisers page
 
+.ad-middle-w{
+    margin: 90px 0;
+    box-sizing: border-box;
+    padding: 0 140px;
+}
+
+
+// advertiser contact
+
+.contact-container{
+    text-align: center;
+    box-sizing: border-box;
+    padding: 40px 20px;
+}
+
+.contact-form-wrapper{
+    margin: auto;
+    height: 400px;
+    width: 650px;
+    border: 1px solid rgba(0,0,0,.3);
+}
+
+.form-body{
+    height: 100%;
+    width: 70%;
+    margin: auto;
+}
+
+.form-text-area{
+    height: 21px;
+    width: 189px;
+    display: flex;
+    margin: 5px auto;
+    border: .45px solid rgba(0,0,0,.3);
+    border-radius: 4px;
+}
+
+.form-btn{
+    background-color: #19BBDD;
+    border: none;
+    height: 34px;
+    width: 45px;
+    color: white;
+    border-radius: 7px;
+}

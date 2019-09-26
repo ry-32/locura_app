@@ -8,4 +8,12 @@ class HomeController < ApplicationController
   def advertiser
   end
   
+  def advertiser_contact
+    @advertiser = Advertiser.new
+  end
+  
+  def podcaster_contact
+  end
+  
+
 end

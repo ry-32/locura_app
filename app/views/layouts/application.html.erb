@@ -13,15 +13,13 @@
       <div class="header-container">
         
         <ul class="header-ul">
-          <li>広告主</li>
-          <li>番組ホスト</li>
-          <li>登録・ログイン</li>
+          <li><%= link_to '広告主', '/advertisers' %></li>
+          <li><%= link_to '番組ホスト', '/podcasters' %></li>
+          <li><%= link_to '登録・ログイン', '/' %></li>
         </ul>
         
         <div class="site-title-wrapper">
-          <a class="site-title">
-            LOCURA
-          </a>
+          <%= link_to 'LOCURA','/', :class => 'site-title'  %>
         </div>
         
       </div>

@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/podcasters' => 'home#podcaster'
   get '/advertisers' => 'home#advertiser'
+  get '/podcaster-contact' => 'home#podcaster_contact'
+  get '/advertiser-contact' => 'home#advertiser_contact'
+  
 end

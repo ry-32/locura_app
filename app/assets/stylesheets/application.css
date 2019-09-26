@@ -18,11 +18,12 @@
 
 header{
     height: 70px;
+    
 }
 
 body{
     margin: 0;
-    
+
 }
 .header-container{
     height: auto;
@@ -33,6 +34,7 @@ body{
     font-family: "游明朝" ;
     float: right;
     list-style: none;
+    
 }
 
 .header-ul li{
@@ -40,6 +42,13 @@ body{
     float: left;
     margin-right: 5px;
 }
+
+.header-ul li a{
+    text-decoration:none;
+    color:black;
+    
+}
+
 
 
 .site-title-wrapper{
@@ -51,5 +60,6 @@ body{
     letter-spacing: 0.055em;
     font-size: 1.6em;
     color: #19BBDD;
+    text-decoration: none;
 }
 

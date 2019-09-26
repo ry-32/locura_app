@@ -17,8 +17,8 @@
                     <%= image_tag 'mic_icon.png'%>
                 </div>
                 <h2>Podcaster</h2>
-                <p>番組に収益化を支援しあなたの<br>クリエイティブさを最大化</p>
-                <button class="info-button">詳細を見る</button>
+                <p>番組の収益化を支援しあなたの<br>クリエイティブさを最大化</p>
+                <%= button_to '詳細を見る', '/podcasters', :method => 'get', :class => "info-button" %>
             </div>
         </div>
         
@@ -28,9 +28,9 @@
                     <%= image_tag 'people_icon.png'%>
                 </div>
                 <div>
-                    <h2>Podcaster</h2>
-                    <p>番組に収益化を支援しあなたの<br>クリエイティブさを最大化</p>
-                    <button class="info-button">詳細を見る</button>
+                    <h2>広告主</h2>
+                    <p>広告効果の高い音声広告を出稿し<br>成果を出しましょう</p>
+                    <%= button_to '詳細を見る', '/advertisers', :method => 'get', :class => "info-button" %>
                 </div>
 
             </div>
@@ -74,10 +74,7 @@
     
     <section class="cta-wrapper">
         <div class="cta-container">
-            <button class="cta-button info-button">
-                開始する
-            </button>
-            
+                <%= button_to '開始する', '/advertisers', :method => 'get', :class => "info-button cta-button" %>
         </div>
         
     </section>
@@ -87,13 +84,13 @@
             <div class="footer-ul-wrapper">
                 <ul class="footer-ul">
                     <li>
-                        <a>広告主</a>
+                        <%= link_to '広告主', '/advertisers' %>
                     </li>
                     <li>
-                        <a>番組ホスト</a>
+                        <%= link_to '番組ホスト', '/podcasters' %>
                     </li>
                     <li>
-                        <a>お問い合わせ</a>
+                        <%= link_to 'お問い合わせ', '/' %>
                     </li>
                 </ul>
             </div>
