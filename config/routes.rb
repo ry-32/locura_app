@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   
   get '/login' => 'home#login'
   get '/myaccount' => 'home#myaccount'
-
+  get '/podcaster-register' => 'podcaster#main_new'
+  get '/advertiser-register' => 'advertiser#main_new'
 
 
   

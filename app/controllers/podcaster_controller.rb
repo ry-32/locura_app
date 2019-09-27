@@ -7,6 +7,10 @@ class PodcasterController < ApplicationController
         @podcaster = Podcaster.new
     end
     
+    def main_new
+      @podcaster = Podcaster.new
+    end
+    
     
     def create
         @podcaster = Podcaster.new(
