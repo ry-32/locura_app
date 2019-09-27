@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @a = Advertiser.find_by(id:15)
+    @a = Advertiser.first
   end
   
   def login
@@ -34,7 +34,13 @@ class HomeController < ApplicationController
     
     
     
-    
+    def myaccount
+      
+      @a = Advertiser.first
+      @pd = Podcaster.first
+      
+      
+    end
     
     
     
