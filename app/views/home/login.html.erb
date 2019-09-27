@@ -10,32 +10,31 @@
     
     <section class="contact-wrapper">
         <div class="contact-container">
-            <h2 class="contact-title">番組の収益化を始める</h2>
-            <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
+            <h2 class="contact-title">ログインする</h2>
             <div class="contact-form-wrapper">
-                <div class="contact-form-wrapper">
-                <div class="form-body">
-                    <%= form_for @podcaster do |f|%>
+                <% if @error_message %>
+                    <%= @error_message %>
+                <% end %>
+                <% if @message %>
+                    <%= @message %>
+                <% end %>
+                <div class="form-body login-form-body">
+                    <%= form_tag("/login", method: :get) do %>
                         <div class="form-items">
                             <div class="form-name-wrapper form-container">
-                                <%= f.label :name, "お名前", :class => "form-item" %>
-                                <%= f.text_field :name, :class => "form-text-area form-item" %>
-                            </div>
-                            <div class="form-podcast-name-wrapper form-container">
-                                <%= f.label :podcast_name, "番組", :class => "form-item" %>
-                                <%= f.text_field :podcast_name, :class => "form-text-area form-item" %>
+                                <label for="name" accesskey="n" class="form-item">お名前</label>
+                                <input name="name" id="name" class="form-text-area form-item">
                             </div>
                             <div class="form-email-wrapper form-container">
-                                <%= f.label :email, "メール", :class => "form-item" %>
-                                <%= f.text_field :email, :class => "form-text-area form-item" %>
+                                <label for="email" accesskey="n" class="form-item">メール</label>
+                                <input name="email" id="email" class="form-text-area form-item">
                             </div>
                             <div class="form-btn-wrapper">
-                                <%= f.submit '送信', :class =>"form-btn"%>
+                                <input type="submit" value="送信" class="form-btn btn"> 
                             </div>
                         </div>
                     <% end %>
                 </div>
-            </div>
             </div>
         </div>
     </section>

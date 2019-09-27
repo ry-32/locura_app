@@ -1,4 +1,4 @@
-// Place all the styles related to the home controller here.
+// Place all the styles related to the advertiser controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -6,9 +6,6 @@ body{
     color:#575757;
 }
 
-.btn:hover{
-    cursor: pointer;
-}
 
 
 .top-wrapper{
@@ -198,7 +195,7 @@ footer a{
 }
 
 .form-container{
-    display: table-row;  
+    display: table-row;    
 }
 
 .form-container label{
@@ -252,7 +249,7 @@ footer a{
 }
 
 .faq-title{
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -270,17 +267,3 @@ footer a{
 
 
 
-
-
-
-
-
-
-
-
-
-// login
-
-.login-form-body{
-    padding-top: 9px;
-}
