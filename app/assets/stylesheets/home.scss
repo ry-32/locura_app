@@ -297,14 +297,18 @@ footer a{
 // myaccount
 
 .top-nav-bar{
+    position: relative;
     height: 93px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     margin-bottom: 40px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
 }
 
 
 .top-nav-ul{
-    float: left;
+    position: absolute;
+    bottom: -1px;
+    margin: 0;
+    padding-left: 29px;
     
 }
 
@@ -314,23 +318,21 @@ footer a{
     height: 40px;
     width: 145px;
     border: 1px solid rgba(0,0,0,.3);
-}
-
-.top-nav-li span{
-    display: block;
-    width: 50%;
-    margin: auto;
+    line-height: 40px;
+    text-align: center;
     font-size: .7em;
+    margin-right: 9px;
 }
-
 
 .content-sec{
     height: 830px;
     box-sizing: border-box;
+    padding-top: 20px;
 }
 
 .content-sec h2{
-    margin-left: 30px;
+    margin: 0 0 0 30px ;
+    font-size: 1.35em;
 }
 
 .content-wrapper{
@@ -340,6 +342,10 @@ footer a{
     border: 1px solid rgba(0,0,0,.3);
 }
 
+
+.profile-form-body{
+    padding-top: 90px;
+}
 
 .pro-form-btn-wrapper{
     padding-left: 285px;
