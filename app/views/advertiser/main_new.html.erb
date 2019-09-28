@@ -10,7 +10,7 @@
     
     <section class="contact-wrapper">
         <div class="contact-container">
-            <h2 class="contact-title">番組の収益化を始める</h2>
+            <h2 class="contact-title">広告キャンペーンを開始する</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
             <div class="contact-form-wrapper">
                 <div class="contact-form-wrapper">
@@ -26,31 +26,15 @@
                             </div>
                             <div class="form-podcast-name-wrapper form-container">
                                 <label for="podcast_name" accesskey="n" class="form-item">番組</label>
-                                <input name="podcast_name" value="<%= @advertiser.podcast_name %>" id="podcast_name" class="form-text-area form-item">
+                                <input name="podcast_name" value="<%= @advertiser.company_name %>" id="podcast_name" class="form-text-area form-item">
                             </div>
                             <div class="form-email-wrapper form-container">
                                 <label for="email" accesskey="n" class="form-item">メール</label>
                                 <input name="email" value="<%= @advertiser.email %>" id="email" class="form-text-area form-item">
                             </div>
                             <div class="form-genre-wrapper form-container">
-                                <label for="genre" accesskey="n" class="form-item">ジャンル</label>
-                                <input name="genre" value="<%= @advertiser.genre %>" id="genre" class="form-text-area form-item">
-                            </div>
-                            <div class="form-description-wrapper form-container">
-                                <label for="description" accesskey="n" class="form-item">番組の説明</label>
-                                <textarea name="description" value="<%= @advertiser.description %>" id="description" class="form-text-area form-item form-text"></textarea>
-                            </div>
-                            <div class="form-url-wrapper form-container">
-                                <label for="url" accesskey="n" class="form-item">番組HPのURL</label>
-                                <input name="url" value="<%= @advertiser.url %>" id="url" class="form-text-area form-item">
-                            </div>
-                            <div class="form-hosting-wrapper form-container">
-                                <label for="hosting" accesskey="n" class="form-item">使用中のホスティングサービス</label>
-                                <input name="hosting" value="<%= @advertiser.hosting %>" id="hosting" class="form-text-area form-item">
-                            </div>
-                            <div class="form-memo-wrapper form-container">
-                                <label for="memo" accesskey="n" class="form-item">備考</label>
-                                <textarea name="memo" value="<%= @advertiser.memo %>" id="memo" class="form-text-area form-item form-text"></textarea>
+                                <label for="genre" accesskey="n" class="form-item">分野</label>
+                                <input name="genre" value="<%= @advertiser.industry %>" id="genre" class="form-text-area form-item">
                             </div>
                             <div class="form-btn-wrapper">
                                 <input type="submit" value="送信" class="form-btn btn"> 

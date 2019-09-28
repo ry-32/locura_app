@@ -206,12 +206,14 @@ footer a{
 
 .form-item{
     display: table-cell;
+    vertical-align: top;
 }
 
 .form-text-area{
     height: 26px;
     width: 259px;
-    margin: 15px auto;
+    margin: auto;
+    margin-bottom: 40px;
     border: .45px solid rgba(0,0,0,.3);
     border-radius: 4px;
 }

@@ -7,6 +7,9 @@ class AdvertiserController < ApplicationController
         @advertiser = Advertiser.new
     end
     
+    def main_new
+      @advertiser = Advertiser.new
+    end
   
     
     def create
