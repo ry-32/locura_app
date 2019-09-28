@@ -16,10 +16,10 @@
         <div class="content-wrapper">
             <div class="form-body profile-form-body">
                     <!--form_for(@book, url: {controller: index, action:index })-->
-                    <%= form_for(@a, url: {controller: 'home', action: 'update'})  do |f|%>
+                    <%= form_for(@a, url: {controller: 'home', action: 'update'}) do |f| %>
                         <%= f.text_field :name %>
-                        <%= f.text_field :email %>
                         <%= f.text_field :company_name %>
+                        <%= f.text_field :email %>
                         <%= f.submit "Send" %>
                     <% end %>
                     <%= form_tag("/update",  method: :post) do %>

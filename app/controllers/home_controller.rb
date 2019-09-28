@@ -49,12 +49,12 @@ class HomeController < ApplicationController
     @advertiser = Advertiser.new
     @a = Advertiser.first
   end
-  
+
   def update
     @a = Advertiser.first
-    @a.name = account_params
+    h = params.slice(:name, :company_name,:email).to_h
+    @a.name = h[:name] #account_params
     @a.save
-    @new_name = params[:name]
     redirect_to("/myaccount")
   end
     
