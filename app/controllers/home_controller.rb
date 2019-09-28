@@ -12,7 +12,6 @@ class HomeController < ApplicationController
       if Advertiser.find_by(name: params[:name])
         user = Advertiser.find_by(name: params[:name])
         if user.email == params[:email]
-          @message = "ログインに成功しました"
           session[:user_id] = user.id
           redirect_to('/')
           # render action: :login
@@ -25,8 +24,8 @@ class HomeController < ApplicationController
       elsif Podcaster.find_by(name: params[:name])
         user = Podcaster.find_by(name: params[:name])
         if user.email == params[:email]
-          @message = "ログインに成功しました"
-          render action: :login
+          session[:user_id] = user.id
+          redirect_to('/')
         else
           @message = "emailが違います"
           render action: :login
@@ -40,6 +39,12 @@ class HomeController < ApplicationController
     
   end
     
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to("/")
+  end
+  
   def myaccount
     
     @a = Advertiser.first

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/podcaster-contact' => 'podcaster#podcaster_contact'
   
   get '/login' => 'home#login'
+  get '/logout' => 'home#logout'
   get '/myaccount' => 'home#myaccount'
   get '/podcaster-register' => 'podcaster#main_new'
   get '/advertiser-register' => 'advertiser#main_new'

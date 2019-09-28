@@ -12,15 +12,21 @@
     <header>
       <div class="header-container">
         
-        <ul class="header-ul">
-          <% if @current_user %>
-            <li>successfully logged in!!</li>
-          <% end %>
-          <li><%= link_to '広告主', '/advertisers' %></li>
-          <li><%= link_to '番組ホスト', '/podcasters' %></li>
-          <li><%= link_to '登録・ログイン', '/login' %></li>
-          <li><%= link_to 'マイアカウント', '/myaccount' %></li>
-        </ul>
+        <% if @current_user_ad or @current_user_pod %>
+          <ul class="header-ul">
+              <li><%= link_to '広告主', '/advertisers' %></li>
+              <li><%= link_to '番組ホスト', '/podcasters' %></li>
+              <li><%= link_to 'ログアウト', '/logout' %></li>
+              <li><%= link_to 'マイアカウント', '/myaccount' %></li>
+          </ul>
+        <% else %>
+          <ul class="header-ul">
+            <li><%= link_to '広告主', '/advertisers' %></li>
+            <li><%= link_to '番組ホスト', '/podcasters' %></li>
+            <li><%= link_to '登録・ログイン', '/login' %></li>
+            <li><%= link_to 'マイアカウント', '/myaccount' %></li>
+          </ul>
+        <% end %>
         
         <div class="site-title-wrapper">
           <%= link_to 'LOCURA','/', :class => 'site-title'  %>
