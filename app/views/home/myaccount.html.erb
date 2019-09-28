@@ -12,6 +12,7 @@
     
     <section class="content-sec">
         <h2>プロフィール</h2>
+        <%= @new_name %>is here
         <div class="content-wrapper">
             <div class="form-body profile-form-body">
                     <!--form_for(@book, url: {controller: index, action:index })-->
@@ -27,13 +28,13 @@
                                 <label for="name" accesskey="n" class="form-item">お名前</label>
                                 <input name="name" id="name" class="form-text-area form-item"></input>
                             </div>
-                            <div class="form-name-wrapper form-container">
-                                <label for="name" accesskey="n" class="form-item">番組</label>
-                                <input name="name"  id="name" class="form-text-area form-item"></input>
+                            <div class="form-company-name-wrapper form-container">
+                                <label for="company_name" accesskey="n" class="form-item">会社名</label>
+                                <input name="company_name"  id="company_name" class="form-text-area form-item"></input>
                             </div>
-                            <div class="form-name-wrapper form-container">
-                                <label for="name" accesskey="n" class="form-item">メール</label>
-                                <input name="name"  id="name" class="form-text-area form-item"></input>
+                            <div class="form-email-wrapper form-container">
+                                <label for="email" accesskey="n" class="form-item">メール</label>
+                                <input name="email"  id="email" class="form-text-area form-item"></input>
                             </div>
                             <div class="form-btn-wrapper pro-form-btn-wrapper">
                                 <input type="submit" value="保存" class="form-btn btn"></input>

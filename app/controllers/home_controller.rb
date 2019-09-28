@@ -46,17 +46,22 @@ class HomeController < ApplicationController
   end
   
   def myaccount
-    
+    @advertiser = Advertiser.new
     @a = Advertiser.first
   end
   
   def update
     @a = Advertiser.first
-    @a.name = params[:name]
+    @a.name = account_params
     @a.save
+    @new_name = params[:name]
     redirect_to("/myaccount")
   end
     
+    
+  def account_params
+    params.require(:advertiser).permit(:name,:company_name, :email)
+  end
     
 
 end
