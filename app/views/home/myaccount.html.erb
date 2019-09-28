@@ -12,7 +12,6 @@
     
     <section class="content-sec">
         <h2>プロフィール</h2>
-        <%= @new_name %>is here
         <div class="content-wrapper">
             <div class="form-body profile-form-body">
                     <!--form_for(@book, url: {controller: index, action:index })-->
@@ -20,7 +19,7 @@
                         <%= f.text_field :name %>
                         <%= f.text_field :company_name %>
                         <%= f.text_field :email %>
-                        <%= f.submit "Send" %>
+                        <%= f.submit "保存", :class => "form-btn btn" %>
                     <% end %>
                     <%= form_tag("/update",  method: :post) do %>
                         <div class="form-items">
