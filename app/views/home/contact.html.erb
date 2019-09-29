@@ -16,20 +16,20 @@
                 <% if @error_message %>
                     <%= @error_message %>
                 <% end %>
-                <div class="form-body">
+                <div class="form-body contact-form-body">
                     <%= form_for(@contact, url: {controller: 'home', action: 'contact_send'}, html: {method: "post"}) do |f| %>
                         <div class="form-items">
                             <div class="form-name-wrapper form-container">
                                 <%= f.label :name, "名前" , :class => "form-item" %>
-                                <%= f.text_field :name, :class => "form-text-area form-item" %>
+                                <%= f.text_field :name, :class => "form-text-area form-item contact-form" %>
                             </div>
                             <div class="form-email-wrapper form-container">
                                 <%= f.label :email, "メール", :class => "form-item" %>
-                                <%= f.text_field :email, :class => "form-text-area form-item"  %>    
+                                <%= f.text_field :email, :class => "form-text-area form-item contact-form"  %>    
                             </div>
                             <div class="form-content-wrapper form-container">
                                 <%= f.label :content, "内容", :class => "form-item" %>
-                                <%= f.text_area :content, :class => "form-text-area form-item contact-form"  %>    
+                                <%= f.text_area :content, :class => "form-text-area form-item contact-form-content contact-form"  %>    
                             </div>
                             <div class="form-btn-wrapper pro-form-btn-wrapper">
                                 <%= f.submit "保存", :class => "form-btn btn" %>

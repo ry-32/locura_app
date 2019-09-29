@@ -1,5 +1,7 @@
 class Advertiser < ApplicationRecord
-    # validates :name, presence: {message: "you idiot"}
-    # validates :email, presence: true
-    # validates :company_name, presence: true
+    
+    validates :name, presence: true
+    validates :company_name, presence: true
+    validates :email, presence: true
+
 end

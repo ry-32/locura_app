@@ -4,62 +4,70 @@
     
     <nav class="top-nav-bar">
         <ul class="top-nav-ul">
-            <li class="top-nav-li a">プロフィール</li>
-            <li class="top-nav-li">案件管理</li>
+            <li class="top-nav-li" id="prof">プロフィール</li>
+            <li class="top-nav-li" id="deals">案件管理</li>
             <li class="top-nav-li">支払い管理</li>
         </ul>
     </nav>
     
     <section class="content-sec">
-        <h2>プロフィール</h2>
-        <div class="content-wrapper">
-            <div class="form-body profile-form-body">
-                <% if @current_user_ad %>
-                    <%= form_for(@advertiser, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
-                        <div class="form-items">
-                            <div class="form-name-wrapper form-container">
-                                <%= f.label :name, "名前" , :class => "form-item" %>
-                                <%= f.text_field :name, :class => "form-text-area form-item" %>
+        
+        <div class="content-container co1">
+            <h2 >プロフィール</h2>
+            <div class="content-wrapper">
+                <div class="form-body profile-form-body">
+                    <% if @current_user_ad %>
+                        <%= form_for(@advertiser, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
+                            <div class="form-items">
+                                <div class="form-name-wrapper form-container">
+                                    <%= f.label :name, "名前" , :class => "form-item" %>
+                                    <%= f.text_field :name, :class => "form-text-area form-item" %>
+                                </div>
+                                <div class="form-company-name-wrapper form-container">
+                                    <%= f.label :company_name, "会社名", :class => "form-item" %>
+                                    <%= f.text_field :company_name , :class => "form-text-area form-item" %>    
+                                </div>
+                                <div class="form-email-wrapper form-container">
+                                    <%= f.label :email, "メール", :class => "form-item" %>
+                                    <%= f.text_field :email, :class => "form-text-area form-item"  %>    
+                                </div>
+                                <div class="form-btn-wrapper pro-form-btn-wrapper">
+                                    <%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "本当に削除しますか？"}, :class => "delete-btn"  %>
+                                    <%= f.submit "保存", :class => "form-btn btn" %>
+                                </div>
                             </div>
-                            <div class="form-company-name-wrapper form-container">
-                                <%= f.label :company_name, "会社名", :class => "form-item" %>
-                                <%= f.text_field :company_name , :class => "form-text-area form-item" %>    
+                        <% end %>
+                    <% elsif @current_user_pod %>
+                        <%= form_for(@podcaster, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
+                            <div class="form-items">
+                                <div class="form-name-wrapper form-container">
+                                    <%= f.label :name, "名前" , :class => "form-item" %>
+                                    <%= f.text_field :name, :class => "form-text-area form-item" %>
+                                </div>
+                                <div class="form-podcast-name-wrapper form-container">
+                                    <%= f.label :podcast_name, "番組名", :class => "form-item" %>
+                                    <%= f.text_field :podcast_name , :class => "form-text-area form-item" %>    
+                                </div>
+                                <div class="form-email-wrapper form-container">
+                                    <%= f.label :email, "メール", :class => "form-item" %>
+                                    <%= f.text_field :email, :class => "form-text-area form-item"  %>    
+                                </div>
+                                <div class="form-btn-wrapper pro-form-btn-wrapper">
+                                    <%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "本当に削除しますか？"}, :class => "delete-btn"  %>
+                                    <%= f.submit "保存", :class => "form-btn btn" %>
+                                </div>
                             </div>
-                            <div class="form-email-wrapper form-container">
-                                <%= f.label :email, "メール", :class => "form-item" %>
-                                <%= f.text_field :email, :class => "form-text-area form-item"  %>    
-                            </div>
-                            <div class="form-btn-wrapper pro-form-btn-wrapper">
-                                <%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "本当に削除しますか？"}, :class => "delete-btn"  %>
-                                <%= f.submit "保存", :class => "form-btn btn" %>
-                            </div>
-                        </div>
-                    <% end %>
-                <% elsif @current_user_pod %>
-                    <%= form_for(@podcaster, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
-                        <div class="form-items">
-                            <div class="form-name-wrapper form-container">
-                                <%= f.label :name, "名前" , :class => "form-item" %>
-                                <%= f.text_field :name, :class => "form-text-area form-item" %>
-                            </div>
-                            <div class="form-podcast-name-wrapper form-container">
-                                <%= f.label :podcast_name, "番組名", :class => "form-item" %>
-                                <%= f.text_field :podcast_name , :class => "form-text-area form-item" %>    
-                            </div>
-                            <div class="form-email-wrapper form-container">
-                                <%= f.label :email, "メール", :class => "form-item" %>
-                                <%= f.text_field :email, :class => "form-text-area form-item"  %>    
-                            </div>
-                            <div class="form-btn-wrapper pro-form-btn-wrapper">
-                                <%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "本当に削除しますか？"}, :class => "delete-btn"  %>
-                                <%= f.submit "保存", :class => "form-btn btn" %>
-                            </div>
-                        </div>
-                    <% end %>
-                <% end%>
+                        <% end %>
+                    <% end%>
+                </div>
             </div>
         </div>
         
+        <div class="content-container co2">
+            <h2>案件管理</h2>
+            <div class="content-wrapper">
+            </div>
+        </div>
         
     </section>
     
@@ -80,6 +88,32 @@
             </div>
             
         </div>
+        
+        
+        <script>
+            
+            $(function() {
+                
+                $(function(){
+                    $('.co1').addClass('active');
+                });
+                
+                
+                $('#prof').on('click',function(){
+                    $('.co1').addClass('active');
+                    $('.co2').removeClass('active');
+                });
+                $('#deals').on('click',function(){
+                    $('.co2').addClass('active');
+                    $('.co1').removeClass('active');
+                });
+                
+            
+                
+            });
+            
+            
+        </script>
         
     </footer>
 

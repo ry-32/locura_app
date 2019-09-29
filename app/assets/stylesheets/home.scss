@@ -228,7 +228,7 @@ footer a{
 
 .form-btn-wrapper{
     box-sizing: border-box;
-    padding-left: 257px;
+
 }
 
 .form-btn{
@@ -238,6 +238,8 @@ footer a{
     width: 55px;
     color: white;
     border-radius: 5px;
+    margin-right: 13px;
+    float: right;
 }
 
 
@@ -348,6 +350,12 @@ footer a{
 }
 
 
+
+.content-container{
+    display:none;
+}
+
+
 .profile-form-body{
     padding-top: 90px;
 }
@@ -371,6 +379,20 @@ footer a{
 
 
 // contact page
+
+.contact-form-body{
+    width: 80%;
+}
+
 .contact-form{
+    width: 340px;
+}
+.contact-form-content{
     height: 152px;
+}
+
+
+
+.active{
+    display: block;
 }
