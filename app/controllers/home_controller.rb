@@ -46,25 +46,53 @@ class HomeController < ApplicationController
   end
   
   def myaccount
-    @advertiser = Advertiser.new
-    @a = Advertiser.first
+    if @current_user_ad
+      @advertiser = Advertiser.find_by(id: @current_user_ad.id)
+    elsif @current_user_pod
+      @podcaster = Podcaster.find_by(id: @current_user_pod.id)
+    end
   end
 
   def edit_profile
-    @a = Advertiser.first
-    @a.update(account_params)
-   
     
-    @a.save
+    if @current_user_ad
+      @advertiser = Advertiser.find_by(id: @current_user_ad.id)
+      @advertiser.update(account_params)
+    elsif @current_user_pod
+      @podcaster = Podcaster.find_by(id: @current_user_pod.id)
+      @podcaster.update(account_params)
+    end
+    
+    
+    
     
     redirect_to('/myaccount')
+    
+  end
+  
+  def delete_account
+    
+    if @current_user_ad
+      @advertiser = Advertiser.find_by(id: @current_user_ad.id)
+      @advertiser.destroy
+    elsif @current_user_pod
+      @podcaster = Podcaster.find_by(id: @current_user_pod.id)
+      @podcaster.destroy
+    end
+    
+    redirect_to('/')
     
   end
     
     
   def account_params
-    params.require(:advertiser).permit(:name,:company_name, :email)
-  end
+    if @current_user_ad
+      params.require(:advertiser).permit(:name,:company_name, :email)
+    elsif @current_user_pod
+      params.require(:podcaster).permit(:name,:podcast_name,:email)
+    end
     
+  end
+
 
 end
