@@ -5,7 +5,6 @@ class AdvertiserController < ApplicationController
   
     def new
       @advertiser = Advertiser.new
-      @a = Advertiser.first
     end
     
     def main_new
@@ -16,26 +15,26 @@ class AdvertiserController < ApplicationController
     
     def create
       
-      # if Advertiser.find_by(email: params[:email])
-      #   @error_message = "このメールアドレスは使用されています"
-      #   redirect_to root_path
-      # elsif Podcaster.find_by(email: params[:email])
-      #   @error_message = "このメールアドレスは使用されています"
-      #   redirect_to root_path
-      # end
+      @advertiser = Advertiser.new(account_params)
       
-      @advertiser = Advertiser.new(
-        name: params[:name],
-        company_name: params[:company_name],
-        email: params[:email]
-      )
+      if Advertiser.find_by(email: account_params[:email])
+        @error_message = "このメールアドレスは使用されています"
+      # elsif Podcaster.find_by(email: account_params[:email])
+      #   @error_message = "このメールアドレスは使用されています"
+      end
+      
       if @advertiser.save
         session[:user_id] = @advertiser.id
         redirect_to root_path
       else
         @error_message ="登録に失敗しました"
-        render(new_advertiser_path)
+        render action: :new
       end
+    end
+    
+    
+    def account_params
+      params.require(:advertiser).permit(:name, :company_name, :email)
     end
     
     
