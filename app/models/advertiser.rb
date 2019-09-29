@@ -4,7 +4,7 @@ class Advertiser < ApplicationRecord
 
     def uniqueness_of_a_property_across_models
         if Advertiser.where(email: :email) or Podcaster.where(email: :email)
-            errors.add(:email, "このemailは使用されています")
+            errors[:email] = "このemailは使用されています"
         end
     end
     

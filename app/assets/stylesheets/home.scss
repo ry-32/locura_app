@@ -196,8 +196,8 @@ footer a{
 }
 
 .form-items{
-    width: 87%;
-    margin:auto;
+    width: 320px;
+    margin: auto;
 }
 
 .form-container{
@@ -228,6 +228,8 @@ footer a{
 
 .form-btn-wrapper{
     box-sizing: border-box;
+    width: 152px;
+    float: right;
 
 }
 
@@ -238,11 +240,12 @@ footer a{
     width: 55px;
     color: white;
     border-radius: 5px;
-    margin-right: 13px;
-    float: right;
+
 }
 
-
+.form-submit-item{
+    float:right;
+}
 
 
 
@@ -307,7 +310,7 @@ footer a{
     position: relative;
     height: 93px;
     margin-bottom: 40px;
-    border-bottom: 1px solid rgba(0,0,0,.3);
+    border-bottom: 1.3px solid rgba(0,0,0,.3);
 }
 
 
@@ -324,11 +327,17 @@ footer a{
     list-style: none;
     height: 40px;
     width: 145px;
-    border: 1px solid rgba(0,0,0,.3);
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-right: 1px solid rgba(0,0,0,.3);
+    border-left: 1px solid rgba(0,0,0,.3);
     line-height: 40px;
     text-align: center;
     font-size: .7em;
     margin-right: 9px;
+}
+
+.top-nav-li:hover{
+    cursor: pointer;
 }
 
 .content-sec{
@@ -361,7 +370,7 @@ footer a{
 }
 
 .pro-form-btn-wrapper{
-    padding-left: 236px;
+
 }
 
 .delete-btn{
@@ -369,7 +378,7 @@ footer a{
     color: #575757;
     border-bottom: 0.45px solid rgba(0,0,0,.3);
     font-size: 0.85em;
-    margin-right: 6px;
+    margin-right: 13px;
     
 }
 

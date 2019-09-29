@@ -1,5 +1,5 @@
 
-$(function() {
+$(document).ready(function() {
                 
     $(function(){
         $('.co1').addClass('active');
