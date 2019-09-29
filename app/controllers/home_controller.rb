@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   
   def index
-    flash[:notice] = "hello"
     @a = Advertiser.first
   end
   
