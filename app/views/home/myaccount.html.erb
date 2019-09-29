@@ -6,7 +6,7 @@
         <ul class="top-nav-ul">
             <li class="top-nav-li" id="prof">プロフィール</li>
             <li class="top-nav-li" id="deals">案件管理</li>
-            <li class="top-nav-li">支払い管理</li>
+            <li class="top-nav-li" id="payment">支払い管理</li>
         </ul>
     </nav>
     
@@ -69,6 +69,12 @@
             </div>
         </div>
         
+        <div class="content-container co3">
+            <h2>支払い管理</h2>
+            <div class="content-wrapper">
+            </div>
+        </div>
+        
     </section>
     
     <footer>
@@ -102,10 +108,17 @@
                 $('#prof').on('click',function(){
                     $('.co1').addClass('active');
                     $('.co2').removeClass('active');
+                    $('.co3').removeClass('active');
                 });
                 $('#deals').on('click',function(){
                     $('.co2').addClass('active');
                     $('.co1').removeClass('active');
+                    $('.co3').removeClass('active');
+                });
+                $('#payment').on('click',function(){
+                    $('.co3').addClass('active');
+                    $('.co1').removeClass('active');
+                    $('.co2').removeClass('active');
                 });
                 
             
