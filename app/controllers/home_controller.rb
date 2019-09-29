@@ -50,12 +50,15 @@ class HomeController < ApplicationController
     @a = Advertiser.first
   end
 
-  def update
+  def edit_profile
     @a = Advertiser.first
-    h = params.slice(:name, :company_name,:email).to_h
-    @a.name = h[:name] #account_params
+    @a.update(account_params)
+   
+    
     @a.save
-    redirect_to("/myaccount")
+    
+    redirect_to('/myaccount')
+    
   end
     
     

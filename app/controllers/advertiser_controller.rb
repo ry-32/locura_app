@@ -4,7 +4,8 @@ class AdvertiserController < ApplicationController
     end
   
     def new
-        @advertiser = Advertiser.new
+      @advertiser = Advertiser.new
+      @a = Advertiser.first
     end
     
     def main_new
@@ -28,6 +29,7 @@ class AdvertiserController < ApplicationController
         end
     end
     
-
+    
+ 
     
 end

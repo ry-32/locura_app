@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get '/myaccount' => 'home#myaccount'
   get '/podcaster-register' => 'podcaster#main_new'
   get '/advertiser-register' => 'advertiser#main_new'
-  patch '/update' => 'home#update'
-  post '/update' => 'home#update'
+  post '/edit' => 'home#edit_profile'
+
+  
   # post '/advertiser/:id/update' => 'home#update'
 
 end
