@@ -62,10 +62,7 @@ class HomeController < ApplicationController
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
       @podcaster.update(account_params)
     end
-    
-    
-    
-    
+
     redirect_to('/myaccount')
     
   end
@@ -95,4 +92,13 @@ class HomeController < ApplicationController
   end
 
 
+  def contact
+    @contact = Contact.new
+  end
+  
+  def contact_send
+    @contact = Contact.new
+  end
+  
+  
 end

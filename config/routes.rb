@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   get '/advertiser-register' => 'advertiser#main_new'
   post '/edit' => 'home#edit_profile'
   delete '/delete_account' => 'home#delete_account'
+  get '/contact' => 'home#contact'
+  post '/contact-send' => 'home#contact_send'
 
-  
-  # post '/advertiser/:id/update' => 'home#update'
 
 end

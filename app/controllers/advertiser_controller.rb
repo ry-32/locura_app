@@ -20,11 +20,10 @@ class AdvertiserController < ApplicationController
           email: params[:email]
         )
         if @advertiser.save
-        #   session[:user_id] = @user.id
-          redirect_to new_advertiser_path
+          session[:user_id] = @advertiser.id
+          redirect_to root_path
         else
           @error_message ="登録に失敗しました"
-          
           render(new_advertiser_path)
         end
     end
