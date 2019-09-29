@@ -12,25 +12,18 @@
         <div class="contact-container">
             <h2 class="contact-title">広告キャンペーンを始める</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
-            <div class="contact-form-wrapper">
-                
-                <% if @a %>
-                    <%= @a.name %>
-                <% end %>
-                
-                <% if @error_message %>
-                    <%= @error_message %>
-                <% end %>
-                
+            
+            <div>
                 <% if @advertiser.errors.any? %>
                     <% @advertiser.errors.full_messages.each do |msg| %>
-                        <%= msg %>
+                        <div>
+                            <%= msg %>
+                        </div>
                     <% end %>
                 <% end %>
-                
-                
-                
-                
+            </div>
+            
+            <div class="contact-form-wrapper">
                 <div class="form-body">
                     <%= form_for(@advertiser,  url: {controller: 'advertiser', action: 'create'}, html: {method: "post"}) do |f|  %>
                         <div class="form-items">

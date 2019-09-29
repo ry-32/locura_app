@@ -9,7 +9,6 @@ class AdvertiserController < ApplicationController
     
     def main_new
       @advertiser = Advertiser.new
-      
     end
   
     
@@ -30,6 +29,7 @@ class AdvertiserController < ApplicationController
         @error_message ="登録に失敗しました"
         render action: :new
       end
+      
     end
     
     
