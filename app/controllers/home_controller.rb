@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   
   def index
+    flash[:notice] = "hello"
     @a = Advertiser.first
   end
   
@@ -97,7 +98,17 @@ class HomeController < ApplicationController
   end
   
   def contact_send
-    @contact = Contact.new
+    
+    @contact = Contact.new(
+      name: params[:name],
+      email: params[:email],
+      content: params[:content]
+      )
+    if @contact.save
+      flash[:notice] = "お問い合わせありがとうございます"
+      redirect_to('/')
+    end
+    
   end
   
   

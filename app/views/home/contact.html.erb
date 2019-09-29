@@ -17,26 +17,6 @@
                     <%= @error_message %>
                 <% end %>
                 <div class="form-body">
-                    <%= form_tag("/contact",  method: :post) do %>
-                        <div class="form-items">
-                            <div class="form-name-wrapper form-container">
-                                <label for="name" accesskey="n" class="form-item">お名前</label>
-                                <input name="name" id="name" class="form-text-area form-item">
-                            </div>
-                            <div class="form-email-wrapper form-container">
-                                <label for="email" accesskey="n" class="form-item">メール</label>
-                                <input name="email" id="email" class="form-text-area form-item"></input>
-                            </div>
-                            <div class="form-content-wrapper form-container">
-                                <label for="content" accesskey="n" class="form-item">内容</label>
-                                <textarea name="content" id="content" class="form-text-area form-item contact-form"></textarea>
-                            </div>
-                            <div class="form-btn-wrapper">
-                                <input type="submit" value="送信" class="form-btn btn"> 
-                            </div>
-                        </div>
-                    <% end %>
-                    
                     <%= form_for(@contact, url: {controller: 'home', action: 'contact_send'}, html: {method: "post"}) do |f| %>
                         <div class="form-items">
                             <div class="form-name-wrapper form-container">
@@ -56,9 +36,6 @@
                             </div>
                         </div>
                     <% end %>
-             
-                    
-                    
                 </div>
             </div>
         </div>
