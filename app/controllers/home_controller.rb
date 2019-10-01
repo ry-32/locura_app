@@ -81,15 +81,6 @@ class HomeController < ApplicationController
     
   end
     
-    
-  def account_params
-    if @current_user_ad
-      params.require(:advertiser).permit(:name,:company_name, :email)
-    elsif @current_user_pod
-      params.require(:podcaster).permit(:name,:podcast_name,:email)
-    end
-    
-  end
 
 
   def contact
@@ -108,6 +99,14 @@ class HomeController < ApplicationController
       redirect_to('/')
     end
     
+  end
+  
+  def account_params
+    if @current_user_ad
+      params.require(:advertiser).permit(:name,:company_name, :email,:password)
+    elsif @current_user_pod
+      params.require(:podcaster).permit(:name,:podcast_name,:email,:password)
+    end
   end
   
   

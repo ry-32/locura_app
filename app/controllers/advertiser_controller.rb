@@ -34,7 +34,7 @@ class AdvertiserController < ApplicationController
     
     
     def account_params
-      params.require(:advertiser).permit(:name, :company_name, :email)
+      params.require(:advertiser).permit(:name, :company_name, :email,:password)
     end
     
     
