@@ -13,6 +13,7 @@ class PodcasterController < ApplicationController
     
     
     def create
+      
       @podcaster = Podcaster.new(account_params)
       if @podcaster.save
         session[:user_id] = @podcaster.id

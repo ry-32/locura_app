@@ -16,12 +16,6 @@ class AdvertiserController < ApplicationController
       
       @advertiser = Advertiser.new(account_params)
       
-      if Advertiser.find_by(email: account_params[:email])
-        @error_message = "このメールアドレスは使用されています"
-      # elsif Podcaster.find_by(email: account_params[:email])
-      #   @error_message = "このメールアドレスは使用されています"
-      end
-      
       if @advertiser.save
         session[:user_id] = @advertiser.id
         redirect_to root_path
