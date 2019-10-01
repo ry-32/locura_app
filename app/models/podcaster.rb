@@ -1,6 +1,6 @@
 class Podcaster < ApplicationRecord
     
-    validate :uniqueness_of_a_property_across_models
+    validate :uniqueness_of_a_property_across_models, on: :create
 
     def uniqueness_of_a_property_across_models
         if Advertiser.where(email: :email) or Podcaster.where(email: :email)
