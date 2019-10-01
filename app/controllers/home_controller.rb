@@ -6,28 +6,28 @@ class HomeController < ApplicationController
   
   def login
     
-    if params[:name]
+    if params[:email]
       
       # 広告主
-      if Advertiser.find_by(name: params[:name])
-        user = Advertiser.find_by(name: params[:name])
-        if user.email == params[:email]
+      if Advertiser.find_by(email: params[:email])
+        user = Advertiser.find_by(email: params[:email])
+        if user.authenticate(params[:password])
           session[:user_id] = user.id
           redirect_to('/')
           # render action: :login
         else
-          @message = "emailが違います"
+          @message = "パスワードが違います"
           render action: :login
         end
         
       # 番組ホスト
-      elsif Podcaster.find_by(name: params[:name])
-        user = Podcaster.find_by(name: params[:name])
-        if user.email == params[:email]
+      elsif Podcaster.find_by(email: params[:email])
+        user = Podcaster.find_by(email: params[:email])
+        if user.authenticate(params[:password])
           session[:user_id] = user.id
           redirect_to('/')
         else
-          @message = "emailが違います"
+          @message = "パスワードが違います"
           render action: :login
         end
         

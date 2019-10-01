@@ -1,5 +1,7 @@
 class Podcaster < ApplicationRecord
     
+    has_secure_password
+    
     validate :uniqueness_of_a_property_across_models, on: :create
 
     def uniqueness_of_a_property_across_models
@@ -15,5 +17,6 @@ class Podcaster < ApplicationRecord
     validates :name, presence: true
     validates :email, presence: true
     validates :podcast_name, presence: true
+    
     
 end

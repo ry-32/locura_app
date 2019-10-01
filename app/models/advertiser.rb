@@ -1,5 +1,7 @@
 class Advertiser < ApplicationRecord
     
+    has_secure_password
+    
     validate :uniqueness_of_a_property_across_models, on: :create
 
     def uniqueness_of_a_property_across_models
@@ -15,5 +17,5 @@ class Advertiser < ApplicationRecord
     validates :name, presence: true
     validates :email, presence: true
     validates :company_name, presence: true
-    
+
 end

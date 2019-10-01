@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190929020442) do
+ActiveRecord::Schema.define(version: 20191001074356) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "company_name"
     t.string   "industry"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "password"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20190929020442) do
     t.string   "url"
     t.string   "hosting"
     t.text     "memo"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "password"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
 end
