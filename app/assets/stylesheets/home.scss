@@ -386,6 +386,32 @@ footer a{
 
 
 
+.deal-management-table{
+    border: 1px solid rgba(0,0,0,.3);
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+}
+
+.deal-management-table tbody{
+    display: table-row-group;
+    border-collapse: collapse;
+}
+
+.deal-management-table tr{
+    display: table-row;
+    height: 65px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+}
+
+
+
+
+
+
+
+
+
 
 
 

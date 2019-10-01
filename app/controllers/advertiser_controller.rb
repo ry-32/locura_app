@@ -14,7 +14,9 @@ class AdvertiserController < ApplicationController
     
     def create
       
+      @advertisers = Advertiser.all
       @advertiser = Advertiser.new(account_params)
+      
       
       if @advertiser.save
         session[:user_id] = @advertiser.id
