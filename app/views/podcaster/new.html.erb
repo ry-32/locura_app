@@ -13,19 +13,26 @@
             <h2 class="contact-title">番組の収益化を始める</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
             
-            <% if @error_message.present? %>
-                <%= @error_message %>
+            <% if @podcaster.errors.any? or @error_message.present? %>
+                <div class="error-message-wrapper">
+                    <div class="error-title">エラー</div>
+                    <ul class="error-message-ul">
+                        <% if @error_message %>
+                            <li>
+                                <%= @error_message %>
+                            </li>
+                        <% end %>
+                        
+                        <% if @podcaster.errors.any? %>
+                            <% @podcaster.errors.full_messages.each do |msg| %>
+                                <li>
+                                    <%= msg %>
+                                </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
+                </div>
             <% end %>
-            
-            <div>
-                <% if @podcaster.errors.any? %>
-                    <% @podcaster.errors.full_messages.each do |msg| %>
-                        <div>
-                            <%= msg %>
-                        </div>
-                    <% end %>
-                <% end %>
-            </div>
             
             <div class="contact-form-wrapper">
                 <div class="contact-form-wrapper">

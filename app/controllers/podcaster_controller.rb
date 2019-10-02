@@ -27,7 +27,6 @@ class PodcasterController < ApplicationController
         session[:user_id] = @podcaster.id
         redirect_to root_path
       else
-        @error_message ="登録に失敗しました"
         render(new_podcaster_path)
       end
     end
