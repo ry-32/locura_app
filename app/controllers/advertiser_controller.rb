@@ -17,6 +17,7 @@ class AdvertiserController < ApplicationController
       @advertisers = Advertiser.all
       @advertiser = Advertiser.new(account_params)
       
+      # is_unique = Advertiser.uniqueness_of_a_property_across_models(@advertiser,account_params[:email])
       
       if @advertiser.save
         session[:user_id] = @advertiser.id
