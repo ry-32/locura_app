@@ -10,6 +10,14 @@ class HomeController < ApplicationController
       
       @advertiser = Advertiser.find_by(email: params[:email])
       @podcaster = Podcaster.find_by(email: params[:email])
+      @error_messages = []
+      if params[:email] == ""
+        @error_messages.push("メールアドレスを入力してください")
+      end
+      if params[:password] == ""
+        @error_messages.push("パスワードを入力してください")
+      end
+      
       
       # 広告主
       if Advertiser.find_by(email: params[:email])
@@ -17,9 +25,8 @@ class HomeController < ApplicationController
         if user.authenticate(params[:password])
           session[:user_id] = user.id
           redirect_to('/')
-          # render action: :login
         else
-          @message = "パスワードが違います"
+          @error_messages.push("パスワードが違います")
           render action: :login
         end
         
@@ -30,13 +37,29 @@ class HomeController < ApplicationController
           session[:user_id] = user.id
           redirect_to('/')
         else
-          @message = "パスワードが違います"
+          @error_messages.push("パスワードが違います")
           render action: :login
         end
         
       else
         render action: :login
       end
+      
+      
+      
+      if @advertiser
+        if @advertiser.errors.any?
+          @errors = @advertiser.errors
+        end
+      end
+      if @podacster
+        if @podcaster.errors.any?
+          @errors = @podcaster.errors
+        end
+      end
+      
+      # binding.pry
+      
     end
     
   end

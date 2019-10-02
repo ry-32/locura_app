@@ -10,38 +10,43 @@
     
     <section class="contact-wrapper">
         <div class="contact-container">
-            <h2 class="contact-title">ログインする</h2>
+            <h2 class="contact-title">ログイン</h2>
             <div class="contact-form-wrapper">
-                <div class="error-message-wrapper">
-                    <div class="error-title">エラー</div>
-                    <ul class="error-message-ul">
-                        <% if @error_message %>
-                            <li>
-                                <%= @error_message %>
-                            </li>
-                        <% end %>
-                        
-                        <% if @advertiser.present? %>
-                            <% if @advertiser.errors.any? %>
-                                <% @advertiser.errors.full_messages.each do |msg| %>
+                <% if @error_messages.present? or @errors.present? %>
+                    <div class="error-message-wrapper">
+                        <div class="error-title">エラー</div>
+                        <ul class="error-message-ul">
+                            <% if @error_messages.present? %>
+                                <% @error_messages.each do |e|%>
                                     <li>
-                                        <%= msg %>
+                                        <%= e %>
                                     </li>
                                 <% end %>
                             <% end %>
-                        <% end %>
-                        
-                        <% if @podcaster.present? %>
-                            <% if @podcaster.errors.any? %>
-                                <% @podcaster.errors.full_messages.each do |msg| %>
-                                    <li>
-                                        <%= msg %>
-                                    </li>
+                            
+                            <% if @advertiser.present? %>
+                                <% if @advertiser.errors.any? %>
+                                    <% @advertiser.errors.full_messages.each do |msg| %>
+                                        <li>
+                                            <%= msg %>
+                                        </li>
+                                    <% end %>
                                 <% end %>
                             <% end %>
-                        <% end %>    
-                    </ul>
-                </div>
+                            
+                            <% if @podcaster.present? %>
+                                <% if @podcaster.errors.any? %>
+                                    <% @podcaster.errors.full_messages.each do |msg| %>
+                                        <li>
+                                            <%= msg %>
+                                        </li>
+                                    <% end %>
+                                <% end %>
+                            <% end %>    
+                        </ul>
+                    </div>
+                <% end %>
+            
             </div>
             
                 <div class="form-body login-form-body">
