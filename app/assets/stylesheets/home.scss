@@ -425,7 +425,34 @@ footer a{
 }
 
 
+.error-message-wrapper{
+    border: .12em solid #FE4A1D;
+    width: 417px;
+    margin: auto;
+    font-size: .85em;
+    
+}
 
+.error-message-ul{
+    margin-top: 7px;
+}
+
+.error-message-wrapper li{
+    text-align: left;
+    margin-bottom: 1.4px;
+    width: 75%;
+    margin: auto;
+}
+
+
+.error-title{
+    line-height: 27px;
+    height: 27px;
+    color: white;
+    background: #FE4A1D;
+    text-align: left;
+    padding-left: 34px;
+}
 
 
 

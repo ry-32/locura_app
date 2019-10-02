@@ -8,6 +8,9 @@ class HomeController < ApplicationController
     
     if params[:email]
       
+      @advertiser = Advertiser.find_by(email: params[:email])
+      @podcaster = Podcaster.find_by(email: params[:email])
+      
       # 広告主
       if Advertiser.find_by(email: params[:email])
         user = Advertiser.find_by(email: params[:email])
@@ -32,7 +35,6 @@ class HomeController < ApplicationController
         end
         
       else
-        @message = "ログインに失敗しました"
         render action: :login
       end
     end

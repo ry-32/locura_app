@@ -14,17 +14,24 @@
         <div class="contact-container">
             <h2 class="contact-title">広告キャンペーンを始める</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
-            <div>
-                
-                <%= @error_message %>
-                
-                <% if @advertiser.errors.any? %>
-                    <% @advertiser.errors.full_messages.each do |msg| %>
-                        <div>
-                            <%= msg %>
-                        </div>
-                    <% end %>
-                <% end %>
+            
+            <div class="error-message-wrapper">
+                <div class="error-title">エラー</div>
+                    <ul class="error-message-ul">
+                        <% if @error_message %>
+                            <li>
+                                <%= @error_message %>
+                            </li>
+                        <% end %>
+                        
+                        <% if @advertiser.errors.any? %>
+                            <% @advertiser.errors.full_messages.each do |msg| %>
+                                <li>
+                                    <%= msg %>
+                                </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
             </div>
             
             <div class="contact-form-wrapper">

@@ -12,12 +12,38 @@
         <div class="contact-container">
             <h2 class="contact-title">ログインする</h2>
             <div class="contact-form-wrapper">
-                <% if @error_message %>
-                    <%= @error_message %>
-                <% end %>
-                <% if @message %>
-                    <%= @message %>
-                <% end %>
+                <div class="error-message-wrapper">
+                    <div class="error-title">エラー</div>
+                    <ul class="error-message-ul">
+                        <% if @error_message %>
+                            <li>
+                                <%= @error_message %>
+                            </li>
+                        <% end %>
+                        
+                        <% if @advertiser.present? %>
+                            <% if @advertiser.errors.any? %>
+                                <% @advertiser.errors.full_messages.each do |msg| %>
+                                    <li>
+                                        <%= msg %>
+                                    </li>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                        
+                        <% if @podcaster.present? %>
+                            <% if @podcaster.errors.any? %>
+                                <% @podcaster.errors.full_messages.each do |msg| %>
+                                    <li>
+                                        <%= msg %>
+                                    </li>
+                                <% end %>
+                            <% end %>
+                        <% end %>    
+                    </ul>
+                </div>
+            </div>
+            
                 <div class="form-body login-form-body">
                     <%= form_tag("/login", method: :get) do %>
                         <div class="form-items login-form-items">
