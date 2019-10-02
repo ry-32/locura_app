@@ -8,25 +8,37 @@ class Advertiser < ApplicationRecord
     
     # validate :uniqueness_of_a_property_across_models #, on: :create
     
-    # def self.uniqueness_of_a_property_across_models(advertiser,email)
-    #     if Advertiser.where(email: email)
-    #         advertiser.errors.add(:email, "このemailは使用されています")
-    #     elsif Podcaster.where(email: email)
-    #         self.errors.add(:email, "このemailは使用されています")
-    #     end
-    # end
-    
     
     # def uniqueness_of_a_property_across_models
         
     #     # binding.pry
         
-    #     if Advertiser.where(email: :email)
+    #     num = Advertiser.where(email: :email).length
+    #     binding.pry
+    #     if Advertiser.where(email: :email).length >= 1
     #         errors.add(:email, "このemailは使用されています")
-    #     elsif Podcaster.where(email: :email)
-    #         errors.add(:email, "このemailは使用されています")
+    #     # elsif Podcaster.where(email: :email)
+    #     #     errors.add(:email, "このemailは使用されています")
     #     end
     # end
+    
+    
+    
+    
+    def self.uniqueness_of_a_property_across_models(advertiser,email)
+        
+        # binding.pry
+        
+        if Advertiser.where(email: email).length >= 1
+            # errors.add(:email, "このemailは使用されています")
+            return true
+        elsif Podcaster.where(email: email).length >= 1
+            return true
+            # errors.add(:email, "このemailは使用されています")
+        end
+        
+        return false
+    end
 
     
     # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

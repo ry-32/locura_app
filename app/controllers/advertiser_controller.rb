@@ -14,10 +14,19 @@ class AdvertiserController < ApplicationController
     
     def create
       
-      @advertisers = Advertiser.all
+      @advertisers1 = Advertiser.all
       @advertiser = Advertiser.new(account_params)
       
-      # is_unique = Advertiser.uniqueness_of_a_property_across_models(@advertiser,account_params[:email])
+      a = Advertiser.uniqueness_of_a_property_across_models(@advertiser,account_params[:email])
+      
+      if a == true
+        @error_message = "this email is taken"
+        return redirect_to :action => 'new'
+      end
+
+      
+      
+      
       
       if @advertiser.save
         session[:user_id] = @advertiser.id

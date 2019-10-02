@@ -15,6 +15,9 @@
             <h2 class="contact-title">広告キャンペーンを始める</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
             <div>
+                
+                <%= @error_message %>
+                
                 <% if @advertiser.errors.any? %>
                     <% @advertiser.errors.full_messages.each do |msg| %>
                         <div>

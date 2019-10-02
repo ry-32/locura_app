@@ -1,0 +1,33 @@
+
+[1mFrom:[0m /home/ec2-user/environment/locura/app/controllers/advertiser_controller.rb @ line 30 AdvertiserController#create:
+
+    [1;34m15[0m: [32mdef[0m [1;34mcreate[0m
+    [1;34m16[0m: 
+    [1;34m17[0m:   @advertisers1 = [1;34;4mAdvertiser[0m.all
+    [1;34m18[0m:   @advertiser = [1;34;4mAdvertiser[0m.new(account_params)
+    [1;34m19[0m:   
+    [1;34m20[0m:   [1;34m# binding.pry[0m
+    [1;34m21[0m:   
+    [1;34m22[0m:   [32mif[0m [1;34;4mAdvertiser[0m.where([35memail[0m: account_params[[33m:email[0m])
+    [1;34m23[0m:     user = [1;34;4mAdvertiser[0m.where([35memail[0m: account_params[[33m:email[0m])
+    [1;34m24[0m:     x = [1;34m1[0m
+    [1;34m25[0m:   [32melse[0m
+    [1;34m26[0m:     x = [1;34m2[0m
+    [1;34m27[0m:   [32mend[0m
+    [1;34m28[0m:   
+    [1;34m29[0m:   
+ => [1;34m30[0m:   binding.pry
+    [1;34m31[0m:   
+    [1;34m32[0m:   
+    [1;34m33[0m:   
+    [1;34m34[0m:   
+    [1;34m35[0m:   [32mif[0m @advertiser.save
+    [1;34m36[0m:     session[[33m:user_id[0m] = @advertiser.id
+    [1;34m37[0m:     redirect_to root_path
+    [1;34m38[0m:   [32melse[0m
+    [1;34m39[0m:     @error_message =[31m[1;31m"[0m[31m登録に失敗しました[1;31m"[0m[31m[0m
+    [1;34m40[0m:     render [35maction[0m: [33m:new[0m
+    [1;34m41[0m:   [32mend[0m
+    [1;34m42[0m:   
+    [1;34m43[0m: [32mend[0m
+
