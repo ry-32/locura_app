@@ -67,10 +67,23 @@
             <h2>案件管理</h2>
             <div class="content-wrapper">
                 <table class="deal-management-table">
-                    <tbody>
-                        <tr></tr>
-                        <tr></tr>
-                    </tbody>
+                        <tr class="deal-titles">
+                            <td>キャンペーン名</td>
+                            <td>予想DL数</td>
+                            <td>DL数</td>
+                            <td>費用</td>
+                        </tr>
+                        
+                        <% if @deals.present? %>
+                            <% @deals.each do |d|%>
+                                <tr class="deal-tr">
+                                    <td><%= d.name %></td>
+                                    <td><%= d.forecasted_dl%></td>
+                                    <td><%= d.dl %></td>
+                                    <td><%= d.cost %></td>
+                                </tr>
+                            <% end %>
+                        <% end %>
                 </table>
             </div>
         </div>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  advertiser_id: 1
+  podcaster_id: 1
+  description: MyText
+  forecasted_dl: 1
+  dl: 1
+  cost: 1
+
+two:
+  advertiser_id: 1
+  podcaster_id: 1
+  description: MyText
+  forecasted_dl: 1
+  dl: 1
+  cost: 1

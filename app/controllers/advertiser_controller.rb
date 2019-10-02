@@ -20,7 +20,7 @@ class AdvertiserController < ApplicationController
       a = Advertiser.uniqueness_of_a_property_across_models(@advertiser,account_params[:email])
       
       if a == true
-        @error_message = "this email is taken"
+        @error_message = "このメールアドレスは使用されています"
         return render :action => 'new'
       end
 

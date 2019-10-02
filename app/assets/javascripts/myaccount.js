@@ -1,6 +1,7 @@
 
-$(document).ready(function() {
-                
+
+document.addEventListener("turbolinks:load", function() {
+    
     $(function(){
         $('.co1').addClass('active');
     });
@@ -22,6 +23,5 @@ $(document).ready(function() {
         $('.co2').removeClass('active');
     });
     
-
+})
     
-});

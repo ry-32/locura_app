@@ -19,7 +19,7 @@ class PodcasterController < ApplicationController
       is_email_unique = Podcaster.uniqueness_of_a_property_across_models(account_params[:email])
       
       if is_email_unique == true
-        @error_message = "this email is taken"
+        @error_message = "このメールアドレスは使用されています"
         return render :action => 'new'
       end
       

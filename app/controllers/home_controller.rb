@@ -46,11 +46,18 @@ class HomeController < ApplicationController
   end
   
   def myaccount
+    
+    # variables
+    @deals = Deal.all
+    
     if @current_user_ad
       @advertiser = Advertiser.find_by(id: @current_user_ad.id)
     elsif @current_user_pod
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
     end
+    
+    
+    
   end
 
   def edit_profile
