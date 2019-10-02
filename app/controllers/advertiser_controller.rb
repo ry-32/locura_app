@@ -21,13 +21,9 @@ class AdvertiserController < ApplicationController
       
       if a == true
         @error_message = "this email is taken"
-        return redirect_to :action => 'new'
+        return render :action => 'new'
       end
 
-      
-      
-      
-      
       if @advertiser.save
         session[:user_id] = @advertiser.id
         redirect_to root_path
@@ -35,6 +31,7 @@ class AdvertiserController < ApplicationController
         @error_message ="登録に失敗しました"
         render action: :new
       end
+      
       
     end
     

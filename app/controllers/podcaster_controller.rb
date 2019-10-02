@@ -15,6 +15,14 @@ class PodcasterController < ApplicationController
     def create
       
       @podcaster = Podcaster.new(account_params)
+      
+      is_email_unique = Podcaster.uniqueness_of_a_property_across_models(account_params[:email])
+      
+      if is_email_unique == true
+        @error_message = "this email is taken"
+        return render :action => 'new'
+      end
+      
       if @podcaster.save
         session[:user_id] = @podcaster.id
         redirect_to root_path

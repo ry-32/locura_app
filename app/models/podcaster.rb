@@ -2,14 +2,15 @@ class Podcaster < ApplicationRecord
     
     has_secure_password
     
-    validate :uniqueness_of_a_property_across_models, on: :create
-
-    def uniqueness_of_a_property_across_models
-        if Advertiser.where(email: :email)
-            errors[:email] = "このemailは使用されています"
-        elsif Podcaster.where(email: :email)
-            errors[:email] = "このemailは使用されています"
+    def self.uniqueness_of_a_property_across_models(email)
+        
+        if Advertiser.where(email: email).length >= 1
+            return true
+        elsif Podcaster.where(email: email).length >= 1
+            return true
         end
+        
+        return false
     end
     
     
