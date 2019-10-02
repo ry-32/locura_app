@@ -4,6 +4,8 @@ ja:
     email: メールアドレス
     company_name: 会社名
     password: パスワード
+    content: 内容
+    podcast name: 番組名
     
   # activerecord:
   #   models:

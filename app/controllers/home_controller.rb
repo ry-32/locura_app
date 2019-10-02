@@ -129,6 +129,8 @@ class HomeController < ApplicationController
     if @contact.save
       flash[:notice] = "お問い合わせありがとうございます"
       redirect_to('/')
+    else
+      render action: :contact
     end
     
   end

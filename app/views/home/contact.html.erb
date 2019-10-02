@@ -13,12 +13,23 @@
             <h2 class="contact-title">問い合わせ</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
             <div class="contact-form-wrapper">
-                <% if @error_message %>
-                    <%= @error_message %>
-                <% end %>
+                <% if @contact.errors.any? %>
+                <div class="error-message-wrapper">
+                    <div class="error-title">エラー</div>
+                    <ul class="error-message-ul">
+                        <% if @contact.errors.any? %>
+                            <% @contact.errors.full_messages.each do |msg| %>
+                                <li>
+                                    <%= msg %>
+                                </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
                 <div class="form-body contact-form-body">
                     <%= form_for(@contact, url: {controller: 'home', action: 'contact_send'}, html: {method: "post"}) do |f| %>
-                        <div class="form-items">
+                        <div class="form-items form-contact-items">
                             <div class="form-name-wrapper form-container">
                                 <%= f.label :name, "名前" , :class => "form-item" %>
                                 <%= f.text_field :name, :class => "form-text-area form-item contact-form" %>

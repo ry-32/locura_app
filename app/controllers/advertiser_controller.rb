@@ -14,7 +14,7 @@ class AdvertiserController < ApplicationController
     
     def create
       
-      @advertisers1 = Advertiser.all
+      @advertisers = Advertiser.all
       @advertiser = Advertiser.new(account_params)
       
       a = Advertiser.uniqueness_of_a_property_across_models(@advertiser,account_params[:email])
