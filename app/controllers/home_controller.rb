@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   
+  before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+  
   def index
     @a = Advertiser.first
   end
@@ -24,7 +26,7 @@ class HomeController < ApplicationController
         user = Advertiser.find_by(email: params[:email])
         if user.authenticate(params[:password])
           session[:user_id] = user.id
-          redirect_to('/')
+          redirect_to('/myaccount')
         else
           @error_messages.push("パスワードが違います")
           render action: :login
@@ -35,7 +37,7 @@ class HomeController < ApplicationController
         user = Podcaster.find_by(email: params[:email])
         if user.authenticate(params[:password])
           session[:user_id] = user.id
-          redirect_to('/')
+          redirect_to('/myaccount')
         else
           @error_messages.push("パスワードが違います")
           render action: :login

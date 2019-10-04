@@ -13,6 +13,14 @@ class ApplicationController < ActionController::Base
   end
   
   
+  def forbid_login_user
+    if @current_user_ad or @current_user_pod
+      flash[:notice] = "すでにログインしているためこのアクションは行えません"
+      redirect_to("/myaccount")
+    end
+  end
+  
+  
   
   
   

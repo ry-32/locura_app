@@ -6,8 +6,8 @@ document.addEventListener("turbolinks:load", function() {
         var flash = $('.flash');
         
         setTimeout(function(){
-        flash.fadeOut(1100)
-        }, 300);
+        flash.fadeOut(1700)
+        }, 800);
         
     });
 
