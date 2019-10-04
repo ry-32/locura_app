@@ -4,7 +4,7 @@
     
     <nav class="top-nav-bar">
         <ul class="top-nav-ul">
-            <li class="top-nav-li" id="prof">プロフィール</li>
+            <li class="top-nav-li" id="prof">プロフィ</li>
             <li class="top-nav-li" id="deals">案件管理</li>
             <li class="top-nav-li" id="payment">支払い管理</li>
         </ul>
@@ -53,8 +53,10 @@
                                     <%= f.text_field :email, :class => "form-text-area form-item"  %>    
                                 </div>
                                 <div class="form-btn-wrapper pro-form-btn-wrapper">
-                                    <%= f.submit "保存", :class => "form-btn btn form-submit-item" %>
-                                    <%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %>
+                                    <ul class="form-btn-ul">
+                                        <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
+                                        <li><%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %></li>
+                                    </ul>
                                 </div>
                             </div>
                         <% end %>
