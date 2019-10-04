@@ -74,16 +74,15 @@ class HomeController < ApplicationController
   
   def myaccount
     
-    # variables
-    @deals = Deal.all
-    
     if @current_user_ad
       @advertiser = Advertiser.find_by(id: @current_user_ad.id)
+      @user = @advertiser
+      @deals = Deal.where(advertiser_id: @user.id)
     elsif @current_user_pod
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
+      @user = @podcaster
+      @deals = Deal.where(podcaster_id: @user.id)
     end
-    
-    
     
   end
 
