@@ -4,7 +4,7 @@
     
     <nav class="top-nav-bar">
         <ul class="top-nav-ul">
-            <li class="top-nav-li" id="prof">プロフィ</li>
+            <li class="top-nav-li" id="prof">プロフィール</li>
             <li class="top-nav-li" id="deals">案件管理</li>
             <li class="top-nav-li" id="payment">支払い管理</li>
         </ul>
@@ -32,8 +32,10 @@
                                     <%= f.text_field :email, :class => "form-text-area form-item"  %>    
                                 </div>
                                 <div class="form-btn-wrapper pro-form-btn-wrapper">
-                                    <%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "本当に削除しますか？"}, :class => "delete-btn"  %>
-                                    <%= f.submit "保存", :class => "form-btn btn" %>
+                                    <ul class="form-btn-ul">
+                                        <li><%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "削除をするとお客様のデータは完全に消えてしまいます。本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %></li>
+                                        <li><%= f.submit "保存", :class => "form-btn btn form-submit-item", data: {confirm: "この内容で保存しますか？"} %></li>
+                                    </ul>
                                 </div>
                             </div>
                         <% end %>
@@ -54,8 +56,8 @@
                                 </div>
                                 <div class="form-btn-wrapper pro-form-btn-wrapper">
                                     <ul class="form-btn-ul">
+                                        <li><%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "削除をするとお客様のデータは完全に消えてしまいます。本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %></li>
                                         <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
-                                        <li><%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %></li>
                                     </ul>
                                 </div>
                             </div>
@@ -70,19 +72,19 @@
             <div class="content-wrapper">
                 <table class="deal-management-table">
                         <tr class="deal-titles">
-                            <td>キャンペーン名</td>
-                            <td>予想DL数</td>
-                            <td>DL数</td>
-                            <td>費用</td>
+                            <td class="deal-tds">キャンペーン名</td>
+                            <td class="deal-tds">予想DL数</td>
+                            <td class="deal-tds">DL数</td>
+                            <td class="deal-tds">費用</td>
                         </tr>
                         
                         <% if @deals.present? %>
                             <% @deals.each do |d|%>
                                 <tr class="deal-tr">
-                                    <td><%= d.name %></td>
-                                    <td><%= d.forecasted_dl%></td>
-                                    <td><%= d.dl %></td>
-                                    <td><%= d.cost %></td>
+                                    <td class="deal-tds"><%= d.name %></td>
+                                    <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                    <td class="deal-tds"><%= d.dl %></td>
+                                    <td class="deal-tds"><%= d.cost %></td>
                                 </tr>
                             <% end %>
                         <% end %>

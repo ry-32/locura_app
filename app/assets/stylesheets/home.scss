@@ -351,14 +351,14 @@ footer a{
 }
 
 .content-sec h2{
-    margin: 16px 0 0 30px ;
+    margin: 39px 0 0 97px;
     font-size: 1.35em;
 }
 
 .content-wrapper{
     width: 61%;
     height: 600px;
-    margin: 70px auto;
+    margin: 2em auto;
     box-shadow: 0 7px 14px 0 rgba(50,50,93,0.1), 0 3px 6px 0 rgba(0,0,0,0.07);
     border-radius: 4px;
     border: 1px solid #ddd;
@@ -389,13 +389,21 @@ footer a{
     border-bottom: 0.45px solid rgba(0,0,0,.3);
     font-size: 0.85em;
     margin-right: 13px;
+    margin-top: .7em;
 
     
 }
 
+.form-btn-ul{
+    display:flex;
+    float: right;
+    padding: 0;
+}
 
 .form-btn-ul li{
+    display:inline-block;
     float: right;
+    list-style: none;
 }
 
 
@@ -427,16 +435,19 @@ footer a{
 
 
 .deal-titles td{
-    border: 1px solid rgba(0,0,0,.3);
     text-align: center;
     font-size: .73em;
+    font-weight: 600;
 
 }
 
 .deal-tr td{
-    border: 1px solid rgba(0,0,0,.3);
     text-align: center;
     font-size: .73em;
+}
+
+.deal-tds{
+    border: .3px solid rgba(0,0,0,.26);
 }
 
 
