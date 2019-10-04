@@ -18,6 +18,7 @@
 
 header{
     height: 70px;
+    font-family: "游ゴシック";
     
 }
 
@@ -31,7 +32,6 @@ body{
 }
 
 .header-ul{
-    font-family: "游明朝" ;
     float: right;
     list-style: none;
     
