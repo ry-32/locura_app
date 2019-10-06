@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'pry-rails'
 gem 'rails-i18n'
+gem 'mysql2'
 gem 'bcrypt'
 
 # Use jquery as the JavaScript library
