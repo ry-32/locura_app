@@ -13,6 +13,7 @@ class AdvertiserController < ApplicationController
     
     def main_new
       @advertiser = Advertiser.new
+      @deal_request = DealRequest.new
     end
   
     
@@ -34,15 +35,24 @@ class AdvertiserController < ApplicationController
       else
         render action: :new
       end
-      
-      
     end
     
+    
+    
+    def deal_request
+      @deal_request = DealRequest.new(deal_params)
+    end
+
     
     def account_params
-      params.require(:advertiser).permit(:name, :company_name, :email,:password)
+      params.require(:advertiser).permit(:name, :company_name, :email,
+      :password,:industry)
     end
     
+    def deal_params
+      params.requrie(:deal_request).permit(:name, :company_name, :email,
+      :industry, :memo, :status)
+    end
     
  
     

@@ -32,9 +32,15 @@ class PodcasterController < ApplicationController
       render(new_podcaster_path)
     end
   end
-    
+  
+  def update
+      @podcaster = Podcaster.find_by(id: @current_user_pod.id)
+      @podcaster.update(account_params)
+  end
+  
   def account_params
-    params.require(:podcaster).permit(:name, :email, :podcast_name, :password)
+    params.require(:podcaster).permit(:name, :email, :podcast_name,
+    :password,:genre, :description, :url, :hosting, :memo)
   end
     
     

@@ -17,7 +17,7 @@
                         <%= @error_message %>
                     <% end %>
                 <div class="form-body">
-                    <%= form_tag("/podcaster",  method: :post) do %>
+                    <%= form_for(@podcaster,  url: {controller: 'podcaster', action: 'update'}, html: {method: "post"}) do |f|%>
                         <div class="form-items">
                             <div class="form-name-wrapper form-container">
                                 <label for="name" accesskey="n" class="form-item">お名前</label>

@@ -1,0 +1,2 @@
+class DealRequest < ApplicationRecord
+end

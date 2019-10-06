@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   delete '/delete_account' => 'home#delete_account'
   get '/contact' => 'home#contact'
   post '/contact-send' => 'home#contact_send'
-
+  post '/deal_request' => 'advertiser#deal_request'
 
 end
