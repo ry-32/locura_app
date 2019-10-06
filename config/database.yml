@@ -20,6 +20,20 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  database: locura_app_production
+  username: root
+  password:
+  socket: /var/lib/mysql/mysql.sock
+
+# production:
+#   <<: *default
+#   # database: db/production.sqlite3
+#   database: locura_production
+#     username: root
+# 　　password: ryry1212!!
+
