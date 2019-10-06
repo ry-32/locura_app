@@ -3,7 +3,7 @@
 server '3.115.131.122', user: 'ry', roles: %w{app db web} 
 
 #デプロイするサーバーにsshログインする鍵の情報を記述
-set :ssh_options, keys: '~/.ssh/locura_key_rsa' 
+set :ssh_options, keys: '~/.ssh/locura_key_rsa'
 
 
 
