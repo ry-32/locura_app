@@ -14,8 +14,19 @@
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
             <div class="contact-form-wrapper">
                 <div class="contact-form-wrapper">
-                    <% if @error_message %>
-                        <%= @error_message %>
+                    <% if @deal_request.errors.any? %>
+                        <div class="error-message-wrapper">
+                            <div class="error-title">エラー</div>
+                            <ul class="error-message-ul">
+                                <% if @deal_request.errors.any? %>
+                                    <% @deal_request.errors.full_messages.each do |msg| %>
+                                        <li>
+                                            <%= msg %>
+                                        </li>
+                                    <% end %>
+                                <% end %>
+                            </ul>
+                        </div>
                     <% end %>
                 <div class="form-body">
                     <%= form_for(@deal_request,  url: {controller: 'advertiser', action: 'deal_request'}, html: {method: "post"}) do |f|  %>

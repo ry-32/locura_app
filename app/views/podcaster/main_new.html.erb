@@ -13,43 +13,54 @@
             <h2 class="contact-title">番組の収益化を始める</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
             <div class="contact-form-wrapper">
-                    <% if @error_message %>
-                        <%= @error_message %>
-                    <% end %>
+            <% if @deal_request.errors.any? %>
+                <div class="error-message-wrapper">
+                    <div class="error-title">エラー</div>
+                    <ul class="error-message-ul">
+                        <% if @deal_request.errors.any? %>
+                            <% @deal_request.errors.full_messages.each do |msg| %>
+                                <li>
+                                    <%= msg %>
+                                </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
                 <div class="form-body">
                     <%= form_for(@podcaster,  url: {controller: 'podcaster', action: 'update'}, html: {method: "post"}) do |f|%>
-                        <div class="form-items">
+                        <div class="form-items" style="width:auto">
                             <div class="form-name-wrapper form-container">
-                                <label for="name" accesskey="n" class="form-item">お名前</label>
-                                <input name="name" value="<%= @podcaster.name %>" id="name" class="form-text-area form-item">
+                                <%= f.label :name, "お名前" , :class => "form-item" %>
+                                <%= f.text_field :name, :class => "form-text-area deal-text form-item" %>
                             </div>
                             <div class="form-podcast-name-wrapper form-container">
-                                <label for="podcast_name" accesskey="n" class="form-item">番組</label>
-                                <input name="podcast_name" value="<%= @podcaster.podcast_name %>" id="podcast_name" class="form-text-area form-item">
+                                <%= f.label :podcast_name, "番組名" , :class => "form-item" %>
+                                <%= f.text_field :podcast_name, :class => "form-text-area deal-text form-item" %>
                             </div>
                             <div class="form-email-wrapper form-container">
-                                <label for="email" accesskey="n" class="form-item">メール</label>
-                                <input name="email" value="<%= @podcaster.email %>" id="email" class="form-text-area form-item">
+                                <%= f.label :email, "メール" , :class => "form-item" %>
+                                <%= f.text_field :email, :class => "form-text-area form-item deal-text" %>
                             </div>
                             <div class="form-genre-wrapper form-container">
-                                <label for="genre" accesskey="n" class="form-item">ジャンル</label>
-                                <input name="genre" value="<%= @podcaster.genre %>" id="genre" class="form-text-area form-item">
+                                <%= f.label :genre, "ジャンル" , :class => "form-item" %>
+                                <%= f.text_field :genre, :class => "form-text-area form-item deal-text" %>
                             </div>
                             <div class="form-description-wrapper form-container">
-                                <label for="description" accesskey="n" class="form-item">番組の説明</label>
-                                <textarea name="description" value="<%= @podcaster.description %>" id="description" class="form-text-area form-item form-text"></textarea>
+                                <%= f.label :description, "番組の説明", :class => "form-item" %>
+                                <%= f.text_area :description, :class => "form-text-area form-item contact-form-content contact-form deal-text"  %>
                             </div>
                             <div class="form-url-wrapper form-container">
-                                <label for="url" accesskey="n" class="form-item">番組HPのURL</label>
-                                <input name="url" value="<%= @podcaster.url %>" id="url" class="form-text-area form-item">
+                                <%= f.label :url, "番組URL" , :class => "form-item" %>
+                                <%= f.text_field :url, :class => "form-text-area form-item deal-text" %>
                             </div>
                             <div class="form-hosting-wrapper form-container">
-                                <label for="hosting" accesskey="n" class="form-item">使用中のホスティングサービス</label>
-                                <input name="hosting" value="<%= @podcaster.hosting %>" id="hosting" class="form-text-area form-item">
+                                <%= f.label :hosting, "使用中のホスティングサービス" , :class => "form-item"%>
+                                <%= f.text_field :hosting, :class => "form-text-area form-item deal-text" %>
                             </div>
                             <div class="form-memo-wrapper form-container">
-                                <label for="memo" accesskey="n" class="form-item">備考</label>
-                                <textarea name="memo" value="<%= @podcaster.memo %>" id="memo" class="form-text-area form-item form-text"></textarea>
+                                <%= f.label :memo, "番組の説明", :class => "form-item" %>
+                                <%= f.text_area :memo, :class => "form-text-area form-item contact-form-content contact-form deal-text"  %>
                             </div>
                             <div class="form-btn-wrapper">
                                 <input type="submit" value="送信" class="form-btn btn"> 
@@ -57,7 +68,6 @@
                         </div>
                     <% end %>
                 </div>
-            </div>
             </div>
         </div>
     </section>

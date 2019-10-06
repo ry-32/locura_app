@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   get '/contact' => 'home#contact'
   post '/contact-send' => 'home#contact_send'
   post '/deal_request' => 'advertiser#deal_request'
+  post '/update' => 'podcaster#update'
 
 end

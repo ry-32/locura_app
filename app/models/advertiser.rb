@@ -5,7 +5,7 @@ class Advertiser < ApplicationRecord
     validates :name, presence: true
     validates :email, presence: true, format: { with: VALID_EMAIL, message: "を正式なメールアドレスの形にしてください" }
     validates :company_name, presence: true
-    validates :password, presence: true
+    validates :password, presence: true, on: :create
 
     has_secure_password
     

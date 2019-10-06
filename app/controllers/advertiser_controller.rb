@@ -41,6 +41,13 @@ class AdvertiserController < ApplicationController
     
     def deal_request
       @deal_request = DealRequest.new(deal_params)
+      if @deal_request.save
+        flash[:notice] = "案件チームが確認し、すぐにご返答いたしますので少々お待ちください"
+        redirect_to root_path
+      else
+        render action: :main_new
+        # redirect_to '/advertiser-register'
+      end
     end
 
     
@@ -50,7 +57,7 @@ class AdvertiserController < ApplicationController
     end
     
     def deal_params
-      params.requrie(:deal_request).permit(:name, :company_name, :email,
+      params.require(:deal_request).permit(:name, :company_name, :email,
       :industry, :memo, :status)
     end
     

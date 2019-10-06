@@ -10,7 +10,7 @@ class PodcasterController < ApplicationController
   end
   
   def main_new
-    @podcaster = Podcaster.new
+    @podcaster = Podcaster.find_by(id: @current_user_pod)
   end
   
   
@@ -36,6 +36,9 @@ class PodcasterController < ApplicationController
   def update
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
       @podcaster.update(account_params)
+      flash[:notice] = "情報を更新しました"
+      
+      redirect_to '/myaccount'
   end
   
   def account_params
