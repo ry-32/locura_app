@@ -3,7 +3,6 @@ class HomeController < ApplicationController
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
   
   def index
-    flash[:notice] = "kk"
     @a = Advertiser.first
   end
   
@@ -123,11 +122,7 @@ class HomeController < ApplicationController
   
   def contact_send
     
-    @contact = Contact.new(
-      name: params[:name],
-      email: params[:email],
-      content: params[:content]
-      )
+    @contact = Contact.new(contact_params)
     if @contact.save
       flash[:notice] = "お問い合わせありがとうございます"
       redirect_to('/')
@@ -143,6 +138,10 @@ class HomeController < ApplicationController
     elsif @current_user_pod
       params.require(:podcaster).permit(:name,:podcast_name,:email,:password)
     end
+  end
+  
+  def contact_params
+    params.require(:contact).permit(:name, :email, :content)
   end
   
   

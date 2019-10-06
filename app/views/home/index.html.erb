@@ -72,12 +72,26 @@
         
     </section>
     
-    <section class="cta-wrapper">
-        <div class="cta-container">
-            <%= button_to '開始する', '/advertiser/new', :method => 'get', :class => "info-button cta-button" %>
-        </div>
-        
-    </section>
+    
+    <% if @current_user_ad %>
+        <section class="cta-wrapper">
+            <div class="cta-container">
+                <%= button_to '開始する', '/advertiser-register', :method => 'get', :class => "info-button cta-button" %>
+            </div>
+        </section>
+    <% elsif @current_user_pod %>
+        <section class="cta-wrapper hidden">
+            <div class="cta-container">
+                <%= button_to '開始する', '/advertiser/new', :method => 'get', :class => "info-button cta-button" %>
+            </div>
+        </section>
+    <% else %>
+        <section class="cta-wrapper">
+            <div class="cta-container">
+                <%= button_to '開始する', '/advertiser/new', :method => 'get', :class => "info-button cta-button" %>
+            </div>
+        </section>
+    <% end %>
     
     <footer>
         <div class="footer-wrapper">
