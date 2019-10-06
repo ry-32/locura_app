@@ -40,7 +40,7 @@ lock "~> 3.11.2"
 
 
 # capistranoのバージョン固定
-lock '3.4.0'
+# lock '3.4.0'
 
 # デプロイするアプリケーション名
 set :application, 'locura'
