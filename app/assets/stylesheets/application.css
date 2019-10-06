@@ -55,11 +55,6 @@ body{
 
 }
 
-
-.site-title-wrapper{
-    /*width: 200px;*/
-}
-
 .site-title{
     display: flex;
     letter-spacing: 0.055em;
