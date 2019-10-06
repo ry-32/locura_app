@@ -13,12 +13,12 @@
             <h2 class="contact-title">番組の収益化を始める</h2>
             <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
             <div class="contact-form-wrapper">
-            <% if @deal_request.errors.any? %>
+            <% if @podcaster.errors.any? %>
                 <div class="error-message-wrapper">
                     <div class="error-title">エラー</div>
                     <ul class="error-message-ul">
-                        <% if @deal_request.errors.any? %>
-                            <% @deal_request.errors.full_messages.each do |msg| %>
+                        <% if @podcaster.errors.any? %>
+                            <% @podcaster.errors.full_messages.each do |msg| %>
                                 <li>
                                     <%= msg %>
                                 </li>

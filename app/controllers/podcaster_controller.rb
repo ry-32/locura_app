@@ -36,9 +36,13 @@ class PodcasterController < ApplicationController
   def update
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
       @podcaster.update(account_params)
-      flash[:notice] = "情報を更新しました"
       
-      redirect_to '/myaccount'
+      if @podcaster.save
+        flash[:notice] = "情報を更新しました"
+        redirect_to '/myaccount'
+      else
+        render action: :main_new
+      end
   end
   
   def account_params
