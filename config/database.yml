@@ -30,6 +30,7 @@ production:
   password: Ryry1212!!
   socket: /var/lib/mysql/mysql.sock
 
+
 # production:
 #   <<: *default
 #   # database: db/production.sqlite3
