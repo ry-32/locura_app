@@ -12,7 +12,7 @@
         <div class="contact-container">
             <h2 class="contact-title">ログイン</h2>
             <div class="contact-form-wrapper">
-                <% if @error_messages.present? or @errors.present? %>
+                <% if @error_messages.present? %>
                     <div class="error-message-wrapper">
                         <div class="error-title">エラー</div>
                         <ul class="error-message-ul">
@@ -46,8 +46,9 @@
                         </ul>
                     </div>
                 <% end %>
-            
             </div>
+            
+            
             
                 <div class="form-body login-form-body">
                     <%= form_tag("/login", method: :post) do %>

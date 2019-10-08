@@ -13,11 +13,14 @@ class HomeController < ApplicationController
     
     @advertiser = Advertiser.find_by(email: params[:email])
     @podcaster = Podcaster.find_by(email: params[:email])
+    @error_messages = []
+
     
     # 広告主
     if @advertiser
       if @advertiser.authenticate(params[:password])
         session[:user_id] = @advertiser.id
+        flash[:notice] = "ログインしました"
         redirect_to('/myaccount')
       else
         @error_messages.push("パスワードが違います")
@@ -28,11 +31,23 @@ class HomeController < ApplicationController
     elsif @podcaster
       if @podcaster.authenticate(params[:password])
         session[:user_id] = @podcaster.id
+        flash[:notice] = "ログインしました"
         redirect_to('/myaccount')
       else
         @error_messages.push("パスワードが違います")
         render action: :login_form
       end
+      
+    elsif params[:email] == "" or params[:password] == ""
+    
+      if params[:email] == ""
+        @error_messages.push('メールアドレスを入力してください')
+      end
+      if params[:password] == ""
+        @error_messages.push('パスワードを入力してください')
+      end
+      
+      render action: :login_form
       
     else
       render action: :login_form
