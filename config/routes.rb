@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get '/advertisers' => 'advertiser#advertiser'
   get '/podcaster-contact' => 'podcaster#podcaster_contact'
   
-  get '/login' => 'home#login'
+  get '/login' => 'home#login_form'
+  post '/login' => 'home#login'
   get '/logout' => 'home#logout'
   get '/myaccount' => 'home#myaccount'
   get '/podcaster-register' => 'podcaster#main_new'
@@ -20,5 +21,6 @@ Rails.application.routes.draw do
   post '/contact-send' => 'home#contact_send'
   post '/deal_request' => 'advertiser#deal_request'
   post '/update' => 'podcaster#update'
+  
 
 end

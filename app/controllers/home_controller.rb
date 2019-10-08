@@ -6,63 +6,52 @@ class HomeController < ApplicationController
     @a = Advertiser.first
   end
   
+  def login_form
+  end
+  
   def login
     
-    if params[:email]
-      
-      @advertiser = Advertiser.find_by(email: params[:email])
-      @podcaster = Podcaster.find_by(email: params[:email])
-      @error_messages = []
-      if params[:email] == ""
-        @error_messages.push("メールアドレスを入力してください")
-      end
-      if params[:password] == ""
-        @error_messages.push("パスワードを入力してください")
-      end
-      
-      
-      # 広告主
-      if Advertiser.find_by(email: params[:email])
-        user = Advertiser.find_by(email: params[:email])
-        if user.authenticate(params[:password])
-          session[:user_id] = user.id
-          redirect_to('/myaccount')
-        else
-          @error_messages.push("パスワードが違います")
-          render action: :login
-        end
-        
-      # 番組ホスト
-      elsif Podcaster.find_by(email: params[:email])
-        user = Podcaster.find_by(email: params[:email])
-        if user.authenticate(params[:password])
-          session[:user_id] = user.id
-          redirect_to('/myaccount')
-        else
-          @error_messages.push("パスワードが違います")
-          render action: :login
-        end
-        
+    @advertiser = Advertiser.find_by(email: params[:email])
+    @podcaster = Podcaster.find_by(email: params[:email])
+    
+    # 広告主
+    if @advertiser
+      if @advertiser.authenticate(params[:password])
+        session[:user_id] = @advertiser.id
+        redirect_to('/myaccount')
       else
-        render action: :login
+        @error_messages.push("パスワードが違います")
+        render action: :login_form
       end
       
-      
-      
-      if @advertiser
-        if @advertiser.errors.any?
-          @errors = @advertiser.errors
-        end
-      end
-      if @podacster
-        if @podcaster.errors.any?
-          @errors = @podcaster.errors
-        end
+    # 番組ホスト
+    elsif @podcaster
+      if @podcaster.authenticate(params[:password])
+        session[:user_id] = @podcaster.id
+        redirect_to('/myaccount')
+      else
+        @error_messages.push("パスワードが違います")
+        render action: :login_form
       end
       
-      # binding.pry
-      
+    else
+      render action: :login_form
     end
+    
+    
+    
+    if @advertiser
+      if @advertiser.errors.any?
+        @errors = @advertiser.errors
+      end
+    end
+    if @podacster
+      if @podcaster.errors.any?
+        @errors = @podcaster.errors
+      end
+    end
+    
+    # binding.pry
     
   end
     
