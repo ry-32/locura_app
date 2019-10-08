@@ -27,7 +27,7 @@ production:
   pool: 5
   database: locura_app_production
   username: root
-  password:
+  password: ryry1212!!
   socket: /var/lib/mysql/mysql.sock
 
 # production:
