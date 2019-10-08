@@ -24,7 +24,6 @@ class HomeController < ApplicationController
       # 広告主
       if Advertiser.find_by(email: params[:email])
         user = Advertiser.find_by(email: params[:email])
-        binding.pry
         if user.authenticate(params[:password])
           session[:user_id] = user.id
           redirect_to('/myaccount')
@@ -36,7 +35,6 @@ class HomeController < ApplicationController
       # 番組ホスト
       elsif Podcaster.find_by(email: params[:email])
         user = Podcaster.find_by(email: params[:email])
-        binding.pry
         if user.authenticate(params[:password])
           session[:user_id] = user.id
           redirect_to('/myaccount')
