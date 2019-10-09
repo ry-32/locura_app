@@ -132,16 +132,16 @@ footer a{
 }
 
 .footer-wrapper{
-    width: 80%;
-    margin: 25px 0 19px 20px;
+    width: 81%;
+    margin: 23.5px auto;
     color: white;
     display: flex;
     align-items: center;
 }
 
 .footer-ul-wrapper{
-    display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .footer-ul-wrapper a{
@@ -152,6 +152,7 @@ footer a{
     list-style:none;
     float: left;
     font-size: .75em;
+    padding: 0;
 }
 
 .footer-ul li{
@@ -159,7 +160,16 @@ footer a{
     margin-right: 14px;
 }
 
-
+.copyright{
+    font-size: .8em;
+    float:right;
+    
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    
+}
 
 
 
