@@ -62,19 +62,19 @@
     <% if @current_user_pod %>
         <section class="cta-wrapper">
             <div class="cta-container">
-                <%= button_to '開始する', 'podcaster-register', :class => "cta-button info-button", :method => 'get' %>
+                <%= button_to '開始する', 'podcaster-register', :class => "cta-button info-button btn", :method => 'get' %>
             </div>
         </section>
     <% elsif @current_user_ad %>
         <section class="cta-wrapper hidden">
             <div class="cta-container">
-                <%= button_to '開始する', 'podcaster/new', :class => "cta-button info-button", :method => 'get' %>
+                <%= button_to '開始する', 'podcaster/new', :class => "cta-button info-button btn", :method => 'get' %>
             </div>
         </section>
     <% else %>
         <section class="cta-wrapper">
             <div class="cta-container">
-                <%= button_to '開始する', 'podcaster/new', :class => "cta-button info-button", :method => 'get' %>
+                <%= button_to '開始する', 'podcaster/new', :class => "cta-button info-button btn", :method => 'get' %>
             </div>
         </section>
     <% end %>
