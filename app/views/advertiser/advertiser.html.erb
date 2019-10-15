@@ -43,41 +43,7 @@
         </div>
         
     </section>
-    
-    <section class="middle2-wrapper ad-middle-w">
-        <h2>Podcast広告の効果</h2>
-        <p>他の広告枠には無いPodcastをはじめとした音声広告特有の広告効果</p>
-        
-        <div class="info-box">
-            <div class="info-wrapper">
-                <div class="info-icon-wrapper">
-                    <%= image_tag 'person_radio.png', style:"height:80px;width:80px" %>
-                </div>
-                <p>Podcastなどの音声メディア<br>は高学歴、高所得層の広告効果の高い層に楽しまれています</p>
-            </div>
-        </div>
-        
-        <div class="info-box">
-            <div class="info-wrapper">
-                <div class="info-icon-wrapper">
-                    <%= image_tag 'pointing.png', style:"height:80px;width:80px" %>
-                </div>
-                <p>高いエンゲージメント<br>番組内に広告を挿入しますので、広告のスキップやブロックがされません</p>
 
-            </div>
-        </div>
-        
-        <div class="info-box">
-            <div class="info-wrapper">
-                <div class="info-icon-wrapper">
-                    <%= image_tag 'handshake.png', style:"height:80px;width:80px"%>
-                </div>
-                <p>お得な広告単価<br>まだ成熟しきっていない音声広告だからこそ、お得な単価で広告を出稿できます</p>
-
-            </div>
-        </div>
-        
-    </section>
     
     <% if @current_user_ad %>
         <section class="cta-wrapper">
@@ -94,7 +60,7 @@
     <% else %>
         <section class="cta-wrapper">
             <div class="cta-container">
-                <%= button_to '開始する', 'advertiser/new', :class => "cta-button info-button", :method => 'get' %>
+                <%= button_to '開始する', 'advertiser/new', :class => "cta-button info-button btn", :method => 'get' %>
             </div>
         </section>
     <% end %>

@@ -18,7 +18,7 @@
                 </div>
                 <h2>Podcaster</h2>
                 <p>素晴らしい企業と協力して<br>番組を収益化しましょう</p>
-                <%= button_to '詳細を見る', '/podcasters', :method => 'get', :class => "info-button" %>
+                <%= button_to '詳細を見る', '/podcasters', :method => 'get', :class => "info-button btn" %>
             </div>
         </div>
         
@@ -30,7 +30,7 @@
                 <div>
                     <h2>広告主</h2>
                     <p>広告効果の高い音声広告を出稿し<br>成果を出しましょう</p>
-                    <%= button_to '詳細を見る', '/advertisers', :method => 'get', :class => "info-button" %>
+                    <%= button_to '詳細を見る', '/advertisers', :method => 'get', :class => "info-button btn" %>
                 </div>
 
             </div>
@@ -76,19 +76,19 @@
     <% if @current_user_ad %>
         <section class="cta-wrapper">
             <div class="cta-container">
-                <%= button_to '開始する', '/advertiser-register', :method => 'get', :class => "info-button cta-button" %>
+                <%= button_to '開始する', '/advertiser-register', :method => 'get', :class => "info-button cta-button btn" %>
             </div>
         </section>
     <% elsif @current_user_pod %>
         <section class="cta-wrapper hidden">
             <div class="cta-container">
-                <%= button_to '開始する', '/advertiser/new', :method => 'get', :class => "info-button cta-button" %>
+                <%= button_to '開始する', '/advertiser/new', :method => 'get', :class => "info-button cta-button btn" %>
             </div>
         </section>
     <% else %>
         <section class="cta-wrapper">
             <div class="cta-container">
-                <%= button_to '開始する', '/advertiser/new', :method => 'get', :class => "info-button cta-button" %>
+                <%= button_to '開始する', '/advertiser/new', :method => 'get', :class => "info-button cta-button btn" %>
             </div>
         </section>
     <% end %>

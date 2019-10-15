@@ -58,6 +58,14 @@ body{
 
 }
 
+/*.info-wrapper:hover{
+    cursor: pointer;
+    border-radius: 2.4px;
+    box-shadow: 0 0 7.5px rgba(0,0,0,.23);
+    transition: box-shadow 0.2s ease-in-out;
+}
+*/
+
 .info-icon-wrapper{
     width: 80px;
     margin: 0 auto;
@@ -78,8 +86,12 @@ body{
     text-decoration: none;
 }
 
-.info-button:hover{
+
+.btn:hover{
     cursor: pointer;
+    box-shadow: 0 0 8.5px rgba(0,0,0,.26);
+    transition: box-shadow 0.15s ease;
+    background: #2FC1E0;
 }
 
 
