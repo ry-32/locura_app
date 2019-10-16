@@ -94,13 +94,17 @@ input[type="button"] {
   appearance: button;
   border: none;
   box-sizing: border-box;
-    &::-webkit-search-decoration {
-      display: none;
-    }
-    &::focus {
-      outline-offset: -2px;
-    }
+  cursor: pointer;
 }
+input[type="submit"]::-webkit-search-decoration,
+input[type="button"]::-webkit-search-decoration {
+  display: none;
+}
+input[type="submit"]::focus,
+input[type="button"]::focus {
+  outline-offset: -2px;
+}
+
 
 
 .info-button{
