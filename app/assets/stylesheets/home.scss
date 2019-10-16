@@ -22,19 +22,19 @@ body{
 }
 
 
-@media screen and (max-width:1034px){
-  .btn{
+// @media screen and (max-width:1034px){
+//   .btn{
     
-  }
-}
+//   }
+// }
 
 
 .top-wrapper{
     height: 450px;
     position: relative;
-    background: image-url("a.jpg") no-repeat center;
-    background-size: cover;
-    // background-size: 100% 100%;
+    // background: image-url("mic_new.jpg") no-repeat right;
+    // background-size: contain ;
+    // background-size: contain;
     
 }
 
@@ -85,26 +85,6 @@ body{
     height: 80px;
 }
 
-/* iOSでのデフォルトスタイルをリセット */
-input[type="submit"],
-input[type="button"] {
-  border-radius: 0;
-  -webkit-box-sizing: content-box;
-  -webkit-appearance: button;
-  appearance: button;
-  border: none;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-input[type="submit"]::-webkit-search-decoration,
-input[type="button"]::-webkit-search-decoration {
-  display: none;
-}
-input[type="submit"]::focus,
-input[type="button"]::focus {
-  outline-offset: -2px;
-}
-
 
 
 .info-button{
@@ -119,11 +99,6 @@ input[type="button"]::focus {
     font-size: .83em;
     letter-spacing: .074em;
     text-decoration: none;
-    -webkit-appearance: none;
-    -webkit-border-radius: .5em;
-    -webkit-background-color: #19BBDD;
-    -webkit-color: white;
-
 }
 
 /*
