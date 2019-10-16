@@ -7,6 +7,11 @@
     box-sizing: border-box;
     -webkit-appearance: none;
 }
+
+input[type="submit"]{
+    -webkit-appearance: none;
+}
+
 body{
     color:#575757;
     font-family: "游ゴシック";
