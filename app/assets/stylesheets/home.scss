@@ -16,6 +16,13 @@ body{
 }
 
 
+@media screen and (max-width:1034px){
+  .btn{
+    
+  }
+}
+
+
 .top-wrapper{
     height: 450px;
     position: relative;
@@ -76,7 +83,7 @@ body{
     height: 35px;
     width: 124px;
     border: none;
-    border-radius: 6px;
+    border-radius: .5em;
     background-color: #19BBDD;
     color: white;
     font-family: "Lobster";
@@ -84,6 +91,12 @@ body{
     font-size: .83em;
     letter-spacing: .074em;
     text-decoration: none;
+}
+
+@media screen and (max-width:1034px){
+    .info-button{
+        background-color: #21A9D8;
+    }
 }
 
 
