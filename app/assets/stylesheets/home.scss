@@ -423,13 +423,13 @@ footer a{
 .top-nav-bar{
     position: relative;
     height: 93px;
-    border-bottom: 1.3px solid rgba(0,0,0,.3);
+    border-bottom: 1.3px solid rgba(0,0,0,.25);
 }
 
 
 .top-nav-ul{
     position: absolute;
-    bottom: -1px;
+    bottom: -1.5px;
     margin: 0;
     padding-left: 29px;
     
@@ -440,14 +440,12 @@ footer a{
     list-style: none;
     height: 40px;
     width: 145px;
-    border-top: 1px solid rgba(0,0,0,.3);
-    border-right: 1px solid rgba(0,0,0,.3);
-    border-left: 1px solid rgba(0,0,0,.3);
+    border: .8px solid rgba(0,0,0,0.3);
     line-height: 40px;
     text-align: center;
     font-size: .7em;
     margin-right: 9px;
-    border-radius: 2.1px;
+    border-radius: 4.1px;
 }
 
 .top-nav-li:hover{
