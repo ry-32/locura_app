@@ -53,7 +53,7 @@ body{
     height:25px;
     margin-top:80px; 
     transform-origin:200% center; 
-    animation:rotate 5.3s linear infinite;
+    animation:rotate 6s linear infinite;
     position: absolute;
     }
 
@@ -62,7 +62,7 @@ body{
     height: 32px;
     margin-top:80px; 
     transform-origin:200% center; 
-    animation:rotate2 5.3s linear infinite;
+    animation:rotate2 6s linear infinite;
     position: absolute;
     }
     
@@ -70,13 +70,13 @@ body{
     content:''; 
     height: 32px; 
     width: 32px; 
-    animation:rotate 5.3s linear reverse infinite; }
+    animation:rotate 6s linear reverse infinite; }
     
 .animation2 img {
     content:''; 
     height: 32px; 
     width: 32px;
-    animation:rotate2 5.3s linear reverse infinite; }
+    animation:rotate2 6s linear reverse infinite; }
     
 @keyframes rotate { 100% { transform:rotate(360deg); } }
 @keyframes rotate2 { 100% { transform:rotate(-360deg); } }
