@@ -48,40 +48,38 @@ body{
     font-size: 2.4em;
 }
 
-// .animation{
-//     animation: float 6s ease-in-out infinite;
-// }
-
-@keyframes orbit { 
-    from { -webkit-transform:rotate(0deg) } 
-    to { -webkit-transform:rotate(360deg) } 
-}
-
-.sssun{
-    width:50px;
-    height:50px;
-    animation-iteration-count:infinite;
-    animation-timing-function:linear;
-    animation-name:orbit;
-    animation-duration: 8s;
-}
-
-.sun {
-    width:40px; 
-    height:40px;
+.animation {
+    width:25px; 
+    height:25px;
     margin-top:80px; 
     transform-origin:200% center; 
-    position:relative; 
-    animation:rotate 3s linear infinite; }
+    animation:rotate 5.3s linear infinite;
+    position: absolute;
+    }
+
+.animation2 {
+    width:25px; 
+    height:25px;
+    margin-top:80px; 
+    transform-origin:200% center; 
+    animation:rotate2 5.3s linear infinite;
+    position: absolute;
+    }
     
-.sun div { 
+.animation img { 
     content:''; 
-    position:absolute; 
     height:100%; 
     width:100%; 
-    animation:rotate 3s linear reverse infinite; }
+    animation:rotate 5.3s linear reverse infinite; }
     
-@keyframes rotate { 100% { transform:rotate(-360deg); } }
+.animation2 img {
+    content:''; 
+    height:100%; 
+    width:100%; 
+    animation:rotate 5.3s linear infinite; }
+    
+@keyframes rotate { 100% { transform:rotate(360deg); } }
+@keyframes rotate2 { 100% { transform:rotate(-360deg); } }
 
 
 
