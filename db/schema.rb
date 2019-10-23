@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191023070341) do
+ActiveRecord::Schema.define(version: 20191023072950) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "name"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 20191023070341) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "name"
+    t.integer  "pre_roll"
+    t.integer  "mid_roll"
+    t.integer  "post_roll"
   end
 
   create_table "episodes", force: :cascade do |t|
@@ -93,6 +96,12 @@ ActiveRecord::Schema.define(version: 20191023070341) do
     t.string   "hp_url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "cpm_30_pre"
+    t.integer  "cpm_60_pre"
+    t.integer  "cpm_30_mid"
+    t.integer  "cpm_60_mid"
+    t.integer  "cpm_30_post"
+    t.integer  "cpm_60_post"
   end
 
 end
