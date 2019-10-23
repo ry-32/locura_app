@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191006020049) do
+ActiveRecord::Schema.define(version: 20191023070341) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "name"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 20191006020049) do
     t.string   "name"
   end
 
+  create_table "episodes", force: :cascade do |t|
+    t.integer  "podcaster_id"
+    t.string   "name"
+    t.string   "date"
+    t.integer  "pre_roll"
+    t.integer  "mid_roll"
+    t.integer  "post_roll"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "podcasters", force: :cascade do |t|
     t.string   "name"
     t.string   "podcast_name"
@@ -68,6 +79,20 @@ ActiveRecord::Schema.define(version: 20191006020049) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "genre"
+    t.integer  "dl"
+    t.string   "hosting"
+    t.string   "start_date"
+    t.integer  "host_id"
+    t.string   "program_url"
+    t.string   "hp_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

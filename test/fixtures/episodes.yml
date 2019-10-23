@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  podcaster_id: 1
+  name: MyString
+  date: MyString
+  pre_roll: 1
+  mid_roll: 1
+  post_roll: 1
+
+two:
+  podcaster_id: 1
+  name: MyString
+  date: MyString
+  pre_roll: 1
+  mid_roll: 1
+  post_roll: 1
