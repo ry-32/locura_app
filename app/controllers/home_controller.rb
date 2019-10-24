@@ -95,8 +95,10 @@ class HomeController < ApplicationController
   
   def edit_program_info
     
-    
-    
+    @podcaster = @current_user_pod
+    @program = Program.find_by(host_id: @podcaster.id)
+    @program.update(program_params)
+    redirect_to('/myaccount')
     
   end
 
