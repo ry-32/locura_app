@@ -88,6 +88,12 @@ class HomeController < ApplicationController
       @deals = Deal.where(podcaster_id: @user.id)
     end
     
+    @program = Program.find_by(host_id: @podcaster.id)
+    
+    
+  end
+  
+  def edit_program_info
   end
 
   def edit_profile

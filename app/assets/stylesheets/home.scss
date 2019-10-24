@@ -453,9 +453,9 @@ footer a{
 }
 
 .content-sec{
-    height: 830px;
     box-sizing: border-box;
     padding-top: 20px;
+    padding-bottom: 7em;
     background:#F3F3F3;
 }
 
@@ -466,8 +466,9 @@ footer a{
 
 .content-wrapper{
     width: 61%;
-    height: 600px;
-    margin: 2em auto;
+    min-height: 700px;
+    padding: 5em;
+    margin: 2em auto 0 auto;
     box-shadow: 0 7px 14px 0 rgba(50,50,93,0.1), 0 3px 6px 0 rgba(0,0,0,0.07);
     border-radius: 4px;
     border: 1px solid #ddd;
@@ -588,6 +589,41 @@ footer a{
     text-align: left;
     padding-left: 34px;
 }
+
+
+.cpm-wrapper{
+    margin-top: 2.5em;
+}
+
+.cpm-table tbody{
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.cpm-td-description{
+    width: 65%;
+}
+
+.cpm-td-num{
+    width: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
