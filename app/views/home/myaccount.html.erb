@@ -8,6 +8,7 @@
             <li class="top-nav-li" id="deals">案件管理</li>
             <% if @current_user_pod %>
                 <li class="top-nav-li" id="program">番組情報</li>
+                <li class="top-nav-li" id="ep-schedule">番組スケジュール</li>
             <% end %>
             <li class="top-nav-li" id="payment">支払い管理</li>
         </ul>
@@ -205,6 +206,54 @@
                         <% end %>
                     <% end %>
                 </div>
+            </div>
+        </div>
+        
+        <div class="content-container content-ep-schedule">
+            <h2>番組スケジュール管理</h2>
+            <div class="content-wrapper content-schedule-wrapper">
+                <% if @episodes.present? %>
+                    <table class="episode-schedule-table">
+                        <tr>
+                            <td>月日</td>
+                            <td>タイトル</td>
+                            <td>pre-roll</td>
+                            <td>mid-roll</td>
+                            <td>post-roll</td>
+                        </tr>
+                        <% @episodes.each do |ep|%>
+                            <tr>
+                                <td><%= ep.date %></td>
+                                <td><%= ep.name %></td>
+                                <td><%= ep.pre_roll %></td>
+                                <td><%= ep.mid_roll %></td>
+                                <td><%= ep.post_roll %></td>
+                            </tr>
+                        <% end %>
+                        <%= form_for(@episode, url: {controller: 'home', action: 'add_episode'}, html: {method: "post"}) do |f| %>
+                            <tr>
+                                <td>
+                                    <%= f.text_field :date, :class => "form-text-area form-item" %>
+                                </td>
+                                <td>
+                                    <%= f.text_field :name, :class => "form-text-area form-item" %>
+                                </td>
+                                <td>
+                                    <%= f.text_field :pre_roll, :class => "form-text-area form-item" %>
+                                </td>
+                                <td>
+                                    <%= f.text_field :mid_roll, :class => "form-text-area form-item" %>
+                                </td>
+                                <td>
+                                    <%= f.text_field :post_roll, :class => "form-text-area form-item" %>
+                                </td>
+                                <td>
+                                    <%= f.submit "保存", :class => "form-btn btn form-submit-item" %>
+                                </td>
+                            </tr>
+                        <% end %>        
+                    </table>
+                <% end %>
             </div>
         </div>
         

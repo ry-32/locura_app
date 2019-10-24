@@ -89,9 +89,26 @@ class HomeController < ApplicationController
     end
     
     @program = Program.find_by(host_id: @podcaster.id)
+    @episodes = Episode.where(program_id: @program.id)
+    @episode = Episode.new
+    
+  end
+  
+  def add_episode
+    
+    @program = Program.find_by(host_id: @current_user_pod.id)
+    
+    @episode = Episode.new(episode_params)
+    @episode.program_id = @program.id
+    
+    if @episode.save
+      redirect_to('/myaccount')
+    end
     
     
   end
+  
+  
   
   def edit_program_info
     
@@ -164,6 +181,13 @@ class HomeController < ApplicationController
     params.require(:program).permit(:name, :description, :genre, :dl, :hosting,
     :start_date, :host_id, :program_url, :hp_url, :cpm_30_pre, :cpm_60_pre,
     :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post)
+  end
+  
+  def episode_params
+    
+    params.require(:episode).permit(:date,:program_id,:name,:pre_roll,
+    :mid_roll,:post_roll)
+    
   end
   
   

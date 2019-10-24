@@ -22,6 +22,6 @@ Rails.application.routes.draw do
   post '/deal_request' => 'advertiser#deal_request'
   post '/update' => 'podcaster#update'
   post '/update_program_info' => 'home#edit_program_info'
-  
+  post '/add_episode' =>  'home#add_episode'
 
 end
