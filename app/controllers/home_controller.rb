@@ -94,6 +94,10 @@ class HomeController < ApplicationController
   end
   
   def edit_program_info
+    
+    
+    
+    
   end
 
   def edit_profile
@@ -152,6 +156,12 @@ class HomeController < ApplicationController
   
   def contact_params
     params.require(:contact).permit(:name, :email, :content)
+  end
+  
+  def program_params
+    params.require(:program).permit(:name, :description, :genre, :dl, :hosting,
+    :start_date, :host_id, :program_url, :hp_url, :cpm_30_pre, :cpm_60_pre,
+    :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post)
   end
   
   
