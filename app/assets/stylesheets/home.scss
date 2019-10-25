@@ -296,7 +296,7 @@ footer a{
 }
 
 .form-items{
-    width: 342px;
+    width: 90%;
     margin: auto;
 }
 
@@ -486,7 +486,6 @@ footer a{
 
 
 .profile-form-body{
-    padding-top: 90px;
 }
 
 .pro-form-btn-wrapper{
@@ -590,6 +589,10 @@ footer a{
     padding-left: 34px;
 }
 
+.content-program h3{
+    margin-bottom: 3em;
+}
+
 
 .cpm-wrapper{
     margin-top: 2.5em;
@@ -600,12 +603,16 @@ footer a{
     table-layout: fixed;
 }
 
+.cpm-table tr{
+    vertical-align: top;
+}
+
 .cpm-td-description{
-    width: 65%;
+    // width: 65%;
 }
 
 .cpm-td-num{
-    width: 20%;
+    // width: 20%;
 }
 
 
@@ -781,6 +788,7 @@ footer a{
 #ep-add-new{
     float:right;
     font-size: .82em;
+    margin: 1em 1em 0 0 ;
     cursor: pointer;
 }
 
