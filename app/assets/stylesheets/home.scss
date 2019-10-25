@@ -614,14 +614,44 @@ footer a{
     width: 90%;
 }
 
-.episode-schedule-table{
-    table-layout: fixed;
+.episode-schedule-wrapper{
     width: 90%;
     margin: auto;
 }
 
+
+.episode-schedule-table{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse:collapse;
+}
+
 .episode-schedule-table td{
 }
+
+
+.ep-table-titles{
+    background: #F3F3F3;
+    font-weight: 600;
+}
+
+.ep-table-items{
+    height: 3.4em;
+}
+
+.date-td{
+    width: 28%;
+    padding-left: .35em;
+}
+
+.title-td{
+    width: 28%;
+}
+
+.num-td{
+    width: 10%;
+}
+
 
 .ep-form-text-area{
     border: .45px solid rgba(0,0,0,.3);
@@ -643,6 +673,13 @@ footer a{
 
 
 
+.edit-ep-title-area{
+    width: 90%;
+}
+
+.edit-ep-date-area{
+    width: 90%;
+}
 
 .ep-edit-modal{
     display: none;
@@ -658,31 +695,98 @@ footer a{
     height: 100vh;
     position: absolute;
     width: 100%;
+    z-index: -1;
 }
 
 .ep-edit-content{
+    border-radius: 4px;
     background: #fff;
-    left: 50%;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    width: 60%;
+    // left: 50%;
+    padding: 7em 4em;
+    // position: absolute;
+    // top: 50%;
+    // transform: translate(-50%,-50%);
+    width: 65%;
+    margin: auto;
+    margin-top: 13em;
+    z-index: 0;
+    position: relative;
+    // height: 38%;
+
 }
 
+.edit-modal-table{
+    margin-bottom: 1em;
+}
+
+#modal-close{
+    cursor: pointer;
+    width: 3em;
+    position: absolute;
+    right: 2.3em;
+    top: 1.8em;
+    font-size: .7em;
+}
 
 .ep-edit-area{
     display:none;
 }
 
+.ep-modal-table{
+    table-layout: fixed;
+    width: 80%;
+    
+}
+
+.ep-modal-table td{
+    
+}
+
 .ep-add-area{
     display:none;
+    
+}
+
+.edit-modal-table input{
+    height: 2.3em;
+}
+
+.long-field{
+    width: 30%;
+    display: inline-block;
+}
+
+.short-field{
+    width: 10%;
+    display: inline-block;
+}
+
+.short-field input{
+    width: 100%;
 }
 
 .ep-active{
     display: block;
 }
 
+#ep-add-new{
+    float:right;
+    font-size: .82em;
+    cursor: pointer;
+}
+
+.edit-episode{
+    text-align: center;
+}
+
+.edit-episode span{
+    cursor: pointer;
+    font-size: .71em;
+}
+
+.num-td-val{
+    text-align: center;
+}
 
 
 

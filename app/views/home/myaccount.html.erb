@@ -213,89 +213,96 @@
             <h2>番組スケジュール管理</h2>
             <div class="content-wrapper content-schedule-wrapper">
                 <% if @episodes.present? %>
-                    <table class="episode-schedule-table">
-                        <tr>
-                            <td>月日</td>
-                            <td>タイトル</td>
-                            <td>pre-roll</td>
-                            <td>mid-roll</td>
-                            <td>post-roll</td>
-                        </tr>
-                        <% @episodes.each do |ep|%>
-                            <tr>
-                                <td class="ep-id" style="display:none"><%= ep.id %></td>
-                                <td class="ep-date"><%= ep.date %></td>
-                                <td class="ep-title"><%= ep.name %></td>
-                                <td class="ep-pre"><%= ep.pre_roll %></td>
-                                <td class="ep-mid"><%= ep.mid_roll %></td>
-                                <td class="ep-post"><%= ep.post_roll %></td>
-                                <td class="edit-episode">編集する</td>
+                    <div class="episode-schedule-wrapper">
+                        <table class="episode-schedule-table">
+                            <tr class="ep-table-titles">
+                                <td class="date-td">月日</td>
+                                <td class="title-td">タイトル</td>
+                                <td class="num-td">pre-roll</td>
+                                <td class="num-td">mid-roll</td>
+                                <td class="num-td">post-roll</td>
                             </tr>
-                        <% end %>
-                        <tr id="ep-add-new"><td>新しいエピソード情報を追加する</td></tr>
-                    </table>
+                            <% @episodes.each do |ep|%>
+                                <tr class="ep-table-items">
+                                    <td class="ep-id"style="display:none"><%= ep.id %></td>
+                                    <td class="ep-date date-td"><%= ep.date %></td>
+                                    <td class="ep-title title-td"><%= ep.name %></td>
+                                    <td class="ep-pre num-td num-td-val"><%= ep.pre_roll %></td>
+                                    <td class="ep-mid num-td num-td-val"><%= ep.mid_roll %></td>
+                                    <td class="ep-post num-td num-td-val"><%= ep.post_roll %></td>
+                                    <td class="edit-episode "><span>編集する</span></td>
+                                </tr>
+                            <% end %>
+                        </table>
+                        <div id="ep-add-new">エピソードを追加</div>
+                    </div>
                 <% end %>
             </div>
             
             <div class="ep-edit-modal">
                 <div class="ep-edit-modal-bg"></div>
                 <div class="ep-edit-content">
-                    <table>
-                        <tr>
-                            <td>月日</td>
-                            <td>タイトル</td>
-                            <td>pre-roll</td>
-                            <td>mid-roll</td>
-                            <td>post-roll</td>
-                        </tr>
-                        <tr class="ep-add-area">
+                    <div class="edit-modal-table">
+                        
+                        <div class="ep-add-area">
                             <%= form_for(@episode, url: {controller: 'home', action: 'add_episode'}, html: {method: "post"}) do |f| %>
-                                <td>
+                                <div class="long-field">
+                                    <%= f.label :date, "日時" , :class => "" %>
                                     <%= f.text_field :date, :class => "ep-form-text-area ep-date-area" %>
-                                </td>
-                                <td>
+                                </div>
+                                <div class="long-field">
+                                    <%= f.label :name, "タイトル" , :class => "" %>
                                     <%= f.text_field :name, :class => "ep-form-text-area ep-title-area" %>
-                                </td>
-                                <td>
-                                    <%= f.text_field :pre_roll, :class => "ep-form-text-area ep-num-area" %>
-                                </td>
-                                <td>
-                                    <%= f.text_field :mid_roll, :class => "ep-form-text-area ep-num-area" %>
-                                </td>
-                                <td>
-                                    <%= f.text_field :post_roll, :class => "ep-form-text-area ep-num-area" %>
-                                </td>
-                                <td>
+                                </div>
+                                <div class="short-field">
+                                    <%= f.label :pre_roll, "pre-roll" , :class => "" %>
+                                    <%= f.text_field :pre_roll, :class => "ep-form-text-area" %>
+                                </div>
+                                <div class="short-field">
+                                    <%= f.label :mid_roll, "mid-roll" , :class => "" %>
+                                    <%= f.text_field :mid_roll, :class => "ep-form-text-area" %>
+                                </div>
+                                <div class="short-field">
+                                    <%= f.label :post_roll, "post-roll" , :class => "" %>
+                                    <%= f.text_field :post_roll, :class => "ep-form-text-area" %>
+                                </div>
+                                <div>
                                     <%= f.submit "保存", :class => "form-btn btn form-submit-item" %>
-                                </td>
+                                </div>
                             <% end %>
-                            
-                        </tr>
-                        <tr class="ep-edit-area">
+                        </div>
+                        
+                        <div class="ep-edit-area">
                             <%= form_for(@episode, url: {controller: 'home', action: 'edit_episode'}, html: {method: "post"}) do |f| %>
-                                <td>
-                                    <input name="id" class="ep-id-edit" style="display:none"></input>
+                                <input name="id" class="ep-id-edit" style="display:none"></input>
+                                <div class="long-field">
+                                    <%= f.label :date, "日時" , :class => "" %>
                                     <%= f.text_field :date, :class => "ep-form-text-area edit-ep-date-area"%>
-                                </td>
-                                <td>
+                                </div>
+                                <div class="long-field">
+                                    <%= f.label :name, "タイトル" , :class => "" %>
                                     <%= f.text_field :name, :class => "ep-form-text-area edit-ep-title-area" %>
-                                </td>
-                                <td>
+                                </div>
+                                <div class="short-field">
+                                    <%= f.label :pre_roll, "pre-roll" , :class => "" %>
                                     <%= f.text_field :pre_roll, :class => "ep-form-text-area edit-ep-pre-num-area ep-num-area" %>
-                                </td>
-                                <td>
+                                </div>
+                                <div class="short-field">
+                                    <%= f.label :mid_roll, "mid-roll" , :class => "" %>
                                     <%= f.text_field :mid_roll, :class => "ep-form-text-area edit-ep-mid-num-area ep-num-area" %>
-                                </td>
-                                <td>
+                                </div>
+                                <div class="short-field">
+                                    <%= f.label :post_roll, "post-roll" , :class => "" %>
                                     <%= f.text_field :post_roll, :class => "ep-form-text-area edit-ep-post-num-area ep-num-area" %>
-                                </td>
-                                <td>
+                                </div>
+                                <div>
                                     <%= f.submit "保存", :class => "form-btn btn form-submit-item" %>
-                                </td>
+                                </div>
                             <% end %>
-                        </tr>
-                    </table>
-                    <div id="modal-close">close</div>
+                        </div>
+                        
+                    </div>
+                    <div id="modal-close">閉じる</div>
                 </div>
             </div>
             
