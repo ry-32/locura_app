@@ -122,7 +122,14 @@ class HomeController < ApplicationController
   end
   
   
-  
+  def delete_episode
+    
+    @episode = Episode.find_by(id: params[:id])
+    @episode.destroy
+    
+    redirect_to ('/myaccount')
+    
+  end
   
   
   def edit_program_info

@@ -104,10 +104,11 @@ document.addEventListener("turbolinks:load", function() {
         var ep_mid_val = parent.find('.ep-mid').html()
         var ep_post_val = parent.find('.ep-post').html()
         var ep_id_val = parent.find('.ep-id').html()
-        
+        var new_link = '/delete_episode/'+ep_id_val
         
         // input items
         var ep_id = $('input.ep-id-edit')
+        var a_ep_id = $('a.ep-id-edit')
         var ep_date = $('input.edit-ep-date-area')
         var ep_title = $('input.edit-ep-title-area')
         var ep_pre = $('input.edit-ep-pre-num-area')
@@ -117,6 +118,7 @@ document.addEventListener("turbolinks:load", function() {
         
         // insert items
         ep_id.val(ep_id_val)
+        a_ep_id.attr("href",new_link)
         ep_date.val(ep_date_val)
         ep_title.val(ep_title_val)
         ep_pre.val(ep_pre_val)

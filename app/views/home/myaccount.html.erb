@@ -296,7 +296,9 @@
                                     <%= f.text_field :post_roll, :class => "ep-form-text-area edit-ep-post-num-area ep-num-area" %>
                                 </div>
                                 <div>
-                                    <%= f.submit "保存", :class => "form-btn btn form-submit-item" %>
+                                    <%= f.submit "保存", :class => "form-btn btn form-submit-item ep-edit-submit" %>
+                                    <%= link_to "削除する", "/delete_episode", method: :delete, data: {confirm: "削除します。よろしいですか？"},
+                                    :class => "delete-btn form-submit-item ep-edit-delete ep-id-edit"%>
                                 </div>
                             <% end %>
                         </div>
