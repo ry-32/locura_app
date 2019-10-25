@@ -86,11 +86,14 @@ class HomeController < ApplicationController
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
       @user = @podcaster
       @deals = Deal.where(podcaster_id: @user.id)
-    end
     
-    @program = Program.find_by(host_id: @podcaster.id)
-    @episodes = Episode.where(program_id: @program.id)
-    @episode = Episode.new
+    
+      @program = Program.find_by(host_id: @podcaster.id)
+      @episodes = Episode.where(program_id: @program.id)
+      @episode = Episode.new
+    
+    
+    end
     
   end
   
