@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   post '/update' => 'podcaster#update'
   post '/update_program_info' => 'home#edit_program_info'
   post '/add_episode' =>  'home#add_episode'
+  post '/edit_episode' => 'home#edit_episode'
 
 end

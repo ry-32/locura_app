@@ -105,8 +105,23 @@ class HomeController < ApplicationController
       redirect_to('/myaccount')
     end
     
+  end
+  
+  def edit_episode
+    
+    @episode = Episode.find_by(id: params[:id])
+    @episode.update(episode_params)
+    
+    if @episode.save
+      redirect_to('/myaccount')
+    else
+      redirect_to root_path
+    end
+    
     
   end
+  
+  
   
   
   

@@ -614,18 +614,74 @@ footer a{
     width: 90%;
 }
 
+.episode-schedule-table{
+    table-layout: fixed;
+    width: 90%;
+    margin: auto;
+}
+
 .episode-schedule-table td{
-    width: 10px;
+}
+
+.ep-form-text-area{
+    border: .45px solid rgba(0,0,0,.3);
+    border-radius: 4px;
+}
+
+.ep-date-area{
+    width: 90%;
+}
+
+.ep-title-area{
+    width: 90%;
+}
+
+.ep-num-area{
+    width: 31px;
 }
 
 
 
 
 
+.ep-edit-modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    
+}
+
+.ep-edit-modal-bg{
+    background: rgba(0,0,0,0.6);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.ep-edit-content{
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}
 
 
+.ep-edit-area{
+    display:none;
+}
 
+.ep-add-area{
+    display:none;
+}
 
+.ep-active{
+    display: block;
+}
 
 
 
