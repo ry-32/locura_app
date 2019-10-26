@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  upload_file: 
-  upload_filename: MyString
+  program_id: 1
+  podcaster_id: 1
+  file: MyString
 
 two:
-  upload_file: 
-  upload_filename: MyString
+  program_id: 1
+  podcaster_id: 1
+  file: MyString

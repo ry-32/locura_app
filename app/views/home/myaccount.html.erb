@@ -251,6 +251,10 @@
                                     </div>
                                 </div>
                             <% end %>
+                            <%= form_for(@file, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
+                                <%= f.file_field :file, :class => 'form-control' %>
+                                <%= f.submit "upload" %>
+                            <% end %>
                         <% end %>
                     </div>
                 </div>

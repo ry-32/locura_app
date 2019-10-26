@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 # for image uploader with AWS S3
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'aws-sdk', '< 2.0'
+
 
 gem 'pry-rails'
 gem 'rails-i18n'

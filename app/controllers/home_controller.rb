@@ -1,6 +1,12 @@
 class HomeController < ApplicationController
   
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+  AWS.config(access_key_id: 'AKIASPFJAJC7YUQXALHV',secret_access_key: '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',region: 'ap-northeast-1')
+  
+  
+  
+  
+  
   
   def index
     @a = Advertiser.first
@@ -99,7 +105,7 @@ class HomeController < ApplicationController
     
       
       @episode = Episode.new
-      @data_file = DlFile.new
+      @file = DlFile.new
       
     
     end
@@ -181,27 +187,34 @@ class HomeController < ApplicationController
 
   def file_upload
     
-    # if data_file_params[:upload_file].present?
-    #   upload_file = data_file_params[:upload_file]
-    #   content = {}
-    #   content[:upload_file] = upload_file.read
-    #   content[:upload_filename] = upload_file.original_filename
-    #   @data_file = DlFile.new(content)
-      
-    #   if @data_file.save
-    #     flash[:notice] = "保存に成功しました"
-    #   else
-    #     flash[:notice] = "保存に失敗しました"
-    #     render action: 'myaccount'
-    #   end
-      
+    @podcaster = @current_user_pod
+    
+    @s3image = DlFile.new(params[:file]) #data_file_params
+    s3 = AWS::S3.new
+    bucket = s3.buckets['locura-bucket']
+    
+    file = data_file_params[:file]
+    file_name = @podcaster.name+'_'+file.original_filename
+    file_full_path="images/"+file_name
+    
+    object = bucket.objects[file_full_path]
+    object.write(file)
+    @s3image.file="http://s3-ap-northeast-1.amazonaws.com/locura-bucket/images/#{file_name}"
+       
+    # respond_to do |format|
+    if @s3image.save
+      flash[:notice] = "ファイルの保存に成功しました"
+      redirect_to('/myaccount')
+      # format.html { redirect_to @s3image, notice: 'S3image was successfully created.' }
+      # format.json { render action: 'myaccount', status: :created, location: @s3image }
+    else
+      render action: 'myaccount'
+      # format.html { render action: 'myaccount' }
+      # format.json { render json: @s3image.errors, status: :unprocessable_entity }
+    end
     # end
     
-    @photo = Photo.new
-    @photo.image = params[:image]
-    @photo.save
-    
-    redirect_to ('/myaccount')
+
     
   end
 
@@ -259,7 +272,7 @@ class HomeController < ApplicationController
   private
   
   def data_file_params
-    params.require(:dl_file).permit(:upload_file)
+    params.require(:dl_file).permit(:file)
   end
   
   def account_params

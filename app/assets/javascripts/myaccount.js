@@ -3,8 +3,8 @@
 document.addEventListener("turbolinks:load", function() {
     
     $(function(){
-        $('.content-deals').addClass('active');
-        $('#deals').addClass('active-btn');
+        $('.content-program').addClass('active');
+        $('#program').addClass('active-btn');
     });
     
     
