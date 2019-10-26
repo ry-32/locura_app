@@ -1,11 +1,9 @@
 class HomeController < ApplicationController
   
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
+  
+  
   AWS.config(access_key_id: 'AKIASPFJAJC7YUQXALHV',secret_access_key: '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',region: 'ap-northeast-1')
-  
-  
-  
-  
   
   
   def index
