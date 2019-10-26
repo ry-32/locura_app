@@ -16,6 +16,10 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# for image uploader with AWS S3
+gem 'carrierwave'
+gem 'fog-aws'
+
 gem 'pry-rails'
 gem 'rails-i18n'
 gem 'mysql2'

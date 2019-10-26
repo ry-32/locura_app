@@ -92,6 +92,7 @@ class HomeController < ApplicationController
       @episodes = Episode.where(program_id: @program.id)
       @episode = Episode.new
       @data_file = DlFile.new
+      @photo = Photo.new
     
     
     end
@@ -154,21 +155,25 @@ class HomeController < ApplicationController
 
   def file_upload
     
-    if data_file_params[:upload_file].present?
-      upload_file = data_file_params[:upload_file]
-      content = {}
-      content[:upload_file] = upload_file.read
-      content[:upload_filename] = upload_file.original_filename
-      @data_file = DlFile.new(content)
+    # if data_file_params[:upload_file].present?
+    #   upload_file = data_file_params[:upload_file]
+    #   content = {}
+    #   content[:upload_file] = upload_file.read
+    #   content[:upload_filename] = upload_file.original_filename
+    #   @data_file = DlFile.new(content)
       
-      if @data_file.save
-        flash[:notice] = "保存に成功しました"
-      else
-        flash[:notice] = "保存に失敗しました"
-        render action: 'myaccount'
-      end
+    #   if @data_file.save
+    #     flash[:notice] = "保存に成功しました"
+    #   else
+    #     flash[:notice] = "保存に失敗しました"
+    #     render action: 'myaccount'
+    #   end
       
-    end
+    # end
+    
+    @photo = Photo.new
+    @photo.image = params[:image]
+    @photo.save
     
     redirect_to ('/myaccount')
     

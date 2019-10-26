@@ -212,9 +212,9 @@
                             <% end %>
                         <% end %>
                         <div>
-                            <%= form_for(@data_file, url:{controller: 'home', action: 'file_upload'}) do |f| %>
-                                <%= f.label :upload_file %>
-                                <%= f.file_field :upload_file %>
+                            <%= form_for(@photo, url:{controller: 'home', action: 'file_upload'}) do |f| %>
+                                <%= f.label :iamge %>
+                                <%= f.file_field :image %>
                                 <%= f.submit "アップロード" %>
                             <% end %>
                         </div>
