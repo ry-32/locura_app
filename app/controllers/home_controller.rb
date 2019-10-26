@@ -87,13 +87,20 @@ class HomeController < ApplicationController
       @user = @podcaster
       @deals = Deal.where(podcaster_id: @user.id)
     
+      
+      if Program.find_by(host_id: @podcaster.id)
+        @program = Program.find_by(host_id: @podcaster.id)
+        
+        if Episode.where(program_id: @program.id)
+          Episode.where(program_id: @program.id)
+        end
+        
+      end
     
-      @program = Program.find_by(host_id: @podcaster.id)
-      @episodes = Episode.where(program_id: @program.id)
+      
       @episode = Episode.new
       @data_file = DlFile.new
-      @photo = Photo.new
-    
+      
     
     end
     
