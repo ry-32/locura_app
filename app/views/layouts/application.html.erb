@@ -15,6 +15,9 @@
         
         <% if @current_user_ad or @current_user_pod %>
           <ul class="header-ul">
+              <% if @current_user_ad %>
+                <li><%= link_to 'キャンペーンを開始する', '/advertiser-register' %></li>
+              <% end %>
               <li><%= link_to 'ログアウト', '/logout' %></li>
               <li><%= link_to 'マイアカウント', '/myaccount' %></li>
           </ul>
