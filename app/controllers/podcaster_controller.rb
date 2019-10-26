@@ -28,7 +28,7 @@ class PodcasterController < ApplicationController
     if @podcaster.save
       Program.create(name: account_params[:name], host_id: @podcaster.id)
       session[:user_id] = @podcaster.id
-      redirect_to root_path
+      redirect_to ('/myaccount')
     else
       render(new_podcaster_path)
     end

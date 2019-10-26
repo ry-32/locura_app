@@ -6,6 +6,8 @@
 *{
     box-sizing: border-box;
     -webkit-appearance: none;
+    list-style:none;
+    text-decoration: none;
 }
 
 input[type="submit"]{
@@ -552,13 +554,41 @@ footer a{
 
 .deal-tr td{
     text-align: center;
-    font-size: .73em;
+    font-size: .83em;
 }
 
 .deal-tds{
     border: .3px solid rgba(0,0,0,.26);
 }
 
+.manage-btn-wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+    width: 70%;
+}
+
+.manage-btn{
+    
+}
+
+.manage-btn a{
+    background-color:#44c767;
+    font-size: .9em;
+    border-radius: 2px;
+    color: white;
+    padding: .4em .9em;
+    
+}
+
+.accept-btn a{
+    background-color:#44c767;
+}
+
+.deny-btn a{
+    background-color: #FE4A1D;
+}
 
 .error-message-wrapper{
     border: .12em solid #FE4A1D;

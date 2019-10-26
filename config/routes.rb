@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   post '/edit_episode' => 'home#edit_episode'
   delete '/delete_episode/:id' => 'home#delete_episode'
   post '/file_upload' => 'home#file_upload'
+  get '/manage_deal' => 'home#manage_deal_pod'
 
 end

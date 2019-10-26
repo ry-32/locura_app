@@ -70,31 +70,72 @@
             </div>
         </div>
         
-        <div class="content-container content-deals">
-            <h2>案件管理</h2>
-            <div class="content-wrapper">
-                <table class="deal-management-table">
-                        <tr class="deal-titles">
-                            <td class="deal-tds">キャンペーン名</td>
-                            <td class="deal-tds">予想DL数</td>
-                            <td class="deal-tds">DL数</td>
-                            <td class="deal-tds">費用</td>
-                        </tr>
-                        
-                        <% if @deals.present? %>
-                            <% @deals.each do |d|%>
-                                <tr class="deal-tr">
-                                    <td class="deal-tds"><%= d.name %></td>
-                                    <td class="deal-tds"><%= d.forecasted_dl%></td>
-                                    <td class="deal-tds"><%= d.dl %></td>
-                                    <td class="deal-tds"><%= d.cost %></td>
-                                </tr>
+        <% if @current_user_pod %>
+            <div class="content-container content-deals">
+                <h2>案件管理</h2>
+                <div class="content-wrapper">
+                    <table class="deal-management-table">
+                            <tr class="deal-titles">
+                                <td class="deal-tds">キャンペーン名</td>
+                                <td class="deal-tds">広告主名</td>
+                                <td class="deal-tds">予想DL数</td>
+                                <td class="deal-tds">DL数</td>
+                                <td class="deal-tds">費用</td>
+                                <td class="deal-tds">承諾/見送る</td>
+                            </tr>
+                            
+                            <% if @deals.present? %>
+                                <% @deals.each do |d|%>
+                                    <% if not d.status == "denied" %>
+                                        <tr class="deal-tr">
+                                            <td class="deal-tds"><%= d.name %></td>
+                                            <td class="deal-tds"><%= Advertiser.find_by(id: d.advertiser_id).company_name %></td>
+                                            <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                            <td class="deal-tds"><%= d.dl %></td>
+                                            <td class="deal-tds"><%= d.cost %></td>
+                                            <td class="deal-tds">
+                                                <ul class="manage-btn-wrapper">
+                                                    <li class="manage-btn accept-btn" style="margin-right:.7em"><%= link_to '✔', controller: "home", action: "manage_deal_pod",manage_id: 0, deal_id: d.id %></li>
+                                                    <li class="manage-btn deny-btn"><%= link_to '✖', controller: "home", action: "manage_deal_pod",manage_id: 1, deal_id: d.id %></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    <% end %>
+                                <% end %>
                             <% end %>
-                        <% end %>
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
-        
+        <% elsif @current_user_ad %>
+            <div class="content-container content-deals">
+                <h2>案件管理</h2>
+                <div class="content-wrapper">
+                    <table class="deal-management-table">
+                            <tr class="deal-titles">
+                                <td class="deal-tds">キャンペーン名</td>
+                                <td class="deal-tds">番組名</td>
+                                <td class="deal-tds">予想DL数</td>
+                                <td class="deal-tds">DL数</td>
+                                <td class="deal-tds">費用</td>
+                            </tr>
+                            
+                            <% if @deals.present? %>
+                                <% @deals.each do |d|%>
+                                    <% if not d.status == "denied" %>
+                                        <tr class="deal-tr">
+                                            <td class="deal-tds"><%= d.name %></td>
+                                            <td class="deal-tds"><%= Podcaster.find_by(id: d.podcaster_id).podcast_name %></td>
+                                            <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                            <td class="deal-tds"><%= d.dl %></td>
+                                            <td class="deal-tds"><%= d.cost %></td>
+                                        </tr>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                    </table>
+                </div>
+            </div>
+        <% end %>
         
         <% if @current_user_pod %>
             <div class="content-container content-program">
@@ -239,6 +280,20 @@
                                         <td class="edit-episode "><span>編集する</span></td>
                                     </tr>
                                 <% end %>
+                            </table>
+                            <div id="ep-add-new">エピソードを追加</div>
+                        </div>
+                        
+                    <% else %>
+                        <div class="episode-schedule-wrapper">
+                            <table class="episode-schedule-table">
+                                <tr class="ep-table-titles">
+                                    <td class="date-td">日程</td>
+                                    <td class="title-td">タイトル</td>
+                                    <td class="num-td">pre-roll</td>
+                                    <td class="num-td">mid-roll</td>
+                                    <td class="num-td">post-roll</td>
+                                </tr>
                             </table>
                             <div id="ep-add-new">エピソードを追加</div>
                         </div>

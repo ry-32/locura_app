@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191026042054) do
+ActiveRecord::Schema.define(version: 20191026055322) do
 
   create_table "advertisers", force: :cascade do |t|
     t.string   "name"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20191026042054) do
     t.integer  "pre_roll"
     t.integer  "mid_roll"
     t.integer  "post_roll"
+    t.string   "status"
+    t.integer  "episode_id"
   end
 
   create_table "dl_files", force: :cascade do |t|

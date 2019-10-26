@@ -92,7 +92,7 @@ class HomeController < ApplicationController
         @program = Program.find_by(host_id: @podcaster.id)
         
         if Episode.where(program_id: @program.id)
-          Episode.where(program_id: @program.id)
+          @episodes = Episode.where(program_id: @program.id)
         end
         
       end
@@ -103,6 +103,25 @@ class HomeController < ApplicationController
       
     
     end
+    
+  end
+  
+  def manage_deal_pod
+    
+    @podcaster = @current_user_pod
+    @deal = Deal.find_by(id: params[:deal_id])
+    @manage = params[:manage_id]
+    
+    if @manage == "0"
+      @deal.status = "in progress"
+    elsif @manage == "1"
+      @deal.status = "denied"
+    end
+    
+    @deal.save
+    redirect_to('/myaccount')
+    
+    
     
   end
   
@@ -153,7 +172,7 @@ class HomeController < ApplicationController
     @program.update(program_params)
     
     
-    flash[:notice] = "保存に成功しました１"
+    flash[:notice] = "保存に成功しました"
     
     redirect_to('/myaccount')
     
