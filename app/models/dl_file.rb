@@ -1,0 +1,2 @@
+class DlFile < ApplicationRecord
+end

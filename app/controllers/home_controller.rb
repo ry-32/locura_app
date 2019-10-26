@@ -91,6 +91,7 @@ class HomeController < ApplicationController
       @program = Program.find_by(host_id: @podcaster.id)
       @episodes = Episode.where(program_id: @program.id)
       @episode = Episode.new
+      @data_file = DlFile.new
     
     
     end
@@ -109,6 +110,8 @@ class HomeController < ApplicationController
     end
     
   end
+  
+  
   
   def edit_episode
     
@@ -140,9 +143,38 @@ class HomeController < ApplicationController
     @podcaster = @current_user_pod
     @program = Program.find_by(host_id: @podcaster.id)
     @program.update(program_params)
+    
+    
+    flash[:notice] = "保存に成功しました１"
+    
     redirect_to('/myaccount')
     
+    
   end
+
+  def file_upload
+    
+    if data_file_params[:upload_file].present?
+      upload_file = data_file_params[:upload_file]
+      content = {}
+      content[:upload_file] = upload_file.read
+      content[:upload_filename] = upload_file.original_filename
+      @data_file = DlFile.new(content)
+      
+      if @data_file.save
+        flash[:notice] = "保存に成功しました"
+      else
+        flash[:notice] = "保存に失敗しました"
+        render action: 'myaccount'
+      end
+      
+    end
+    
+    redirect_to ('/myaccount')
+    
+  end
+
+
 
   def edit_profile
     
@@ -188,6 +220,15 @@ class HomeController < ApplicationController
       render action: :contact
     end
     
+  end
+  
+  
+  
+  
+  private
+  
+  def data_file_params
+    params.require(:dl_file).permit(:upload_file)
   end
   
   def account_params

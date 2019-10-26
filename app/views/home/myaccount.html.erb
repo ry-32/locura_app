@@ -119,6 +119,7 @@
                                             <%= f.label :dl, "平均ダウンロード数" , :class => "form-item" %>
                                             <%= f.text_field :dl, :class => "form-text-area form-item" %>
                                         </div>
+                                        
                                         <div class="form-hosting-wrapper form-container">
                                             <%= f.label :hosting, "ご利用中のホスティング" , :class => "form-item" %>
                                             <%= f.text_field :hosting, :class => "form-text-area form-item" %>
@@ -210,6 +211,13 @@
                                 </div>
                             <% end %>
                         <% end %>
+                        <div>
+                            <%= form_for(@data_file, url:{controller: 'home', action: 'file_upload'}) do |f| %>
+                                <%= f.label :upload_file %>
+                                <%= f.file_field :upload_file %>
+                                <%= f.submit "アップロード" %>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
             </div>
