@@ -149,9 +149,9 @@
                                         
                                         <div class="program-info-wrapper">
                                             <h3>基本情報</h3>
-                                            <div class="form-pic-wrapper form-container">
+                                            <div class="form-pic-wrapper">
                                                 <% if @program.prof_file %>
-                                                    <%= image_tag @program.prof_file %>
+                                                    <%= image_tag @program.prof_file, :class => "prof-image"%>
                                                 <% else %>
                                                     <%= f.label :prof_file, "番組の画像" , :class => "form-item" %>
                                                     <%= f.file_field :prof_file, :class => "form-text-area form-item" %>
