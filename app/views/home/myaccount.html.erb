@@ -143,126 +143,131 @@
                 <div class="content-wrapper">
                     <div class="form-body profile-form-body">
                         <% if @program.present? %>
-                            <%= form_for(@program, url: {controller: 'home', action: 'edit_program_info'}, html: {method: "post"}) do |f| %>
-                                <div class="form-items">
-                                    
-                                    <div class="program-info-wrapper">
-                                        <h3>基本情報</h3>
-                                        <div class="form-pic-wrapper form-container">
-                                            <% if @program.prof_file %>
-                                                <%= image_tag @program.prof_file %>
-                                            <% else %>
-                                                <%= f.label :prof_file, "番組の画像" , :class => "form-item" %>
-                                                <%= f.file_field :prof_file, :class => "form-text-area form-item" %>
-                                            <% end %>
+                            <div>
+                                <%= form_for(@program, url: {controller: 'home', action: 'edit_program_info'}, html: {method: "post"}) do |f| %>
+                                    <div class="form-items">
+                                        
+                                        <div class="program-info-wrapper">
+                                            <h3>基本情報</h3>
+                                            <div class="form-pic-wrapper form-container">
+                                                <% if @program.prof_file %>
+                                                    <%= image_tag @program.prof_file %>
+                                                <% else %>
+                                                    <%= f.label :prof_file, "番組の画像" , :class => "form-item" %>
+                                                    <%= f.file_field :prof_file, :class => "form-text-area form-item" %>
+                                                <% end %>
+                                            </div>
+                                            <div class="form-name-wrapper form-container">
+                                                <%= f.label :name, "番組名" , :class => "form-item" %>
+                                                <%= f.text_field :name, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-genre-wrapper form-container">
+                                                <%= f.label :genre, "ジャンル" , :class => "form-item" %>
+                                                <%= f.text_field :genre, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-dl-wrapper form-container">
+                                                <%= f.label :dl, "平均ダウンロード数" , :class => "form-item" %>
+                                                <%= f.text_field :dl, :class => "form-text-area form-item" %>
+                                            </div>
+                                            
+                                            <div class="form-hosting-wrapper form-container">
+                                                <%= f.label :hosting, "ご利用中のホスティング" , :class => "form-item" %>
+                                                <%= f.text_field :hosting, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-date-wrapper form-container">
+                                                <%= f.label :start_date, "番組開始日" , :class => "form-item" %>
+                                                <%= f.text_field :start_date, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-program_url-wrapper form-container">
+                                                <%= f.label :program_url, "番組のURL" , :class => "form-item" %>
+                                                <%= f.text_field :program_url, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-hp_url-wrapper form-container">
+                                                <%= f.label :hp_url, "HPのURL" , :class => "form-item" %>
+                                                <%= f.text_field :hp_url, :class => "form-text-area form-item" %>
+                                            </div>
                                         </div>
-                                        <div class="form-name-wrapper form-container">
-                                            <%= f.label :name, "番組名" , :class => "form-item" %>
-                                            <%= f.text_field :name, :class => "form-text-area form-item" %>
-                                        </div>
-                                        <div class="form-genre-wrapper form-container">
-                                            <%= f.label :genre, "ジャンル" , :class => "form-item" %>
-                                            <%= f.text_field :genre, :class => "form-text-area form-item" %>
-                                        </div>
-                                        <div class="form-dl-wrapper form-container">
-                                            <%= f.label :dl, "平均ダウンロード数" , :class => "form-item" %>
-                                            <%= f.text_field :dl, :class => "form-text-area form-item" %>
+        
+                                        <div class="cpm-wrapper">
+                                            <h3>CPM</h3>
+                                            <table class="cpm-table">
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">30秒 Pre-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_30_pre, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">60秒 Pre-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_60_pre, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">30秒 Mid-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_30_mid, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">30秒 Mid-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_60_mid, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">30秒 Post-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_30_post, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">60秒 Post-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_60_post, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td"></td>
+                                                </tr>
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td"></td>
+                                                </tr>
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td"></td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td"></td>
+                                                </tr>
+                                                
+                                            </table>
                                         </div>
                                         
-                                        <div class="form-hosting-wrapper form-container">
-                                            <%= f.label :hosting, "ご利用中のホスティング" , :class => "form-item" %>
-                                            <%= f.text_field :hosting, :class => "form-text-area form-item" %>
-                                        </div>
-                                        <div class="form-date-wrapper form-container">
-                                            <%= f.label :start_date, "番組開始日" , :class => "form-item" %>
-                                            <%= f.text_field :start_date, :class => "form-text-area form-item" %>
-                                        </div>
-                                        <div class="form-program_url-wrapper form-container">
-                                            <%= f.label :program_url, "番組のURL" , :class => "form-item" %>
-                                            <%= f.text_field :program_url, :class => "form-text-area form-item" %>
-                                        </div>
-                                        <div class="form-hp_url-wrapper form-container">
-                                            <%= f.label :hp_url, "HPのURL" , :class => "form-item" %>
-                                            <%= f.text_field :hp_url, :class => "form-text-area form-item" %>
+                                        
+                                        <div class="form-btn-wrapper pro-form-btn-wrapper">
+                                            <ul class="form-btn-ul">
+                                                <li><%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "削除をするとお客様のデータは完全に消えてしまいます。本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %></li>
+                                                <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
+                                            </ul>
                                         </div>
                                     </div>
-    
-                                    <div class="cpm-wrapper">
-                                        <h3>CPM</h3>
-                                        <table class="cpm-table">
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td-description">30秒 Pre-roll</td>
-                                                <td class="cpm-td-num">
-                                                    <%= f.text_field :cpm_30_pre, :class => "form-text-area form-item" %>
-                                                </td>
-                                            </tr>
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td-description">60秒 Pre-roll</td>
-                                                <td class="cpm-td-num">
-                                                    <%= f.text_field :cpm_60_pre, :class => "form-text-area form-item" %>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td-description">30秒 Mid-roll</td>
-                                                <td class="cpm-td-num">
-                                                    <%= f.text_field :cpm_30_mid, :class => "form-text-area form-item" %>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td-description">30秒 Mid-roll</td>
-                                                <td class="cpm-td-num">
-                                                    <%= f.text_field :cpm_60_mid, :class => "form-text-area form-item" %>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td-description">30秒 Post-roll</td>
-                                                <td class="cpm-td-num">
-                                                    <%= f.text_field :cpm_30_post, :class => "form-text-area form-item" %>
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td-description">60秒 Post-roll</td>
-                                                <td class="cpm-td-num">
-                                                    <%= f.text_field :cpm_60_post, :class => "form-text-area form-item" %>
-                                                </td>
-                                            </tr>
-                                            
-                                            
-                                            
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td"></td>
-                                            </tr>
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td"></td>
-                                            </tr>
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td"></td>
-                                            </tr>
-                                            
-                                            <tr class="cpm-tr">
-                                                <td class="cpm-td"></td>
-                                            </tr>
-                                            
-                                        </table>
-                                    </div>
-                                    
-                                    
-                                    <div class="form-btn-wrapper pro-form-btn-wrapper">
-                                        <ul class="form-btn-ul">
-                                            <li><%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "削除をするとお客様のデータは完全に消えてしまいます。本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %></li>
-                                            <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            <% end %>
-                            <%= form_for(@file, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
-                                <%= f.file_field :file, :class => 'form-control' %>
-                                <%= f.submit "upload" %>
-                            <% end %>
+                                <% end %>
+                            </div>
+                            <div class="dl-confirmation-wrapper">
+                                <h3>DL確認</h3>
+                                <%= form_for(@file, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
+                                    <%= f.file_field :file, :class => 'form-control' %>
+                                    <%= f.submit "送信", :class => "form-btn btn form-submit-item" %>
+                                <% end %>
+                            </div>
                         <% end %>
                     </div>
                 </div>

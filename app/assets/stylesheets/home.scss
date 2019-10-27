@@ -487,12 +487,6 @@ footer a{
 }
 
 
-.profile-form-body{
-}
-
-.pro-form-btn-wrapper{
-
-}
 
 .delete-btn{
     text-decoration: none;
@@ -619,9 +613,14 @@ footer a{
     padding-left: 34px;
 }
 
+.content-program input[type="file"]{
+
+}
+
 .content-program h3{
     margin-bottom: 3em;
 }
+
 
 
 .cpm-wrapper{
@@ -838,6 +837,21 @@ footer a{
 .num-td-val{
     text-align: center;
 }
+
+
+
+.dl-confirmation-wrapper{
+    width: 90%;
+    margin: 7em auto 0 auto;
+}
+
+.dl-confirmation-wrapper form{
+    width: 80%;
+    margin: auto;
+}
+
+
+
 
 
 
