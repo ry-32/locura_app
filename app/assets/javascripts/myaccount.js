@@ -4,7 +4,7 @@ document.addEventListener("turbolinks:load", function() {
     
     $(function(){
         $('.content-profile').addClass('active');
-        $('#profile').addClass('active-btn');
+        $('#prof').addClass('active-btn');
     });
     
     
