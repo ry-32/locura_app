@@ -176,6 +176,28 @@ class HomeController < ApplicationController
     @program.update(program_params)
     
     
+    if program_params[:prof_file].present?
+      
+      s3 = AWS::S3.new(s3_endpoint: "s3-ap-northeast-1.amazonaws.com")
+      bucket = s3.buckets['locura-bucket']
+      
+      file = program_params[:prof_file]
+      file_name = @program.name+'_'+file.original_filename
+      file_full_path="profile/"+file_name
+      
+      object = bucket.objects[file_full_path]
+      object.write(file,:acl => :public_read)
+      @program.prof_file = "http://s3-ap-northeast-1.amazonaws.com/locura-bucket/profile/#{file_name}"
+         
+      if @program.save == false
+        flash[:notice] = "編集の保存に失敗しました"
+        render action: 'myaccount'
+      end
+    
+    end
+    
+    
+    
     flash[:notice] = "保存に成功しました"
     
     redirect_to('/myaccount')
@@ -199,22 +221,16 @@ class HomeController < ApplicationController
     object.write(file)
     @s3image.file="http://s3-ap-northeast-1.amazonaws.com/locura-bucket/images/#{file_name}"
        
-    # respond_to do |format|
     if @s3image.save
       flash[:notice] = "ファイルの保存に成功しました"
       redirect_to('/myaccount')
-      # format.html { redirect_to @s3image, notice: 'S3image was successfully created.' }
-      # format.json { render action: 'myaccount', status: :created, location: @s3image }
     else
+      flash[:notice] = "ファイルの保存に失敗しました"
       render action: 'myaccount'
-      # format.html { render action: 'myaccount' }
-      # format.json { render json: @s3image.errors, status: :unprocessable_entity }
     end
-    # end
-    
-
     
   end
+    
 
 
 
@@ -288,7 +304,7 @@ class HomeController < ApplicationController
   def program_params
     params.require(:program).permit(:name, :description, :genre, :dl, :hosting,
     :start_date, :host_id, :program_url, :hp_url, :cpm_30_pre, :cpm_60_pre,
-    :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post)
+    :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post,:prof_file)
   end
   
   def episode_params

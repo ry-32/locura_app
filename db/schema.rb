@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191026102454) do
+ActiveRecord::Schema.define(version: 20191027042554) do
 
   create_table "advertisers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20191026102454) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "password_digest"
+    t.string   "prof_file"
   end
 
   create_table "programs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 20191026102454) do
     t.integer  "cpm_60_mid"
     t.integer  "cpm_30_post"
     t.integer  "cpm_60_post"
+    t.string   "prof_file"
   end
 
 end
