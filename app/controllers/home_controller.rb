@@ -98,7 +98,8 @@ class HomeController < ApplicationController
         if Episode.where(program_id: @program.id)
           @episodes = Episode.where(program_id: @program.id)
         end
-        
+      else
+        @program_new = Program.new
       end
     
       
@@ -121,6 +122,15 @@ class HomeController < ApplicationController
     elsif @manage == "1"
       @deal.status = "denied"
     end
+    
+    
+    # ここで案件の広告枠数をEPの広告枠数をから引いて
+    # 広告枠数の整合性が合うようにする
+    @episode = Episode.find_by(id: @deal.episode_id)
+    
+    
+    
+    
     
     @deal.save
     redirect_to('/myaccount')
@@ -158,15 +168,6 @@ class HomeController < ApplicationController
     
   end
   
-  
-  def delete_episode
-    
-    @episode = Episode.find_by(id: params[:id])
-    @episode.destroy
-    
-    redirect_to ('/myaccount')
-    
-  end
   
   
   def edit_program_info
@@ -254,14 +255,45 @@ class HomeController < ApplicationController
       @advertiser = Advertiser.find_by(id: @current_user_ad.id)
       @advertiser.destroy
     elsif @current_user_pod
+      
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
       @podcaster.destroy
+      
+      @program = Program.find_by(host_id: @podcaster.id)
+      @program.destroy
+      
+      @episodes = Episode.where(program_id: @program.id)
+      @episodes.destroy_all
+    
     end
     
     redirect_to('/')
     
   end
+  
+  
+  
+  def delete_program
     
+    @program = Program.find_by(id: params[:id])
+    @episodes = Episode.where(program_id: @program.id)
+    
+    @program.destroy
+    @episodes.destroy_all
+    
+    redirect_to('/myaccount')
+
+  end
+    
+  
+  def delete_episode
+    
+    @episode = Episode.find_by(id: params[:id])
+    @episode.destroy
+    
+    redirect_to ('/myaccount')
+    
+  end
 
 
   def contact
@@ -309,8 +341,8 @@ class HomeController < ApplicationController
   
   def episode_params
     
-    params.require(:episode).permit(:date,:program_id,:name,:pre_roll,
-    :mid_roll,:post_roll)
+    params.require(:episode).permit(:date,:program_id,:name,:pre_roll_30,:pre_roll_60,
+    :mid_roll_30,:mid_roll_60,:post_roll_30,:post_roll_60)
     
   end
   

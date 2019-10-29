@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   post '/add_episode' =>  'home#add_episode'
   post '/edit_episode' => 'home#edit_episode'
   delete '/delete_episode/:id' => 'home#delete_episode'
+  delete '/delete_program' => 'home#delete_program'
   post '/file_upload' => 'home#file_upload'
   get '/manage_deal' => 'home#manage_deal_pod'
+  post '/add_program' => 'podcaster#add_program'
 
 end

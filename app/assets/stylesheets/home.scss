@@ -689,7 +689,8 @@ footer a{
 }
 
 .num-td{
-    width: 10%;
+    width: 13%;
+    text-align: center;
 }
 
 
@@ -746,7 +747,7 @@ footer a{
     // position: absolute;
     // top: 50%;
     // transform: translate(-50%,-50%);
-    width: 65%;
+    width: 85%;
     margin: auto;
     margin-top: 13em;
     z-index: 0;
@@ -801,12 +802,13 @@ footer a{
 }
 
 .long-field{
-    width: 30%;
+    width: 25%;
     display: inline-block;
 }
 
 .short-field{
-    width: 10%;
+    width: 6%;
+    margin-right: .13em;
     display: inline-block;
 }
 

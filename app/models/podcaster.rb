@@ -2,9 +2,10 @@ class Podcaster < ApplicationRecord
     
     VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
+    attr_accessor :podcast_name
+    
     validates :name, presence: true
     validates :email, presence: true, format: { with: VALID_EMAIL, message: "を正式なメールアドレスの形にしてください" }
-    validates :podcast_name, presence: true
     validates :password, presence: true, on: :create
     validates :password, presence: true, on: :login
     

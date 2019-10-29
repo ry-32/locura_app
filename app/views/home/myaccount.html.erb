@@ -49,10 +49,6 @@
                                     <%= f.label :name, "名前" , :class => "form-item" %>
                                     <%= f.text_field :name, :class => "form-text-area form-item" %>
                                 </div>
-                                <div class="form-podcast-name-wrapper form-container">
-                                    <%= f.label :podcast_name, "番組名", :class => "form-item" %>
-                                    <%= f.text_field :podcast_name , :class => "form-text-area form-item" %>    
-                                </div>
                                 <div class="form-email-wrapper form-container">
                                     <%= f.label :email, "メール", :class => "form-item" %>
                                     <%= f.text_field :email, :class => "form-text-area form-item"  %>    
@@ -124,7 +120,7 @@
                                     <% if not d.status == "denied" %>
                                         <tr class="deal-tr">
                                             <td class="deal-tds"><%= d.name %></td>
-                                            <td class="deal-tds"><%= Podcaster.find_by(id: d.podcaster_id).podcast_name %></td>
+                                            <td class="deal-tds"><%= Program.find_by(host_id: d.podcaster_id).name %></td>
                                             <td class="deal-tds"><%= d.forecasted_dl%></td>
                                             <td class="deal-tds"><%= d.dl %></td>
                                             <td class="deal-tds"><%= d.cost %></td>
@@ -152,6 +148,133 @@
                                             <div class="form-pic-wrapper">
                                                 <% if @program.prof_file %>
                                                     <%= image_tag @program.prof_file, :class => "prof-image"%>
+                                                <% else %>
+                                                    <%= f.label :prof_file, "番組の画像" , :class => "form-item" %>
+                                                    <%= f.file_field :prof_file, :class => "form-text-area form-item" %>
+                                                <% end %>
+                                            </div>
+                                            <div class="form-name-wrapper form-container">
+                                                <%= f.label :name, "番組名" , :class => "form-item" %>
+                                                <%= f.text_field :name, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-genre-wrapper form-container">
+                                                <%= f.label :genre, "ジャンル" , :class => "form-item" %>
+                                                <%= f.text_field :genre, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-dl-wrapper form-container">
+                                                <%= f.label :dl, "平均ダウンロード数" , :class => "form-item" %>
+                                                <%= f.text_field :dl, :class => "form-text-area form-item" %>
+                                            </div>
+                                            
+                                            <div class="form-hosting-wrapper form-container">
+                                                <%= f.label :hosting, "ご利用中のホスティング" , :class => "form-item" %>
+                                                <%= f.text_field :hosting, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-date-wrapper form-container">
+                                                <%= f.label :start_date, "番組開始日" , :class => "form-item" %>
+                                                <%= f.text_field :start_date, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-program_url-wrapper form-container">
+                                                <%= f.label :program_url, "番組のURL" , :class => "form-item" %>
+                                                <%= f.text_field :program_url, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-hp_url-wrapper form-container">
+                                                <%= f.label :hp_url, "HPのURL" , :class => "form-item" %>
+                                                <%= f.text_field :hp_url, :class => "form-text-area form-item" %>
+                                            </div>
+                                        </div>
+        
+                                        <div class="cpm-wrapper">
+                                            <h3>CPM</h3>
+                                            <table class="cpm-table">
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">30秒 Pre-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_30_pre, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">60秒 Pre-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_60_pre, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">30秒 Mid-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_30_mid, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">60秒 Mid-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_60_mid, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">30秒 Post-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_30_post, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td-description">60秒 Post-roll</td>
+                                                    <td class="cpm-td-num">
+                                                        <%= f.text_field :cpm_60_post, :class => "form-text-area form-item" %>
+                                                    </td>
+                                                </tr>
+                                                
+                                                
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td"></td>
+                                                </tr>
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td"></td>
+                                                </tr>
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td"></td>
+                                                </tr>
+                                                
+                                                <tr class="cpm-tr">
+                                                    <td class="cpm-td"></td>
+                                                </tr>
+                                                
+                                            </table>
+                                        </div>
+                                        
+                                        
+                                        <div class="form-btn-wrapper pro-form-btn-wrapper">
+                                            <ul class="form-btn-ul">
+                                                <li><%= link_to "削除する", delete_program_path(:id => @program.id), :id => @program.id ,method: :delete, data: {confirm: "削除をするとこの番組のデータ、番組のエピソードに関するデータは完全に消えてしまいます。本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %></li>
+                                                <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <% end %>
+                            </div>
+                            <div class="dl-confirmation-wrapper">
+                                <h3>DL確認</h3>
+                                <%= form_for(@file, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
+                                    <%= f.file_field :file, :class => 'form-control' %>
+                                    <%= f.submit "送信", :class => "form-btn btn form-submit-item" %>
+                                <% end %>
+                            </div>
+                            
+                        <% else %>
+                        
+                            <%= form_for(@program_new, url: {controller: 'podcaster', action: 'add_program'}, html: {method: "post"}) do |f| %>
+                                    <div class="form-items">
+                                        
+                                        <div class="program-info-wrapper">
+                                            <h3>基本情報</h3>
+                                            <div class="form-pic-wrapper">
+                                                <% if @program_new.prof_file %>
+                                                    <%= image_tag @program_new.prof_file, :class => "prof-image"%>
                                                 <% else %>
                                                     <%= f.label :prof_file, "番組の画像" , :class => "form-item" %>
                                                     <%= f.file_field :prof_file, :class => "form-text-area form-item" %>
@@ -254,20 +377,11 @@
                                         
                                         <div class="form-btn-wrapper pro-form-btn-wrapper">
                                             <ul class="form-btn-ul">
-                                                <li><%= link_to "削除する", "/delete_account", method: :delete, data: {confirm: "削除をするとお客様のデータは完全に消えてしまいます。本当に削除しますか？"}, :class => "delete-btn form-submit-item"  %></li>
                                                 <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
                                             </ul>
                                         </div>
                                     </div>
                                 <% end %>
-                            </div>
-                            <div class="dl-confirmation-wrapper">
-                                <h3>DL確認</h3>
-                                <%= form_for(@file, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
-                                    <%= f.file_field :file, :class => 'form-control' %>
-                                    <%= f.submit "送信", :class => "form-btn btn form-submit-item" %>
-                                <% end %>
-                            </div>
                         <% end %>
                     </div>
                 </div>
@@ -276,45 +390,61 @@
             <div class="content-container content-ep-schedule">
                 <h2>番組スケジュール管理</h2>
                 <div class="content-wrapper content-schedule-wrapper">
-                    <% if @episodes.present? %>
-                        <div class="episode-schedule-wrapper">
-                            <table class="episode-schedule-table">
-                                <tr class="ep-table-titles">
-                                    <td class="date-td">日程</td>
-                                    <td class="title-td">タイトル</td>
-                                    <td class="num-td">pre-roll</td>
-                                    <td class="num-td">mid-roll</td>
-                                    <td class="num-td">post-roll</td>
-                                </tr>
-                                <% @episodes.each do |ep|%>
-                                    <tr class="ep-table-items">
-                                        <td class="ep-id"style="display:none"><%= ep.id %></td>
-                                        <td class="ep-date date-td"><%= ep.date %></td>
-                                        <td class="ep-title title-td"><%= ep.name %></td>
-                                        <td class="ep-pre num-td num-td-val"><%= ep.pre_roll %></td>
-                                        <td class="ep-mid num-td num-td-val"><%= ep.mid_roll %></td>
-                                        <td class="ep-post num-td num-td-val"><%= ep.post_roll %></td>
-                                        <td class="edit-episode "><span>編集する</span></td>
+                   <% if @program.present? %>
+                        <% if @episodes.present? %>
+                            <div class="episode-schedule-wrapper">
+                                <table class="episode-schedule-table">
+                                    <tr class="ep-table-titles">
+                                        <td class="date-td">日程</td>
+                                        <td class="title-td">タイトル</td>
+                                        <td class="num-td">pre-roll 30</td>
+                                        <td class="num-td">pre-roll 60</td>
+                                        <td class="num-td">mid-roll 30</td>
+                                        <td class="num-td">mid-roll 60</td>
+                                        <td class="num-td">post-roll 30</td>
+                                        <td class="num-td">post-roll 60</td>
+                                        <td class="num-td" style="background:white"></td>
                                     </tr>
-                                <% end %>
-                            </table>
-                            <div id="ep-add-new">エピソードを追加</div>
-                        </div>
-                        
+                                    <% @episodes.each do |ep|%>
+                                        <tr class="ep-table-items">
+                                            <td class="ep-id"style="display:none"><%= ep.id %></td>
+                                            <td class="ep-date date-td"><%= ep.date %></td>
+                                            <td class="ep-title title-td"><%= ep.name %></td>
+                                            <td class="ep-pre num-td num-td-val"><%= ep.pre_roll_30 %></td>
+                                            <td class="ep-pre num-td num-td-val"><%= ep.pre_roll_60 %></td>
+                                            <td class="ep-mid num-td num-td-val"><%= ep.mid_roll_30 %></td>
+                                            <td class="ep-mid num-td num-td-val"><%= ep.mid_roll_60 %></td>
+                                            <td class="ep-post num-td num-td-val"><%= ep.post_roll_30 %></td>
+                                            <td class="ep-post num-td num-td-val"><%= ep.post_roll_60 %></td>
+                                            <td class="edit-episode "><span>編集する</span></td>
+                                        </tr>
+                                    <% end %>
+                                </table>
+                                <div id="ep-add-new">エピソードを追加</div>
+                            </div>
+                            
+                        <% else %>
+                            <div class="episode-schedule-wrapper">
+                                <table class="episode-schedule-table">
+                                    <tr class="ep-table-titles">
+                                        <td class="date-td">日程</td>
+                                        <td class="title-td">タイトル</td>
+                                        <td class="num-td">pre-roll 30</td>
+                                        <td class="num-td">pre-roll 60</td>
+                                        <td class="num-td">mid-roll 30</td>
+                                        <td class="num-td">mid-roll 60</td>
+                                        <td class="num-td">post-roll 30</td>
+                                        <td class="num-td">post-roll 60</td>
+                                    </tr>
+                                </table>
+                                <div id="ep-add-new">エピソードを追加</div>
+                            </div>
+                        <% end %>
                     <% else %>
-                        <div class="episode-schedule-wrapper">
-                            <table class="episode-schedule-table">
-                                <tr class="ep-table-titles">
-                                    <td class="date-td">日程</td>
-                                    <td class="title-td">タイトル</td>
-                                    <td class="num-td">pre-roll</td>
-                                    <td class="num-td">mid-roll</td>
-                                    <td class="num-td">post-roll</td>
-                                </tr>
-                            </table>
-                            <div id="ep-add-new">エピソードを追加</div>
-                        </div>
+                        <div>番組情報欄にて番組情報をご登録いただいた後にエピソードの追加ができます</div>
                     <% end %>
+                    
+                    
                 </div>
                 
                 <div class="ep-edit-modal">
@@ -333,16 +463,28 @@
                                         <%= f.text_field :name, :class => "ep-form-text-area ep-title-area" %>
                                     </div>
                                     <div class="short-field">
-                                        <%= f.label :pre_roll, "pre-roll" , :class => "" %>
-                                        <%= f.text_field :pre_roll, :class => "ep-form-text-area" %>
+                                        <%= f.label :pre_roll_30, "pre-roll 30" , :class => "" %>
+                                        <%= f.text_field :pre_roll_30, :class => "ep-form-text-area" %>
                                     </div>
                                     <div class="short-field">
-                                        <%= f.label :mid_roll, "mid-roll" , :class => "" %>
-                                        <%= f.text_field :mid_roll, :class => "ep-form-text-area" %>
+                                        <%= f.label :pre_roll_60, "pre-roll 60" , :class => "" %>
+                                        <%= f.text_field :pre_roll_60, :class => "ep-form-text-area" %>
                                     </div>
                                     <div class="short-field">
-                                        <%= f.label :post_roll, "post-roll" , :class => "" %>
-                                        <%= f.text_field :post_roll, :class => "ep-form-text-area" %>
+                                        <%= f.label :mid_roll, "mid-roll 30" , :class => "" %>
+                                        <%= f.text_field :mid_roll_30, :class => "ep-form-text-area" %>
+                                    </div>
+                                    <div class="short-field">
+                                        <%= f.label :mid_roll, "mid-roll 60" , :class => "" %>
+                                        <%= f.text_field :mid_roll_60, :class => "ep-form-text-area" %>
+                                    </div>
+                                    <div class="short-field">
+                                        <%= f.label :post_roll_30, "post-roll 30" , :class => "" %>
+                                        <%= f.text_field :post_roll_30, :class => "ep-form-text-area" %>
+                                    </div>
+                                    <div class="short-field">
+                                        <%= f.label :post_roll_60, "post-roll 60" , :class => "" %>
+                                        <%= f.text_field :post_roll_60, :class => "ep-form-text-area" %>
                                     </div>
                                     <div>
                                         <%= f.submit "保存", :class => "form-btn btn form-submit-item" %>
@@ -362,21 +504,33 @@
                                         <%= f.text_field :name, :class => "ep-form-text-area edit-ep-title-area" %>
                                     </div>
                                     <div class="short-field">
-                                        <%= f.label :pre_roll, "pre-roll" , :class => "" %>
-                                        <%= f.text_field :pre_roll, :class => "ep-form-text-area edit-ep-pre-num-area ep-num-area" %>
+                                        <%= f.label :pre_roll_30, "pre-roll 30" , :class => "" %>
+                                        <%= f.text_field :pre_roll_30, :class => "ep-form-text-area edit-ep-pre-num-area ep-num-area" %>
                                     </div>
                                     <div class="short-field">
-                                        <%= f.label :mid_roll, "mid-roll" , :class => "" %>
-                                        <%= f.text_field :mid_roll, :class => "ep-form-text-area edit-ep-mid-num-area ep-num-area" %>
+                                        <%= f.label :pre_roll_60, "pre-roll 60" , :class => "" %>
+                                        <%= f.text_field :pre_roll_60, :class => "ep-form-text-area edit-ep-pre-num-area ep-num-area" %>
                                     </div>
                                     <div class="short-field">
-                                        <%= f.label :post_roll, "post-roll" , :class => "" %>
-                                        <%= f.text_field :post_roll, :class => "ep-form-text-area edit-ep-post-num-area ep-num-area" %>
+                                        <%= f.label :mid_roll_30, "mid-roll 30" , :class => "" %>
+                                        <%= f.text_field :mid_roll_30, :class => "ep-form-text-area edit-ep-mid-num-area ep-num-area" %>
+                                    </div>
+                                    <div class="short-field">
+                                        <%= f.label :mid_roll_60, "mid-roll 60" , :class => "" %>
+                                        <%= f.text_field :mid_roll_60, :class => "ep-form-text-area edit-ep-mid-num-area ep-num-area" %>
+                                    </div>
+                                    <div class="short-field">
+                                        <%= f.label :post_roll_30, "post-roll 30" , :class => "" %>
+                                        <%= f.text_field :post_roll_30, :class => "ep-form-text-area edit-ep-post-num-area ep-num-area" %>
+                                    </div>
+                                    <div class="short-field">
+                                        <%= f.label :post_roll_60, "post-roll 60" , :class => "" %>
+                                        <%= f.text_field :post_roll_60, :class => "ep-form-text-area edit-ep-post-num-area ep-num-area" %>
                                     </div>
                                     <div>
                                         <%= f.submit "保存", :class => "form-btn btn form-submit-item ep-edit-submit" %>
                                         <%= link_to "削除する", "/delete_episode", method: :delete, data: {confirm: "削除します。よろしいですか？"},
-                                        :class => "delete-btn form-submit-item ep-edit-delete ep-id-edit"%>
+                                        :class => "delete-btn form-submit-item ep-edit-delete ep-id-edit" %>
                                     </div>
                                 <% end %>
                             </div>

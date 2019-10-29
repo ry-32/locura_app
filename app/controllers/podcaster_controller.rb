@@ -26,7 +26,8 @@ class PodcasterController < ApplicationController
     end
     
     if @podcaster.save
-      Program.create(name: account_params[:name], host_id: @podcaster.id)
+      @program = Program.new(name: account_params[:podcast_name], host_id: @podcaster.id)
+      @program.save
       session[:user_id] = @podcaster.id
       flash[:notice] = "ご登録が完了しました"
       redirect_to ('/myaccount')
@@ -47,11 +48,36 @@ class PodcasterController < ApplicationController
       end
   end
   
+  
+  def add_program
+    
+    @program = Program.new(program_params)
+    @program.host_id = @current_user_pod.id
+    
+    if @program.save
+      flash[:notice] = "番組情報を登録いたしました"
+      redirect_to('/myaccount')
+    else
+      flash[:notice] = "番組情報の登録に失敗しました"
+      redirect_to('/myaccount')
+    end
+    
+  end
+  
+  
+  
+  
+  
+  private
   def account_params
-    params.require(:podcaster).permit(:name, :email, :podcast_name,
-    :password,:genre, :description, :url, :hosting, :memo)
+    params.require(:podcaster).permit(:name, :email,:password, :podcast_name,:prof_file)
   end
     
     
-    
+  def program_params
+    params.require(:program).permit(:name, :description, :genre, :dl, :hosting,
+    :start_date, :host_id, :program_url, :hp_url, :cpm_30_pre, :cpm_60_pre,
+    :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post,:prof_file)
+  end
+  
 end
