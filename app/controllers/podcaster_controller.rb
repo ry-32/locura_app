@@ -28,6 +28,7 @@ class PodcasterController < ApplicationController
     if @podcaster.save
       Program.create(name: account_params[:name], host_id: @podcaster.id)
       session[:user_id] = @podcaster.id
+      flash[:notice] = "ご登録が完了しました"
       redirect_to ('/myaccount')
     else
       render(new_podcaster_path)

@@ -31,6 +31,7 @@ class AdvertiserController < ApplicationController
 
       if @advertiser.save
         session[:user_id] = @advertiser.id
+        flash[:notice] = "ご登録が完了しました"
         redirect_to root_path
       else
         render action: :new
