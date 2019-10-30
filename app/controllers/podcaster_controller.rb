@@ -46,7 +46,9 @@ class PodcasterController < ApplicationController
       else
         render action: :main_new
       end
+      
   end
+  
   
   
   def add_program

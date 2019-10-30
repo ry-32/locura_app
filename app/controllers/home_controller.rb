@@ -240,9 +240,42 @@ class HomeController < ApplicationController
     if @current_user_ad
       @advertiser = Advertiser.find_by(id: @current_user_ad.id)
       @advertiser.update(account_params)
+      
+      if account_params[:password].present?
+        pass = account_params[:password]
+        pass_conf = account_params[:password_confirmation]
+        
+        if pass_conf == pass
+          @advertiser.update(account_params)
+          if @advertiser.save
+            flash[:notice] = "パスワードを変更しました"
+          else
+            flash[:notice] = "パスワードの変更に失敗しました。パスワードが空欄でないこと、8文字以上であることを確認してください"
+          end
+        else
+          flash[:notice] = "パスワードの変更に失敗しました。パスワードと再確認用のパスワードが違います"
+        end
+      end
+      
     elsif @current_user_pod
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
       @podcaster.update(account_params)
+      
+      if account_params[:password].present?
+        pass = account_params[:password]
+        pass_conf = account_params[:password_confirmation]
+        
+        if pass_conf == pass
+          @podcaster.update(account_params)
+          if @podcaster.save
+            flash[:notice] = "パスワードを変更しました"
+          else
+            flash[:notice] = "パスワードの変更に失敗しました。パスワードが空欄でないこと、8文字以上であることを確認してください"
+          end
+        else
+          flash[:notice] = "パスワードの変更に失敗しました。パスワードと再確認用のパスワードが違います"
+        end
+      end
     end
 
     redirect_to('/myaccount')
@@ -323,9 +356,9 @@ class HomeController < ApplicationController
   
   def account_params
     if @current_user_ad
-      params.require(:advertiser).permit(:name,:company_name, :email,:password)
+      params.require(:advertiser).permit(:name,:company_name, :email,:password, :password_confirmation)
     elsif @current_user_pod
-      params.require(:podcaster).permit(:name,:podcast_name,:email,:password)
+      params.require(:podcaster).permit(:name,:podcast_name,:email,:password, :password_confirmation)
     end
   end
   

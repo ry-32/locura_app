@@ -140,6 +140,22 @@ document.addEventListener("turbolinks:load", function() {
     
     
     
+    // password changes
+    
+    $('.pass-edit-action').on('click',function(){
+        var pass_edit_modal = $('.edit-password')
+        pass_edit_modal.fadeIn()
+    });
+
+    
+    $('#pass-modal-close').on('click',function(){
+        var pass_edit_modal = $('.edit-password')
+        pass_edit_modal.fadeOut()
+    });
+    
+    
+    
+    
     
     
     

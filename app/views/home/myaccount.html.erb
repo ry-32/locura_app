@@ -42,6 +42,34 @@
                                 </div>
                             </div>
                         <% end %>
+                        <div class="pass-edit-action">
+                            <a>パスワードを変更する</a>
+                        </div>
+                        <div class="edit-password">
+                            <div class="pass-edit-modal-bg"></div>
+                            <div class="pass-edit-content">
+                                <div>
+                                    <%= form_for(@advertiser, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
+                                        <div class="form-items password-form">
+                                            <div class="form-name-wrapper form-container">
+                                                <%= f.label :password, "パスワード" , :class => "form-item" %>
+                                                <%= f.text_field :password, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-email-wrapper form-container">
+                                                <%= f.label :password_confirmation, "パスワード(再確認)", :class => "form-item" %>
+                                                <%= f.text_field :password_confirmation, :class => "form-text-area form-item"  %>    
+                                            </div>
+                                            <div class="form-btn-wrapper pro-form-btn-wrapper">
+                                                <ul class="form-btn-ul">
+                                                    <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                                <div id="pass-modal-close">閉じる</div>
+                            </div>
+                        </div>
                     <% elsif @current_user_pod %>
                         <%= form_for(@podcaster, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
                             <div class="form-items">
@@ -61,6 +89,34 @@
                                 </div>
                             </div>
                         <% end %>
+                        <div class="pass-edit-action">
+                            <a>パスワードを変更する</a>
+                        </div>
+                        <div class="edit-password">
+                            <div class="pass-edit-modal-bg"></div>
+                            <div class="pass-edit-content">
+                                <div>
+                                    <%= form_for(@podcaster, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
+                                        <div class="form-items password-form">
+                                            <div class="form-name-wrapper form-container">
+                                                <%= f.label :password, "パスワード" , :class => "form-item" %>
+                                                <%= f.text_field :password, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-email-wrapper form-container">
+                                                <%= f.label :password_confirmation, "パスワード(再確認)", :class => "form-item" %>
+                                                <%= f.text_field :password_confirmation, :class => "form-text-area form-item"  %>    
+                                            </div>
+                                            <div class="form-btn-wrapper pro-form-btn-wrapper">
+                                                <ul class="form-btn-ul">
+                                                    <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                                <div id="pass-modal-close">閉じる</div>
+                            </div>
+                        </div>
                     <% end%>
                 </div>
             </div>
