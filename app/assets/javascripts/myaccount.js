@@ -155,7 +155,18 @@ document.addEventListener("turbolinks:load", function() {
     
     
     
+    // file upload
     
+    $('.dl-file-action').on('click',function(){
+        var dl_file_modal = $('.dl-file-modal')
+        dl_file_modal.fadeIn()
+    });
+
+    
+    $('#dl-modal-close').on('click',function(){
+        var dl_file_modal = $('.dl-file-modal')
+        dl_file_modal.fadeOut()
+    });
     
     
     

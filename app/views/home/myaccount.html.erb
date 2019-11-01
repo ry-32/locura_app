@@ -148,8 +148,8 @@
                                                 <td class="deal-tds"><%= d.cost %></td>
                                                 <td class="deal-tds">
                                                     <ul class="manage-btn-wrapper">
-                                                        <li class="manage-btn accept-btn" style="margin-right:.7em"><%= link_to '✔', data: {confirm:"asd"},controller: "home", action: "manage_deal_pod",manage_id: 0, deal_id: d.id %></li>
-                                                        <li class="manage-btn deny-btn"><%= link_to '✖', controller: "home", action: "manage_deal_pod",manage_id: 1, deal_id: d.id %></li>
+                                                        <li class="manage-btn accept-btn" style="margin-right:.7em"><%= link_to '✔', manage_deal_path(manage_id: 0, deal_id: d.id ),data: {confirm:"案件を承諾すると広告主様に通知が届き、キャンセルは出来なくなります。よろしいですか？"}%></li>
+                                                        <li class="manage-btn deny-btn"><%= link_to '✖', manage_deal_path(manage_id: 1, deal_id: d.id ),data: {confirm:"案件を見送り、広告主様に通知が届きますと取り消しはできません。よろしいですか？"}%></li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -225,6 +225,7 @@
                                                     <%= f.file_field :prof_file, :class => "form-text-area form-item" %>
                                                 <% end %>
                                             </div>
+                                            <input name=<%= @program.id %> style="display:none">
                                             <div class="form-name-wrapper form-container">
                                                 <%= f.label :name, "番組名" , :class => "form-item" %>
                                                 <%= f.text_field :name, :class => "form-text-area form-item" %>
@@ -232,6 +233,10 @@
                                             <div class="form-genre-wrapper form-container">
                                                 <%= f.label :genre, "ジャンル" , :class => "form-item" %>
                                                 <%= f.text_field :genre, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-genre-wrapper form-container">
+                                                <%= f.label :description, "番組の説明" , :class => "form-item" %>
+                                                <%= f.text_area :description, :class => "form-text-area form-item program-text-area"  %>
                                             </div>
                                             <div class="form-dl-wrapper form-container">
                                                 <%= f.label :dl, "平均ダウンロード数" , :class => "form-item" %>
@@ -330,12 +335,37 @@
                                 <% end %>
                             </div>
                             <div class="dl-confirmation-wrapper">
-                                <h3>DL確認</h3>
-                                <%= form_for(@file, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
-                                    <%= f.file_field :file, :class => 'form-control' %>
-                                    <%= f.submit "送信", :class => "form-btn btn form-submit-item" %>
+                                <% if @program.dlfile.present? %>
+                                    <h3>DL確認<span class="dl-reconfirm">ファイルは既にアップロードされています</span></h3>
+                                    <div class=" dl-file-action" style="margin-left:2em"><a>DL数が変化したのでファイルを再アップロードする</a></div>
+                                <% else %>
+                                    <h3>DL確認</h3>
+                                    <%= form_for(@program, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
+                                        <%= f.file_field :dlfile, :class => 'form-control' %>
+                                        <%= f.submit "送信", :class => "form-btn btn form-submit-item" %>
+                                    <% end %>
                                 <% end %>
                             </div>
+                            <div class="dl-file-modal">
+                            <div class="dl-file-modal-bg"></div>
+                            <div class="dl-file-content">
+                                <div>
+                                    <%= form_for(@program, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
+                                        <div class="form-items">
+                                            <div class="dl-form-container">
+                                                <%= f.file_field :dlfile, :class => "form-text-area form-item" %>
+                                            </div>
+                                            <div class="form-btn-wrapper">
+                                                <ul class="form-btn-ul">
+                                                    <li><%= f.submit "保存", :class => "form-btn btn form-submit-item" %></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                </div>
+                                <div id="dl-modal-close">閉じる</div>
+                            </div>
+                        </div>
                             
                         <% else %>
                         
@@ -565,6 +595,7 @@
                             </div>
                             
                             <div class="ep-edit-area">
+                                <div class="ep-edit-warning">進行中のキャンペーンがあり既に売り出している広告枠がある場合、広告枠の数にご注意ください</div>
                                 <%= form_for(@episode, url: {controller: 'home', action: 'edit_episode'}, html: {method: "post"}) do |f| %>
                                     <input name="id" class="ep-id-edit" style="display:none"></input>
                                     <div class="long-field">

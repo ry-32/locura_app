@@ -686,6 +686,10 @@ footer a{
     margin-bottom: 3em;
 }
 
+.program-text-area{
+    height: 9.3em;
+    width: 259px;
+}
 
 
 .cpm-wrapper{
@@ -754,7 +758,7 @@ footer a{
 }
 
 .num-td{
-    width: 13%;
+    width: 15%;
     text-align: center;
 }
 
@@ -790,8 +794,8 @@ footer a{
 .ep-edit-modal{
     display: none;
     height: 100vh;
-    // position: fixed;
-    // top: 0;
+    position: fixed;
+    top: 0;
     width: 100%;
     
     
@@ -833,6 +837,10 @@ footer a{
     margin-top: .8em;
 }
 
+.ep-edit-warning{
+    font-size: .8em;
+    margin-bottom: .7em;
+}
 
 
 #modal-close{
@@ -873,7 +881,8 @@ footer a{
 }
 
 .short-field{
-    width: 6%;
+    width: 7%;
+    text-align: center;
     margin-right: .13em;
     display: inline-block;
 }
@@ -930,6 +939,67 @@ footer a{
     margin: auto;
     
 }
+
+
+.dl-file-modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.dl-file-modal-bg{
+    background: rgba(0,0,0,0.6);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.dl-file-content{
+    border-radius: 4px;
+    background: #fff;
+    padding: 7em 4em;
+    width: 47%;
+    margin: auto;
+    margin-top: 13em;
+    z-index: 0;
+    position: relative;
+
+}
+
+#dl-modal-close{
+    cursor: pointer;
+    width: 3em;
+    position: absolute;
+    right: 4.3em;
+    top: 3.1em;
+    font-size: .9em;
+}
+
+.dl-file-action{
+}
+
+.dl-file-action a{
+    cursor: pointer;
+}
+
+.dl-form-container{
+    margin: auto;
+}
+
+
+.dl-reconfirm{
+    font-size: .7em;
+    font-weight: normal;
+    margin-left: 1.2em;
+}
+
+
+
+
 
 
 

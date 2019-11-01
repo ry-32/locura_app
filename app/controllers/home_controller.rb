@@ -83,17 +83,26 @@ class HomeController < ApplicationController
   def myaccount
     
     if @current_user_ad
+      
       @advertiser = Advertiser.find_by(id: @current_user_ad.id)
       @user = @advertiser
       @deals = Deal.where(advertiser_id: @user.id)
       @deals_pending = @deals.where(advertiser_id: @user.id, status:"pending")
       @deals_progress = @deals.where(advertiser_id: @user.id, status:"progress")
+    
+    
     elsif @current_user_pod
+      
+      # variables
       @podcaster = Podcaster.find_by(id: @current_user_pod.id)
       @user = @podcaster
       @deals = Deal.where(podcaster_id: @user.id)
       @deals_pending = @deals.where(podcaster_id: @user.id, status:"pending")
       @deals_progress = @deals.where(podcaster_id: @user.id, status:"in progress")
+      
+      
+      
+      
       
       if Program.find_by(host_id: @podcaster.id)
         @program = Program.find_by(host_id: @podcaster.id)
@@ -107,7 +116,6 @@ class HomeController < ApplicationController
     
       
       @episode = Episode.new
-      @file = DlFile.new
       
     
     end
@@ -119,8 +127,6 @@ class HomeController < ApplicationController
     @podcaster = @current_user_pod
     @deal = Deal.find_by(id: params[:deal_id])
     @manage = params[:manage_id]
-    @episode = Episode.find_by(id: @deal.episode_id)
-    
     
     if @manage == "0"
       @deal.status = "in progress"
@@ -133,14 +139,35 @@ class HomeController < ApplicationController
     # 広告枠数の整合性が合うようにする
     @episode = Episode.find_by(id: @deal.episode_id)
     
+    if @manage == "0"
+      if @deal.pre_roll_30.present?
+        @episode.pre_roll_30 -= @deal.pre_roll_30
+      end
+      if @deal.pre_roll_60.present?
+        @episode.pre_roll_60 -= @deal.pre_roll_60
+      end
+      if @deal.mid_roll_30.present?
+        @episode.mid_roll_30 -= @deal.mid_roll_30
+      end
+      if @deal.mid_roll_60.present?
+        @episode.mid_roll_60 -= @deal.mid_roll_60
+      end
+      if @deal.post_roll_30.present?
+        @episode.post_roll_30 -= @deal.post_roll_30
+      end
+      if @deal.post_roll_60.present?
+        @episode.post_roll_60 -= @deal.post_roll_60
+      end
+    end
     
     
+    if @deal.save && @episode.save
+      flash[:notice] = "キャンペーン情報を変更しました"
+    else
+      flash[:notice] = "キャンペーン情報の変更に失敗しました"
+    end
     
-    
-    @deal.save
     redirect_to('/myaccount')
-    
-    
     
   end
   
@@ -188,7 +215,7 @@ class HomeController < ApplicationController
       bucket = s3.buckets['locura-bucket']
       
       file = program_params[:prof_file]
-      file_name = @program.name+'_'+file.original_filename
+      file_name = @program.name+'_'+@program.id.to_s+'_'+file.original_filename
       file_full_path="profile/"+file_name
       
       object = bucket.objects[file_full_path]
@@ -214,26 +241,28 @@ class HomeController < ApplicationController
   def file_upload
     
     @podcaster = @current_user_pod
+    @program = Program.find_by(host_id: @podcaster.id)
     
-    @s3image = DlFile.new(params[:file]) #data_file_params
+    # @s3image = DlFile.new(params[:file]) #data_file_params
     s3 = AWS::S3.new
     bucket = s3.buckets['locura-bucket']
     
-    file = data_file_params[:file]
-    file_name = @podcaster.name+'_'+file.original_filename
+    file = program_params[:dlfile]
+    file_name = @podcaster.name+'_'+@podcaster.id.to_s+'_'+file.original_filename
     file_full_path="images/"+file_name
     
     object = bucket.objects[file_full_path]
     object.write(file)
-    @s3image.file="http://s3-ap-northeast-1.amazonaws.com/locura-bucket/images/#{file_name}"
-       
-    if @s3image.save
+    @program.dlfile="http://s3-ap-northeast-1.amazonaws.com/locura-bucket/images/#{file_name}"
+    
+    
+    if @program.save
       flash[:notice] = "ファイルの保存に成功しました"
-      redirect_to('/myaccount')
     else
       flash[:notice] = "ファイルの保存に失敗しました"
-      render action: 'myaccount'
     end
+    
+    redirect_to '/myaccount'
     
   end
     
@@ -374,7 +403,7 @@ class HomeController < ApplicationController
   def program_params
     params.require(:program).permit(:name, :description, :genre, :dl, :hosting,
     :start_date, :host_id, :program_url, :hp_url, :cpm_30_pre, :cpm_60_pre,
-    :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post,:prof_file)
+    :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post,:prof_file,:dlfile)
   end
   
   def episode_params
