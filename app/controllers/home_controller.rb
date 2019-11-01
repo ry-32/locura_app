@@ -84,11 +84,12 @@ class HomeController < ApplicationController
     
     if @current_user_ad
       
+      # variables
       @advertiser = Advertiser.find_by(id: @current_user_ad.id)
       @user = @advertiser
       @deals = Deal.where(advertiser_id: @user.id)
       @deals_pending = @deals.where(advertiser_id: @user.id, status:"pending")
-      @deals_progress = @deals.where(advertiser_id: @user.id, status:"progress")
+      @deals_progress = @deals.where(advertiser_id: @user.id, status:"in progress")
     
     
     elsif @current_user_pod
@@ -99,7 +100,7 @@ class HomeController < ApplicationController
       @deals = Deal.where(podcaster_id: @user.id)
       @deals_pending = @deals.where(podcaster_id: @user.id, status:"pending")
       @deals_progress = @deals.where(podcaster_id: @user.id, status:"in progress")
-      
+      @episode = Episode.new
       
       
       
@@ -115,7 +116,6 @@ class HomeController < ApplicationController
       end
     
       
-      @episode = Episode.new
       
     
     end

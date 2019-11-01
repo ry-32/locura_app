@@ -10,7 +10,6 @@
                 <li class="top-nav-li" id="program">番組情報</li>
                 <li class="top-nav-li" id="ep-schedule">番組スケジュール</li>
             <% end %>
-            <li class="top-nav-li" id="payment">支払い管理</li>
         </ul>
     </nav>
     
@@ -185,18 +184,36 @@
                                 <td class="deal-tds">予想DL数</td>
                                 <td class="deal-tds">DL数</td>
                                 <td class="deal-tds">費用</td>
+                                <td class="deal-tds">状態</td>
                             </tr>
                             
                             <% if @deals.present? %>
-                                <% @deals.each do |d|%>
-                                    <% if not d.status == "denied" %>
-                                        <tr class="deal-tr">
-                                            <td class="deal-tds"><%= d.name %></td>
-                                            <td class="deal-tds"><%= Program.find_by(host_id: d.podcaster_id).name %></td>
-                                            <td class="deal-tds"><%= d.forecasted_dl%></td>
-                                            <td class="deal-tds"><%= d.dl %></td>
-                                            <td class="deal-tds"><%= d.cost %></td>
-                                        </tr>
+                                <% if @deals_pending.present? %>
+                                    <% @deals_pending.each do |d|%>
+                                        <% if not d.status == "denied" %>
+                                            <tr class="deal-tr">
+                                                <td class="deal-tds"><%= d.name %></td>
+                                                <td class="deal-tds"><%= Program.find_by(host_id: d.podcaster_id).name %></td>
+                                                <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                                <td class="deal-tds"><%= d.dl %></td>
+                                                <td class="deal-tds"><%= d.cost %></td>
+                                                <td class="deal-tds">承認待ち</td>
+                                            </tr>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                                <% if @deals_progress.present? %>
+                                    <% @deals_progress.each do |d|%>
+                                        <% if not d.status == "denied" %>
+                                            <tr class="deal-tr">
+                                                <td class="deal-tds"><%= d.name %></td>
+                                                <td class="deal-tds"><%= Program.find_by(host_id: d.podcaster_id).name %></td>
+                                                <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                                <td class="deal-tds"><%= d.dl %></td>
+                                                <td class="deal-tds"><%= d.cost %></td>
+                                                <td class="deal-tds">承認済み</td>
+                                            </tr>
+                                        <% end %>
                                     <% end %>
                                 <% end %>
                             <% end %>
@@ -647,14 +664,7 @@
         
         
         <% end %>
-        
-        
-        <div class="content-container content-payment">
-            <h2>支払い管理</h2>
-            <div class="content-wrapper content-payment-wrapper">
-                coming soon...
-            </div>
-        </div>
+
         
     </section>
     
