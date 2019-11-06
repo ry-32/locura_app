@@ -169,6 +169,20 @@
                                         <% end %>
                                     <% end %>
                                 <% end %>
+                                <% if @deals_canceled.present? %>
+                                    <% @deals_canceled.each do |d|%>
+                                        <% if not d.status == "denied" %>
+                                            <tr class="deal-tr">
+                                                <td class="deal-tds"><%= d.name %></td>
+                                                <td class="deal-tds"><%= Program.find_by(host_id: d.podcaster_id).name %></td>
+                                                <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                                <td class="deal-tds"><%= d.dl %></td>
+                                                <td class="deal-tds"><%= d.cost %></td>
+                                                <td class="deal-tds">キャンセル済み</td>
+                                            </tr>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
                             <% end %>
                     </table>
                 </div>
@@ -185,6 +199,8 @@
                                 <td class="deal-tds">DL数</td>
                                 <td class="deal-tds">費用</td>
                                 <td class="deal-tds">状態</td>
+                                <td class="cancel-deal"></td>
+                                
                             </tr>
                             
                             <% if @deals.present? %>
@@ -198,6 +214,7 @@
                                                 <td class="deal-tds"><%= d.dl %></td>
                                                 <td class="deal-tds"><%= d.cost %></td>
                                                 <td class="deal-tds">承認待ち</td>
+                                                <td class="cancel-deal cancel-deal-btn"><%= link_to 'キャンセル', manage_deal_path(manage_id:2, deal_id: d.id ),data: {confirm:"この取引の申請を取りやめます。よろしいですか?"}%></td>
                                             </tr>
                                         <% end %>
                                     <% end %>
@@ -212,6 +229,20 @@
                                                 <td class="deal-tds"><%= d.dl %></td>
                                                 <td class="deal-tds"><%= d.cost %></td>
                                                 <td class="deal-tds">承認済み</td>
+                                            </tr>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                                <% if @deals_canceled.present? %>
+                                    <% @deals_canceled.each do |d|%>
+                                        <% if not d.status == "denied" %>
+                                            <tr class="deal-tr">
+                                                <td class="deal-tds"><%= d.name %></td>
+                                                <td class="deal-tds"><%= Program.find_by(host_id: d.podcaster_id).name %></td>
+                                                <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                                <td class="deal-tds"><%= d.dl %></td>
+                                                <td class="deal-tds"><%= d.cost %></td>
+                                                <td class="deal-tds">キャンセル済み</td>
                                             </tr>
                                         <% end %>
                                     <% end %>

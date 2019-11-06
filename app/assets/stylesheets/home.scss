@@ -6,7 +6,7 @@
 *{
     box-sizing: border-box;
     -webkit-appearance: none;
-    list-style:none;
+    list-style:　none;
     text-decoration: none;
 }
 
@@ -599,6 +599,21 @@ footer a{
 
 }
 
+
+.cancel-deal{
+    font-size:.7em;
+    background: white;
+    width: 9%;
+}
+.cancel-deal-btn:hover{
+    cursor: pointer;
+}
+
+.cancel-deal-btn a{
+    color: #575757;
+}
+
+
 .deal-titles{
     background: #E9E9E9;
 }
@@ -613,11 +628,11 @@ footer a{
 
 .deal-tr td{
     text-align: center;
-    font-size: .83em;
 }
 
 .deal-tds{
     border: .3px solid rgba(0,0,0,.26);
+    font-size: .83em;
 }
 
 .manage-btn-wrapper{

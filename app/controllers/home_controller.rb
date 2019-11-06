@@ -90,7 +90,7 @@ class HomeController < ApplicationController
       @deals = Deal.where(advertiser_id: @user.id)
       @deals_pending = @deals.where(advertiser_id: @user.id, status:"pending")
       @deals_progress = @deals.where(advertiser_id: @user.id, status:"in progress")
-    
+      @deals_canceled = @deals.where(advertiser_id: @user.id, status:"canceled")
     
     elsif @current_user_pod
       
@@ -100,6 +100,7 @@ class HomeController < ApplicationController
       @deals = Deal.where(podcaster_id: @user.id)
       @deals_pending = @deals.where(podcaster_id: @user.id, status:"pending")
       @deals_progress = @deals.where(podcaster_id: @user.id, status:"in progress")
+      @deals_canceled = @deals.where(podcaster_id: @user.id, status:"canceled")
       @episode = Episode.new
       
       
@@ -124,7 +125,12 @@ class HomeController < ApplicationController
   
   def manage_deal_pod
     
-    @podcaster = @current_user_pod
+    if @current_user_pod.present?
+      @podcaster = @current_user_pod
+    elsif @current_user_ad.present?
+      @advertiser = @current_user_ad
+    end
+    
     @deal = Deal.find_by(id: params[:deal_id])
     @manage = params[:manage_id]
     
@@ -132,8 +138,11 @@ class HomeController < ApplicationController
       @deal.status = "in progress"
     elsif @manage == "1"
       @deal.status = "denied"
+    elsif @manage == "2"
+      @deal.status = "canceled"
     end
     
+    binding.pry
     
     # ここで案件の広告枠数をEPの広告枠数をから引いて
     # 広告枠数の整合性が合うようにする
