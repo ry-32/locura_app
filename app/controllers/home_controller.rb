@@ -142,7 +142,6 @@ class HomeController < ApplicationController
       @deal.status = "canceled"
     end
     
-    binding.pry
     
     # ここで案件の広告枠数をEPの広告枠数をから引いて
     # 広告枠数の整合性が合うようにする
