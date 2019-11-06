@@ -73,8 +73,9 @@
                                 <%= f.label :password, "パスワード" , :class => "form-item" %>
                                 <%= f.text_field :password, :class => "form-text-area form-item" %>
                             </div>
+                            <div>登録することで<span class="agree-terms"><%=link_to "利用規約","/terms_of_use"%></span>、プライバシーポリシーに同意するものとします。</div>
                             <div class="form-btn-wrapper">
-                                <%= f.submit "保存", :class => "form-btn btn form-submit-item" %>
+                                <%= f.submit "同意して保存", :class => "form-btn btn form-submit-item terms-btn" %>
                             </div>
                         </div>
                     <% end %>

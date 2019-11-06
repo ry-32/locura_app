@@ -1048,3 +1048,49 @@ footer a{
 .form-contact-items{
     width: 400px;
 }
+
+
+
+
+
+
+// terms of use
+.terms-section{
+    margin-top: 5em;
+    width: 100%;
+    
+}
+
+.terms-container{
+    width: 65%;
+    margin: auto;
+    padding-bottom: 6em;
+}
+
+.terms-container h1{
+    text-align:center;
+}
+
+.terms-container h2{
+    margin-top: 3em;
+    text-align:center;
+}
+
+.terms-container h2{
+    margin-top: 1.5em;
+    text-align:center;
+}
+
+.terms-container p{
+    font-size: .85em;
+    margin: 0;
+}
+
+.agree-terms{
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(0,0,0,.8);
+}
+
+.terms-btn{
+    width: 7.4em;
+}

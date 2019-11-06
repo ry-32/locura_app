@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   post '/file_upload' => 'home#file_upload'
   get '/manage_deal' => 'home#manage_deal_pod'
   post '/add_program' => 'podcaster#add_program'
-
+  get 'terms_of_use' => 'home#terms'
+ 
 end
