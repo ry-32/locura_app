@@ -635,6 +635,14 @@ footer a{
     font-size: .83em;
 }
 
+.deal-id{
+    display:none;
+}
+
+.deal-hidden{
+    display:none;
+}
+
 .manage-btn-wrapper{
     display: flex;
     justify-content: center;
@@ -663,6 +671,58 @@ footer a{
 
 .deny-btn a{
     background-color: #FE4A1D;
+}
+
+
+.deal-detail-modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.deal-modal-bg{
+    background: rgba(0,0,0,0.6);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.deal-content{
+    border-radius: 4px;
+    background: #fff;
+    padding: 4em 4em;
+    width: 85%;
+    margin: auto;
+    margin-top: 3em;
+    z-index: 0;
+    position: relative;
+}
+
+.deal-content h3{
+    font-size: .94em;
+}
+
+.deal-content p{
+    font-size: .92em;
+    padding-left: 1.5em;
+}
+
+
+.deal-name:hover{
+    cursor:pointer;
+}
+
+#deal-modal-close{
+    cursor:pointer;
+    width: 3em;
+    position: absolute;
+    right: 2.9em;
+    top: 2.1em;
+    font-size: .7em;
 }
 
 .error-message-wrapper{

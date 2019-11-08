@@ -140,17 +140,27 @@
                                     <% @deals_pending.each do |d|%>
                                         <% if not d.status == "denied" %>
                                             <tr class="deal-tr">
-                                                <td class="deal-tds"><%= d.name %></td>
-                                                <td class="deal-tds"><%= Advertiser.find_by(id: d.advertiser_id).company_name %></td>
-                                                <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                                <td class="deal-tds deal-id"><%= d.id %></td>
+                                                <td class="deal-tds deal-name"><%= d.name %></td>
+                                                <td class="deal-tds deal deal-advertiser"><%= Advertiser.find_by(id: d.advertiser_id).company_name %></td>
+                                                <td class="deal-tds deal-forecasted-dl"><%= d.forecasted_dl%></td>
                                                 <td class="deal-tds"><%= d.dl %></td>
-                                                <td class="deal-tds"><%= d.cost %></td>
+                                                <td class="deal-tds deal-cost"><%= d.cost %></td>
                                                 <td class="deal-tds">
                                                     <ul class="manage-btn-wrapper">
                                                         <li class="manage-btn accept-btn" style="margin-right:.7em"><%= link_to '✔', manage_deal_path(manage_id: 0, deal_id: d.id ),data: {confirm:"一度取引を承諾すると、キャンセルは出来なくなります。必ず弊社よりお送りした取引の条件等を記載したメールをご確認のうえ承諾をしてください。メールが届いていない場合は、お手数ですが問い合わせページよりその旨をお伝えください。"}%></li>
                                                         <li class="manage-btn deny-btn"><%= link_to '✖', manage_deal_path(manage_id: 1, deal_id: d.id ),data: {confirm:"案件を見送り、広告主様に通知が届きますと取り消しはできません。よろしいですか？"}%></li>
                                                     </ul>
                                                 </td>
+                                                
+                                                
+                                                <% if d.description.present?%>
+                                                    <td class="deal-tds deal-description deal-hidden"><%= d.description %></td>
+                                                <% end %>
+                                                <% if Advertiser.find_by(id: d.advertiser_id).biz_description.present? %>
+                                                    <td class="deal-tds deal-biz-description deal-hidden"><%= Advertiser.find_by(id: d.advertiser_id).biz_description %></td>
+                                                <% end %>
+                                                
                                             </tr>
                                         <% end %>
                                     <% end %>
@@ -159,11 +169,21 @@
                                     <% @deals_progress.each do |d|%>
                                         <% if not d.status == "denied" %>
                                             <tr class="deal-tr">
-                                                <td class="deal-tds"><%= d.name %></td>
-                                                <td class="deal-tds"><%= Advertiser.find_by(id: d.advertiser_id).company_name %></td>
-                                                <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                                <td class="deal-tds deal-id"><%= d.id %></td>
+                                                <td class="deal-tds deal-name"><%= d.name %></td>
+                                                <td class="deal-tds deal-advertiser"><%= Advertiser.find_by(id: d.advertiser_id).company_name %></td>
+                                                <td class="deal-tds deal-forecasted-dl"><%= d.forecasted_dl%></td>
                                                 <td class="deal-tds"><%= d.dl %></td>
-                                                <td class="deal-tds"><%= d.cost %></td>
+                                                <td class="deal-tds deal-cost"><%= d.cost %></td>
+                                                
+                                                
+                                                <% if d.description.present?%>
+                                                    <td class="deal-tds deal-description deal-hidden"><%= d.description %></td>
+                                                <% end %>
+                                                <% if Advertiser.find_by(id: d.advertiser_id).biz_description.present? %>
+                                                    <td class="deal-tds deal-biz-description deal-hidden"><%= Advertiser.find_by(id: d.advertiser_id).biz_description %></td>
+                                                <% end %>
+                                                
                                                 <td class="deal-tds">承認済み</td>
                                             </tr>
                                         <% end %>
@@ -173,11 +193,20 @@
                                     <% @deals_canceled.each do |d|%>
                                         <% if not d.status == "denied" %>
                                             <tr class="deal-tr">
-                                                <td class="deal-tds"><%= d.name %></td>
-                                                <td class="deal-tds"><%= Program.find_by(host_id: d.podcaster_id).name %></td>
-                                                <td class="deal-tds"><%= d.forecasted_dl%></td>
+                                                <td class="deal-tds deal-id"><%= d.id %></td>
+                                                <td class="deal-tds deal-name"><%= d.name %></td>
+                                                <td class="deal-tds deal-advertiser"><%= Advertiser.find_by(id: d.advertiser_id).company_name %></td>
+                                                <td class="deal-tds deal-forecasted-dl"><%= d.forecasted_dl%></td>
                                                 <td class="deal-tds"><%= d.dl %></td>
-                                                <td class="deal-tds"><%= d.cost %></td>
+                                                <td class="deal-tds deal-cost"><%= d.cost %></td>
+                                                
+                                                <% if d.description.present?%>
+                                                    <td class="deal-tds deal-description deal-hidden"><%= d.description %></td>
+                                                <% end %>
+                                                <% if Advertiser.find_by(id: d.advertiser_id).biz_description.present? %>
+                                                    <td class="deal-tds deal-biz-description deal-hidden"><%= Advertiser.find_by(id: d.advertiser_id).biz_description %></td>
+                                                <% end %>
+                                                
                                                 <td class="deal-tds">キャンセル済み</td>
                                             </tr>
                                         <% end %>
@@ -186,6 +215,48 @@
                             <% end %>
                     </table>
                 </div>
+                
+                
+
+                <div class="deal-detail-modal">
+                    <div class="deal-modal-bg"></div>
+                    <div class="deal-content">
+                        <div class="deal-id-wrapper"></div>
+                        
+                        <div class="deal-advertiser-wrapper">
+                            <h3>会社名</h3>
+                            <p></p>
+                        </div>
+                        <div class="deal-biz-description-wrapper">
+                            <h3>事業内容</h3>
+                            <p></p>
+                        </div>
+                        <div class="deal-name-wrapper">
+                            <h3>キャンペーン名</h3>
+                            <p></p>
+                        </div>
+                        <div class="deal-description-wrapper">
+                            <h3>キャンペーンの説明</h3>
+                            <p></p>
+                        </div>
+                        <div class="deal-forecasted-dl-wrapper">
+                            <h3>予想ダウンロード数</h3>
+                            <p></p>
+                        </div>
+                        <div class="deal-cost-wrapper">
+                            <h3>広告費</h3>
+                            <p></p>
+                        </div>
+                        
+                        
+                        <div id="deal-modal-close">閉じる</div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
             </div>
         <% elsif @current_user_ad %>
             <div class="content-container content-deals">

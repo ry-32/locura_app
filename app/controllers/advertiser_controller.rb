@@ -54,7 +54,7 @@ class AdvertiserController < ApplicationController
     
     def account_params
       params.require(:advertiser).permit(:name, :company_name, :email,
-      :password,:industry)
+      :password,:industry,:biz_description,:hp_url)
     end
     
     def deal_params

@@ -3,8 +3,8 @@
 document.addEventListener("turbolinks:load", function() {
     
     $(function(){
-        $('.content-profile').addClass('active');
-        $('#prof').addClass('active-btn');
+        $('.content-deals').addClass('active');
+        $('#deals').addClass('active-btn');
     });
     
     
@@ -173,6 +173,56 @@ document.addEventListener("turbolinks:load", function() {
     
     
     
+    // deal detail related
+    
+    
+    $('.deal-name').on('click',function(){
+        
+        // variables
+        var parent = $(this).parent()
+        var deal_id = parent.find('.deal-id').html()
+        var deal_name = parent.find('.deal-name').html()
+        var deal_advertiser = parent.find('.deal-advertiser').html()
+        var deal_forecasted_dl = parent.find('.deal-forecasted-dl').html()
+        var deal_cost = parent.find('.deal-cost').html()
+        var deal_description = parent.find('.deal-description').html()
+        var deal_biz_description = parent.find('.deal-biz-description').html()
+        
+        var deal_modal = $('.deal-detail-modal')
+        
+        
+        // modal variables
+        var deal_id_wrapper = deal_modal.find('.deal-id-wrapper')
+        var deal_name_wrapper = deal_modal.find('.deal-name-wrapper p')
+        var deal_advertiser_wrapper = deal_modal.find('.deal-advertiser-wrapper p')
+        var deal_forecasted_dl_wrapper = deal_modal.find('.deal-forecasted-dl-wrapper p')
+        var deal_cost_wrapper = deal_modal.find('.deal-cost-wrapper p')
+        var deal_description_wrapper = deal_modal.find('.deal-description-wrapper p')
+        var deal_biz_description_wrapper = deal_modal.find('.deal-biz-description-wrapper p')
+        
+        // empty all content before inserting
+        deal_description_wrapper.html("この情報は提供されていません")
+        deal_biz_description_wrapper.html("この情報は提供されていません")
+        
+        
+        
+        // insert values
+        // deal_id_wrapper.html(deal_id)
+        deal_name_wrapper.html(deal_name)
+        deal_advertiser_wrapper.html(deal_advertiser)
+        deal_forecasted_dl_wrapper.html(deal_forecasted_dl)
+        deal_cost_wrapper.html(deal_cost)
+        deal_description_wrapper.html(deal_description)
+        deal_biz_description_wrapper.html(deal_biz_description)
+        
+        // fadein effect
+        deal_modal.fadeIn()
+    });
+    
+    $('#deal-modal-close').on('click',function(){
+        var deal_modal = $('.deal-detail-modal')
+        deal_modal.fadeOut()
+    });
     
     
     
