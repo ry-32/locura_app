@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   get '/manage_deal' => 'home#manage_deal_pod'
   post '/add_program' => 'podcaster#add_program'
   get 'terms_of_use' => 'home#terms'
+  get '/privacy_policy' => 'home#privacy_policy'
  
 end
