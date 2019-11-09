@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191108040304) do
+ActiveRecord::Schema.define(version: 20191109003027) do
 
   create_table "advertisers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -123,6 +123,8 @@ ActiveRecord::Schema.define(version: 20191108040304) do
     t.integer  "cpm_60_post"
     t.string   "prof_file"
     t.string   "dlfile"
+    t.string   "frequency"
+    t.string   "ave_len"
   end
 
 end

@@ -414,7 +414,8 @@ class HomeController < ApplicationController
   def program_params
     params.require(:program).permit(:name, :description, :genre, :dl, :hosting,
     :start_date, :host_id, :program_url, :hp_url, :cpm_30_pre, :cpm_60_pre,
-    :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post,:prof_file,:dlfile)
+    :cpm_30_mid, :cpm_60_mid, :cpm_30_post, :cpm_60_post,:prof_file,:dlfile,
+    :frequency, :ave_len)
   end
   
   def episode_params
