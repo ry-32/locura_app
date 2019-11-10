@@ -29,7 +29,7 @@
     <section class="contact-wrapper">
         <div class="contact-container">
             <h2 class="contact-title">番組の収益化を始める</h2>
-            <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
+            <p>まずは簡単な情報を入力いただき登録をしていただき、<br>その後番組の詳細の情報をご提供ください。</p>
             
             <% if @podcaster.errors.any? or @error_message.present? %>
                 <div class="error-message-wrapper">
@@ -107,7 +107,7 @@
                         <%= link_to '広告主', '/advertisers' %>
                     </li>
                     <li>
-                        <%= link_to '番組ホスト', '/podcasters' %>
+                        <%= link_to '番組主', '/podcasters' %>
                     </li>
                 </ul>
                 <span class="copyright">© 2019 locura.jp</span>

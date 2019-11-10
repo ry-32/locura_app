@@ -30,8 +30,8 @@
     
     <section class="contact-wrapper">
         <div class="contact-container">
-            <h2 class="contact-title">広告キャンペーンを始める</h2>
-            <p>内容をお送りいただいた後、案件組成チームよりご連絡<br>を差し上げます。その後条件等の交渉に入り、正式に案件が組成されます</p>
+            <h2 class="contact-title">会員登録</h2>
+            <p>まずは会員登録いただき、その後詳細の情報をお送りいただきます<br>弊社営業チームより番組主様のご紹介をいたします。</p>
             
             <% if @advertiser.errors.any? or @error_message.present? %>
                 <div class="error-message-wrapper">
@@ -106,7 +106,7 @@
                         <%= link_to '広告主', '/advertisers' %>
                     </li>
                     <li>
-                        <%= link_to '番組ホスト', '/podcasters' %>
+                        <%= link_to '番組主', '/podcasters' %>
                     </li>
                 </ul>
                 <span class="copyright">© 2019 locura.jp</span>
