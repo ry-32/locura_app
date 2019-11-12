@@ -12,26 +12,44 @@
   <body>
     <header>
       <div class="header-container">
+          <div class="header-web-items">
+            <% if @current_user_ad or @current_user_pod %>
+              <ul class="header-ul">
+                  <% if @current_user_ad %>
+                    <li><%= link_to 'キャンペーンを開始する', '/advertiser-register' %></li>
+                  <% end %>
+                  <li><%= link_to 'ログアウト', '/logout' %></li>
+                  <li><%= link_to 'マイアカウント', '/myaccount' %></li>
+              </ul>
+            <% else %>
+              <ul class="header-ul">
+                <li><%= link_to '広告主', '/advertisers' %></li>
+                <li><%= link_to '番組ホスト', '/podcasters' %></li>
+                <li><%= link_to 'ログイン', '/login' %></li>
+              </ul>
+            <% end %>
+          </div>
+          
+          <%= link_to image_tag('locura_logo2.png',:size => '188x49', :class => "header-logo"), '/'%>
         
-        <% if @current_user_ad or @current_user_pod %>
-          <ul class="header-ul">
-              <% if @current_user_ad %>
-                <li><%= link_to 'キャンペーンを開始する', '/advertiser-register' %></li>
-              <% end %>
-              <li><%= link_to 'ログアウト', '/logout' %></li>
-              <li><%= link_to 'マイアカウント', '/myaccount' %></li>
-          </ul>
-        <% else %>
-          <ul class="header-ul">
-            <li><%= link_to '広告主', '/advertisers' %></li>
-            <li><%= link_to '番組ホスト', '/podcasters' %></li>
-            <li><%= link_to 'ログイン', '/login' %></li>
-          </ul>
-        <% end %>
-        
-        <%= link_to image_tag('locura_logo2.png',:size => '188x49', :class => "header-logo"), '/'%>
+        <div id="nav-drawer">
+          <input id="nav-input" type="checkbox" class="nav-unshown">
+          <label id="nav-open" for="nav-input"><span></span></label>
+          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+          <div id="nav-content">
+            <ul class="header-burger-ul">
+              <li><%= link_to '広告主', '/advertisers' %></li>
+              <li><%= link_to '番組ホスト', '/podcasters' %></li>
+              <li><%= link_to 'ログイン', '/login' %></li>
+              <li><%= link_to 'お問い合わせ', '/contact' %></li>
+              <li class="burger-last-li"><%= link_to '運営会社', 'http://locura.biz' %></li>
+            
+            </ul>
+          </div>
+        </div>
         
       </div>
+      
       
     </header>
     

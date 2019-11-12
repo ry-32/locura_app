@@ -24,11 +24,139 @@ body{
 }
 
 
-// @media screen and (max-width:1034px){
-//   .btn{
-    
-//   }
+
+
+
+
+
+
+// header {
+//   padding:10px;
+//   background: skyblue;
 // }
+
+
+.hidden{
+    display: none;
+}
+
+
+#nav-drawer {
+    display: none;
+    position: relative;
+    width: 13%;
+    float: right;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display:none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: inline-block;
+  width: 30px;
+  height: 22px;
+  vertical-align: middle;
+}
+
+/*ハンバーガーアイコンをCSSだけで表現*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+  position: absolute;
+  height: 3px;/*線の太さ*/
+  width: 25px;/*長さ*/
+  border-radius: 3px;
+  background: #555;
+  display: block;
+  content: '';
+  cursor: pointer;
+}
+#nav-open span:before {
+  bottom: -8px;
+}
+#nav-open span:after {
+  bottom: -16px;
+}
+
+/*閉じる用の薄黒カバー*/
+#nav-close {
+  display: none;/*はじめは隠しておく*/
+  position: fixed;
+  z-index: 99;
+  top: 0;/*全体に広がるように*/
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: .3s ease-in-out;
+}
+
+/*中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;/*最前面に*/
+  width: 80%;/*右側に隙間を作る（閉じるカバーを表示）*/
+  max-width: 330px;/*最大幅（調整してください）*/
+  height: 100%;
+  background: #fff;/*背景色*/
+  transition: .3s ease-in-out;/*滑らかに表示*/
+  -webkit-transform: translateX(-105%);
+  transform: translateX(-105%);/*左に隠しておく*/
+}
+
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+  display: block;/*カバーを表示*/
+  opacity: .5;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);/*中身を表示（右へスライド）*/
+  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
+
+
+
+
+@media screen and (max-width:480px) {
+  #nav-drawer {
+      display: block;
+      text-align: center;
+      margin-top: 4%;
+  }
+  
+  .header-web-items{
+      display: none;
+  }
+}
+
+
+.header-burger-ul{
+    padding: 0;
+    margin: 0;
+}
+
+.header-burger-ul li{
+    display: block;
+    border-top: .4px solid rgba(0,0,0,.4);
+    padding: 1.2em 0;
+}
+
+.burger-last-li{
+    border-bottom: .4px solid rgba(0,0,0,.4);
+}
+
+.header-burger-ul li a{
+    text-decoration: none;
+    list-style: none;
+    color:#575757;
+}
 
 
 .top-wrapper{
@@ -139,10 +267,10 @@ body{
     /*　画面サイズが480pxからはここを読み込む　*/
     .info-box{
         font-size: 15px;
-        width: auto;
-        min-width: 380px;
+        min-width: 320px;
+        margin: auto;
         height: 100%;
-        display: inline-block;
+        display: block;
     
     }
     
@@ -251,7 +379,7 @@ body{
 
 
 footer{
-    height: 90px;
+    // height: 90px;
     border: 1px solid rgba(0,0,0,.3);
     background-color: #131B39;
 }
