@@ -50,11 +50,11 @@
                                 <div>
                                     <%= form_for(@advertiser, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
                                         <div class="form-items password-form">
-                                            <div class="form-name-wrapper form-container">
+                                            <div class="form-name-wrapper form-container form-pass-container">
                                                 <%= f.label :password, "パスワード" , :class => "form-item" %>
                                                 <%= f.text_field :password, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-email-wrapper form-container">
+                                            <div class="form-email-wrapper form-container form-pass-container">
                                                 <%= f.label :password_confirmation, "パスワード(再確認)", :class => "form-item" %>
                                                 <%= f.text_field :password_confirmation, :class => "form-text-area form-item"  %>    
                                             </div>
@@ -97,11 +97,11 @@
                                 <div>
                                     <%= form_for(@podcaster, url: {controller: 'home', action: 'edit_profile'}, html: {method: "post"}) do |f| %>
                                         <div class="form-items password-form">
-                                            <div class="form-name-wrapper form-container">
+                                            <div class="form-name-wrapper form-container form-pass-container">
                                                 <%= f.label :password, "パスワード" , :class => "form-item" %>
                                                 <%= f.text_field :password, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-email-wrapper form-container">
+                                            <div class="form-email-wrapper form-container form-pass-container">
                                                 <%= f.label :password_confirmation, "パスワード(再確認)", :class => "form-item" %>
                                                 <%= f.text_field :password_confirmation, :class => "form-text-area form-item"  %>    
                                             </div>
@@ -124,7 +124,8 @@
         <% if @current_user_pod %>
             <div class="content-container content-deals">
                 <h2>キャンペーン管理</h2>
-                <div class="content-wrapper">
+                <p class="smartphone-not-ready">現在スマートフォン対応が出来ていません。お手数ですがパソコンでアクセスし直してください。</p>
+                <div class="content-wrapper content-deals-wrapper">
                     <table class="deal-management-table">
                             <tr class="deal-titles">
                                 <td class="deal-tds">キャンペーン名</td>
@@ -261,7 +262,8 @@
         <% elsif @current_user_ad %>
             <div class="content-container content-deals">
                 <h2>キャンペーン管理</h2>
-                <div class="content-wrapper">
+                <p class="smartphone-not-ready">現在スマートフォン対応が出来ていません。お手数ですがパソコンでアクセスし直してください。</p>
+                <div class="content-wrapper content-deals-wrapper">
                     <table class="deal-management-table">
                             <tr class="deal-titles">
                                 <td class="deal-tds">キャンペーン名</td>
@@ -342,43 +344,43 @@
                                                 <% end %>
                                             </div>
                                             <input name=<%= @program.id %> style="display:none">
-                                            <div class="form-name-wrapper form-container">
+                                            <div class="form-name-wrapper form-container form-program-container">
                                                 <%= f.label :name, "番組名" , :class => "form-item" %>
                                                 <%= f.text_field :name, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-genre-wrapper form-container">
+                                            <div class="form-genre-wrapper form-container form-program-container">
                                                 <%= f.label :genre, "ジャンル" , :class => "form-item" %>
                                                 <%= f.text_field :genre, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-genre-wrapper form-container">
+                                            <div class="form-genre-wrapper form-container form-program-container">
                                                 <%= f.label :description, "番組の説明" , :class => "form-item" %>
                                                 <%= f.text_area :description, :class => "form-text-area form-item program-text-area"  %>
                                             </div>
-                                            <div class="form-dl-wrapper form-container">
+                                            <div class="form-dl-wrapper form-container form-program-container">
                                                 <%= f.label :dl, "平均ダウンロード数" , :class => "form-item" %>
                                                 <%= f.text_field :dl, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-len-wrapper form-container">
+                                            <div class="form-len-wrapper form-container form-program-container">
                                                 <%= f.label :ave_len, "エピソードの長さ(平均)" , :class => "form-item" %>
                                                 <%= f.text_field :ave_len, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-freq-wrapper form-container">
+                                            <div class="form-freq-wrapper form-container form-program-container">
                                                 <%= f.label :frequency, "放送の頻度" , :class => "form-item" %>
                                                 <%= f.text_field :frequency, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-hosting-wrapper form-container">
+                                            <div class="form-hosting-wrapper form-container form-program-container">
                                                 <%= f.label :hosting, "ご利用中のホスティング" , :class => "form-item" %>
                                                 <%= f.text_field :hosting, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-date-wrapper form-container">
+                                            <div class="form-date-wrapper form-container form-program-container">
                                                 <%= f.label :start_date, "番組開始日" , :class => "form-item" %>
                                                 <%= f.text_field :start_date, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-program_url-wrapper form-container">
+                                            <div class="form-program_url-wrapper form-container form-program-container">
                                                 <%= f.label :program_url, "番組のURL" , :class => "form-item" %>
                                                 <%= f.text_field :program_url, :class => "form-text-area form-item" %>
                                             </div>
-                                            <div class="form-hp_url-wrapper form-container">
+                                            <div class="form-hp_url-wrapper form-container form-program-container">
                                                 <%= f.label :hp_url, "HPのURL" , :class => "form-item" %>
                                                 <%= f.text_field :hp_url, :class => "form-text-area form-item" %>
                                             </div>
@@ -475,7 +477,7 @@
                                     <%= form_for(@program, url: {controller: 'home', action: 'file_upload'}, html: {method: "post"}) do |f| %>
                                         <div class="form-items">
                                             <div class="dl-form-container">
-                                                <%= f.file_field :dlfile, :class => "form-text-area form-item" %>
+                                                <%= f.file_field :dlfile, :class => "form-text-area form-item form-dl-text-area" %>
                                             </div>
                                             <div class="form-btn-wrapper">
                                                 <ul class="form-btn-ul">
@@ -613,6 +615,7 @@
             
             <div class="content-container content-ep-schedule">
                 <h2>番組スケジュール管理</h2>
+                <p class="smartphone-not-ready">現在スマートフォン対応が出来ていません。お手数ですがパソコンでアクセスし直してください。</p>   
                 <div class="content-wrapper content-schedule-wrapper">
                    <% if @program.present? %>
                         <% if @episodes.present? %>

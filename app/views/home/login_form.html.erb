@@ -70,14 +70,13 @@
                 <div class="form-body login-form-body">
                     <%= form_tag("/login", method: :post) do %>
                         <div class="form-items login-form-items">
-                            <div class="form-email-wrapper form-container">
-                                <label for="email" accesskey="n" class="form-item">メール</label>
-                                <input name="email" id="email" class="form-text-area form-item">
-                            </div>
-                            <div class="form-password-wrapper form-container">
-                                <label for="password" accesskey="n" class="form-item">パスワード</label>
-                                <input name="password" id="password" class="form-text-area form-item">
-                            </div>
+                            
+                            <label for="email" accesskey="n" class="form-item">メール</label>
+                            <input name="email" id="email" class="form-text-area form-item">
+                            
+                            <label for="password" accesskey="n" class="form-item">パスワード</label>
+                            <input name="password" id="password" class="form-text-area form-item">
+                           
                             <div class="form-btn-wrapper">
                                 <input type="submit" value="送信" class="form-btn btn form-submit-item"> 
                             </div>
@@ -104,7 +103,7 @@
                         <%= link_to '利用規約', '/terms_of_use' %>
                     </li>
                     <li>
-                        <%= link_to 'お問い合わせ', '/' %>
+                        <%= link_to 'お問い合わせ', '/contact' %>
                     </li>
                     <li class="smartphone-hidden">
                         <%= link_to '広告主', '/advertisers' %>

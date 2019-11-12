@@ -452,6 +452,26 @@ footer a{
 }
 
 
+
+
+// login
+
+.login-form-body{
+    padding-top: 9px;
+}
+
+.login-form-items{
+    width: 356px;
+}
+
+.login-h1{
+    margin-left: 5.5em;
+}
+
+
+
+
+
 // advertiser contact
 
 .contact-container{
@@ -475,7 +495,7 @@ footer a{
 }
 
 .form-items{
-    width: 90%;
+    width: 356px;
     margin: auto;
 }
 
@@ -490,6 +510,8 @@ footer a{
 .form-item{
     display: table-cell;
     vertical-align: top;
+    font-size: 1.1em;
+    padding-bottom: .1em;
 }
 
 .form-text-area{
@@ -526,6 +548,9 @@ footer a{
 .form-submit-item{
     float:right;
 }
+
+
+
 
 
 .deal-request-form-items{
@@ -579,21 +604,6 @@ footer a{
 
 
 
-
-
-// login
-
-.login-form-body{
-    padding-top: 9px;
-}
-
-.login-form-items{
-    width: 356px;
-}
-
-.login-h1{
-    margin-left: 5.5em;
-}
 
 
 
@@ -691,7 +701,7 @@ footer a{
 
 
 .password-form{
-    width: 65%;
+    width: 73%;
     margin: auto;
 }
 
@@ -980,6 +990,13 @@ footer a{
 
 .content-schedule-wrapper{
     width: 83%;
+
+}
+
+.smartphone-not-ready{
+    display:none;
+    width: 80%;
+    margin: auto;
 }
 
 .episode-schedule-wrapper{
@@ -1392,3 +1409,814 @@ footer a{
 }
 
 
+
+
+@media screen and (max-width:480px){
+    
+    .top-wrapper{
+        height: 21em;
+        
+    }
+    
+    .contact-container{
+        text-align: center;
+        box-sizing: border-box;
+        padding: 40px 20px;
+    }
+    
+    .contact-form-wrapper{
+        margin: auto;
+        width: 650px;
+    }
+    
+    .form-body{
+        height: 100%;
+        width: 90%;
+        margin: auto;
+        box-sizing:border-box;
+        padding: 0;
+        font-size: 14px;
+    }
+    
+    .form-items{
+        width: 90%;
+        margin: auto;
+    }
+    
+    .form-container{
+        display: table-row;
+    }
+    
+    .form-container label{
+        margin-right: 1em;
+        width: 30%;
+    }
+    
+    .form-pass-container label{
+        display: block;
+        width: 100%;
+    }
+    
+    .form-item{
+        display: table-cell;
+        vertical-align: top;
+        font-size: 1.1em;
+        padding: .5em;
+    }
+    
+    .form-text-area{
+        height: 26px;
+        width: 95%;
+        margin: auto;
+        margin-bottom: 40px;
+        border: .45px solid rgba(0,0,0,.3);
+        border-radius: 4px;
+    }
+    
+    .form-text{
+        height: 120px;
+    }
+    
+    .form-btn-wrapper{
+        box-sizing: border-box;
+        width: 152px;
+        float: right;
+    
+    }
+    
+    .form-btn{
+        background-color: #19BBDD;
+        border: none;
+        height: 33px;
+        width: 92px;
+        margin-top: 1em;
+        color: white;
+        border-radius: 5px;
+        float: right;
+    
+    }
+    
+    .form-submit-item{
+        float:right;
+    }
+    
+    .form-body{
+        width: 100%;
+        padding-top: 9px;
+    }
+    
+    .form-items{
+        width: 100%;
+    }
+    
+    .login-h1{
+        margin-left: .5em;
+    }
+    
+    .contact-form-wrapper{
+        width: 90%;
+    }
+
+    .contact-form{
+        width:100%;
+    }
+    
+    .contact-form-content{
+        height: 7em;
+        margin-bottom: 2em;
+        border: 0.45px solid rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+    
+    .contact-wrapper{
+        margin-bottom: 4em;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+// myaccountのcssをそのまま引っ張ってきたやつ
+
+@media screen and(max-width:480px){
+
+    .top-nav-bar{
+        position: relative;
+        height: 93px;
+        border-bottom: 1.3px solid rgba(0,0,0,.25);
+    }
+    
+    
+    .top-nav-ul{
+        position: absolute;
+        bottom: -1.5px;
+        margin: 0;
+        padding: 0;
+        
+    }
+    
+    .top-nav-li{
+        float: left;
+        list-style: none;
+        height: 40px;
+        width: 79px;
+        margin: 0;
+        border: .8px solid rgba(0,0,0,0.3);
+        line-height: 40px;
+        text-align: center;
+        font-size: .57em;
+        border-radius: 4.1px;
+    }
+    
+    .top-nav-li:hover{
+        cursor: pointer;
+    }
+    
+    .content-sec{
+        box-sizing: border-box;
+        padding-top: 20px;
+        padding-bottom: 7em;
+        background:#F3F3F3;
+    }
+    
+    .content-sec h2{
+        margin: 10px 0 10px 20px;
+        font-size: 1.35em;
+    }
+    
+    .content-wrapper{
+        width: 90%;
+        min-height: 450px;
+        padding: 2em 1em;
+        margin: 0 auto;
+        box-shadow: 0 7px 14px 0 rgba(50,50,93,0.1), 0 3px 6px 0 rgba(0,0,0,0.07);
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        background: #fff;
+    }
+    
+    
+    .content-payment-wrapper{
+        line-height: 600px;
+        text-align: center;
+    }
+    
+    
+    .delete-btn{
+        text-decoration: none;
+        color: #575757;
+        border-bottom: 0.45px solid rgba(0, 0, 0, 0.3);
+        font-size: 0.85em;
+        width: 52px;
+        margin-right: 13px;
+        margin-top: 1.7em;
+    
+        
+    }
+    
+    .form-btn-ul{
+        display:flex;
+        float: right;
+        padding: 0;
+    }
+    
+    .form-btn-ul li{
+        display:inline-block;
+        float: right;
+        list-style: none;
+    }
+    
+    
+    
+    .password-form{
+        width: 65%;
+        margin: auto;
+    }
+    
+    
+    .edit-password{
+        display: none;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+    }
+    
+    .pass-edit-modal-bg{
+        background: rgba(0,0,0,0.6);
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+    
+    .pass-edit-content{
+        border-radius: 4px;
+        background: #fff;
+        padding: 7em 0;
+        width: 70%;
+        margin: auto;
+        margin-top: 18%;
+        z-index: 0;
+        position: relative;
+    
+    }
+    
+    #pass-modal-close{
+        cursor: pointer;
+        width: 3em;
+        position: absolute;
+        right: 1.5em;
+        top: 1.1em;
+        font-size: .9em;
+    }
+    
+    .pass-edit-action{
+        margin-top: 6.7em;
+        font-size: .8em;
+        text-align: right;
+        padding-right: 2em;
+    }
+    
+    .pass-edit-action a{
+        cursor: pointer;
+    }
+    
+    
+    
+    .deal-management-table{
+        width: 100%;
+        display: table;
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: fixed;
+    }
+    
+    .deal-management-table tbody{
+        display: table-row-group;
+        border-collapse: collapse;
+    }
+    
+    .deal-management-table tr{
+        display: table-row;
+        height: 44px;
+        width: 100%;
+        table-layout: fixed;
+    
+    }
+    
+    
+    .cancel-deal{
+        font-size:.7em;
+        background: white;
+        width: 9%;
+    }
+    .cancel-deal-btn:hover{
+        cursor: pointer;
+    }
+    
+    .cancel-deal-btn a{
+        color: #575757;
+    }
+    
+    
+    .deal-titles{
+        background: #E9E9E9;
+    }
+    
+    
+    .deal-titles td{
+        text-align: center;
+        font-size: .73em;
+        font-weight: 600;
+    
+    }
+    
+    .deal-tr td{
+        text-align: center;
+    }
+    
+    .deal-tds{
+        border: .3px solid rgba(0,0,0,.26);
+        font-size: .83em;
+    }
+    
+    .deal-id{
+        display:none;
+    }
+    
+    .deal-hidden{
+        display:none;
+    }
+    
+    .manage-btn-wrapper{
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        list-style: none;
+        margin: 0 auto;
+        width: 70%;
+    }
+    
+    .manage-btn{
+        
+    }
+    
+    .manage-btn a{
+        background-color:#44c767;
+        font-size: .9em;
+        border-radius: 2px;
+        color: white;
+        padding: .4em .9em;
+        
+    }
+    
+    .accept-btn a{
+        background-color:#44c767;
+    }
+    
+    .deny-btn a{
+        background-color: #FE4A1D;
+    }
+    
+    
+    .deal-detail-modal{
+        display: none;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+    }
+    
+    .deal-modal-bg{
+        background: rgba(0,0,0,0.6);
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+    
+    .deal-content{
+        border-radius: 4px;
+        background: #fff;
+        padding: 4em 4em;
+        width: 85%;
+        margin: auto;
+        margin-top: 3em;
+        z-index: 0;
+        position: relative;
+    }
+    
+    .deal-content h3{
+        font-size: .94em;
+    }
+    
+    .deal-content p{
+        font-size: .92em;
+        padding-left: 1.5em;
+    }
+    
+    
+    .deal-name:hover{
+        cursor:pointer;
+    }
+    
+    #deal-modal-close{
+        cursor:pointer;
+        width: 3em;
+        position: absolute;
+        right: 2.9em;
+        top: 2.1em;
+        font-size: .7em;
+    }
+    
+    .error-message-wrapper{
+        border: .12em solid #FE4A1D;
+        width: 417px;
+        margin: auto;
+        font-size: .85em;
+        
+    }
+    
+    .error-message-ul{
+        margin-top: 7px;
+    }
+    
+    .error-message-wrapper li{
+        text-align: left;
+        margin-bottom: 1.4px;
+        width: 75%;
+        margin: auto;
+    }
+    
+    
+    .error-title{
+        line-height: 27px;
+        height: 27px;
+        color: white;
+        background: #FE4A1D;
+        text-align: left;
+        padding-left: 34px;
+    }
+    
+    .program-form-items{
+        width: auto;
+        margin: 0;
+    }
+    
+    .edit_program{
+        width: 94%;
+        margin: auto;
+    }
+    
+    .content-program input[type="file"]{
+    
+    }
+    
+    .content-program h3{
+        margin-bottom: 3em;
+    }
+    
+    .program-text-area{
+        height: 9.3em;
+        width: 259px;
+    }
+    
+    
+    .cpm-wrapper{
+        margin-top: 2.5em;
+    }
+    
+    .cpm-table tbody{
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+    
+    .cpm-table tr{
+        vertical-align: top;
+    }
+    
+    .cpm-td-description{
+        // width: 65%;
+    }
+    
+    .cpm-td-num{
+        // width: 20%;
+    }
+    
+    .content-schedule-wrapper{
+        width: 83%;
+        display: none;
+    }
+    .smartphone-not-ready{
+        display: block;
+    }
+    
+    .episode-schedule-wrapper{
+        width: 90%;
+        margin: auto;
+    }
+    
+    
+    .episode-schedule-table{
+        table-layout: fixed;
+        width: 100%;
+        border-collapse:collapse;
+    }
+    
+    .episode-schedule-table td{
+    }
+    
+    
+    .ep-table-titles{
+        background: #F3F3F3;
+        font-weight: 600;
+    }
+    
+    .ep-table-titles td{
+        padding: .43em;
+    }
+    
+    .ep-table-items{
+        height: 3.4em;
+    }
+    
+    .date-td{
+        width: 28%;
+        padding-left: .35em;
+    }
+    
+    .title-td{
+        width: 28%;
+    }
+    
+    .num-td{
+        width: 15%;
+        text-align: center;
+    }
+    
+    
+    .ep-form-text-area{
+        border: .45px solid rgba(0,0,0,.3);
+        border-radius: 4px;
+    }
+    
+    .ep-date-area{
+        width: 90%;
+    }
+    
+    .ep-title-area{
+        width: 90%;
+    }
+    
+    .ep-num-area{
+        width: 31px;
+    }
+    
+    
+    
+    
+    .edit-ep-title-area{
+        width: 90%;
+    }
+    
+    .edit-ep-date-area{
+        width: 90%;
+    }
+    
+    .ep-edit-modal{
+        display: none;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        
+        
+    }
+    
+    .ep-edit-modal-bg{
+        background: rgba(0,0,0,0.6);
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+    
+    .ep-edit-content{
+        border-radius: 4px;
+        background: #fff;
+        // left: 50%;
+        padding: 7em 4em;
+        // position: absolute;
+        // top: 50%;
+        // transform: translate(-50%,-50%);
+        width: 85%;
+        margin: auto;
+        margin-top: 13em;
+        z-index: 0;
+        position: relative;
+        // height: 38%;
+    
+    }
+    
+    .edit-modal-table{
+        margin-bottom: 1em;
+    }
+    
+    .ep-edit-delete{
+        margin-top: .8em;
+    }
+    .ep-edit-submit{
+        margin-top: .8em;
+    }
+    
+    .ep-edit-warning{
+        font-size: .8em;
+        margin-bottom: .7em;
+    }
+    
+    
+    #modal-close{
+        cursor: pointer;
+        width: 3em;
+        position: absolute;
+        right: 2.3em;
+        top: 1.8em;
+        font-size: .7em;
+    }
+    
+    .ep-edit-area{
+        display:none;
+    }
+    
+    .ep-modal-table{
+        table-layout: fixed;
+        width: 80%;
+        
+    }
+    
+    .ep-modal-table td{
+        
+    }
+    
+    .ep-add-area{
+        display:none;
+        
+    }
+    
+    .edit-modal-table input{
+        height: 2.3em;
+    }
+    
+    .long-field{
+        width: 25%;
+        display: inline-block;
+    }
+    
+    .short-field{
+        width: 7%;
+        text-align: center;
+        margin-right: .13em;
+        display: inline-block;
+    }
+    
+    .short-field input{
+        width: 100%;
+    }
+    
+    .ep-active{
+        display: block;
+    }
+    
+    #ep-add-new{
+        float:right;
+        font-size: .82em;
+        margin: 1em 1em 0 0 ;
+        cursor: pointer;
+    }
+    
+    .edit-episode{
+        text-align: center;
+    }
+    
+    .edit-episode span{
+        cursor: pointer;
+        font-size: .71em;
+    }
+    
+    .num-td-val{
+        text-align: center;
+    }
+    
+    
+    
+    .dl-confirmation-wrapper{
+        width: 90%;
+        margin: 7em auto 0 auto;
+    }
+    
+    .dl-confirmation-wrapper form{
+        width: 80%;
+        margin: auto;
+    }
+    
+    
+    .form-pic-wrapper{
+        margin-bottom: 3.5em;
+    }
+    
+    .prof-image{
+        display: block;
+        width: 9em;
+        height: 9em ;
+        margin: auto;
+        
+    }
+    
+    
+    .dl-file-modal{
+        display: none;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+    }
+    
+    .dl-file-modal-bg{
+        background: rgba(0,0,0,0.6);
+        height: 100vh;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+    
+    .dl-file-content{
+        border-radius: 4px;
+        background: #fff;
+        padding: 7em 1em;
+        width: 95%;
+        margin: auto;
+        margin-top: 13em;
+        z-index: 0;
+        position: relative;
+    
+    }
+    
+    #dl-modal-close{
+        cursor: pointer;
+        width: 3em;
+        position: absolute;
+        right: 4.3em;
+        top: 3.1em;
+        font-size: .9em;
+    }
+    
+    .dl-file-action{
+    }
+    
+    .dl-file-action a{
+        cursor: pointer;
+    }
+    
+    .dl-form-container{
+        margin: auto;
+    }
+    
+    
+    .dl-reconfirm{
+        font-size: .7em;
+        font-weight: normal;
+        margin-left: 1.2em;
+    }
+    
+    .content-deals-wrapper{
+        display:none;
+    }
+    
+    
+    
+    .form-program-container label{
+        display: block;
+        width: 100%;
+    }
+    
+    .form-dl-text-area{
+        height: 26px;
+        width: 95%;
+        margin: auto;
+        font-size: 0.8em;
+        margin-bottom: 40px;
+        border: 0.45px solid rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+
+}
