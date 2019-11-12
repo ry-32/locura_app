@@ -1450,6 +1450,7 @@ footer a{
     .form-container label{
         margin-right: 1em;
         width: 30%;
+        padding: 0;
     }
     
     .form-pass-container label{
@@ -1529,9 +1530,13 @@ footer a{
     }
     
     .contact-wrapper{
-        margin-bottom: 4em;
+        margin-bottom: 7em;
     }
 
+
+
+
+    
 
 
 }
@@ -2219,4 +2224,15 @@ footer a{
         border-radius: 4px;
     }
 
+
+
+    // index page
+    .top-h1-wrapper{
+        position: absolute;
+        bottom: 47px;
+        margin-left: 30px;
+    }
+    .top-h1{
+        font-size: 145%;
+    }
 }
