@@ -47,7 +47,7 @@ body{
 }
 
 .top-h1{
-    font-size: 2.4em;
+    font-size: 2.2em;
 }
 
 .animation {
@@ -105,7 +105,7 @@ body{
 .middle-wrapper{
     font-size: 0px;
     box-sizing: border-box;
-    padding: 0 110px;
+    // padding: 0 10%;
     margin-bottom: 80px;
 }
 
@@ -116,6 +116,7 @@ body{
     display: inline-block;
 }
 
+
 .info-wrapper{
     text-align: center;
     height: 69%;
@@ -124,6 +125,42 @@ body{
     padding: 20px;
 
 }
+
+.info-wrapper-ad{
+    margin-right: 20%;
+}
+
+.info-wrapper-pod{
+    margin-left: 20%;
+}
+
+
+@media screen and (max-width:480px) { 
+    /*　画面サイズが480pxからはここを読み込む　*/
+    .info-box{
+        font-size: 15px;
+        width: auto;
+        min-width: 380px;
+        height: 100%;
+        display: inline-block;
+    
+    }
+    
+    
+    .info-wrapper-ad{
+    margin-right: 50px;
+    } 
+    
+    .info-wrapper-pod{
+        margin-left: 50px;
+    }
+    
+    .smartphone-hidden{
+        display: none;
+    }
+}
+
+
 
 /*.info-wrapper:hover{
     cursor: pointer;
@@ -179,8 +216,12 @@ body{
 
 .middle2-wrapper .info-box{
     width: 33%;
+}
 
-    
+@media screen and (max-width:480px){
+    .middle2-wrapper .info-box{
+        width: auto;
+    }
 }
 
 .middle2-wrapper .info-box p{
@@ -274,6 +315,14 @@ footer a{
 .hidden{
     display: none;
 }
+
+
+@media screen and (max-width:480px){
+    .ad-middle-w{
+        padding: 0;
+    }
+}
+
 
 // advertiser contact
 
