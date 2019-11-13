@@ -162,10 +162,6 @@ body{
 .top-wrapper{
     height: 450px;
     position: relative;
-    background: yellow;
-    // background: image-url("mic_new.jpg") no-repeat right;
-    // background-size: contain ;
-    // background-size: contain;
     
 }
 
@@ -183,6 +179,8 @@ body{
     width:25px;
     height:25px;
     margin-top:80px; 
+    transform-origin: 200% center;
+    animation:rotate 7s linear infinite;
     -webkit-transform-origin: 200% center; 
     -webkit-animation:rotate 7s linear infinite;
     position: absolute;
@@ -191,7 +189,8 @@ body{
 .animation img { 
     content:''; 
     height: 32px; 
-    width: 32px; 
+    width: 32px;
+    animation:rotate 7s linear reverse infinite;
     -webkit-animation:rotate 7s linear reverse infinite;
 }
 
@@ -199,8 +198,10 @@ body{
     width: 32px; 
     height: 32px;
     margin-top:80px; 
-    transform-origin: 200% center; 
+    transform-origin: 200% center;
     animation:rotate2 7s linear infinite;
+    -webkit-animation:rotate2 7s linear infinite;
+    -webkit-transform-origin: 200% center;
     position: absolute;
 }
     
@@ -208,7 +209,8 @@ body{
     content:''; 
     height: 32px; 
     width: 32px;
-    animation:rotate2 7s linear reverse infinite; 
+    animation:rotate2 7s linear reverse infinite;
+    -webkit-animation:rotate2 7s linear reverse infinite;
 }
 
 .animation3 {
@@ -217,15 +219,26 @@ body{
     margin-top:80px; 
     transform-origin:200% center; 
     animation:rotate2 7s linear infinite;
+    -webkit-transform-origin:200% center; 
+    -webkit-animation:rotate2 7s linear infinite;
     position: absolute;
 }
 .animation3 img {
     content:''; 
     height: 26px;
     width: 26px;
-    animation:rotate2 7s linear reverse infinite; 
+    animation:rotate2 7s linear reverse infinite;
+    -webkit-animation:rotate2 7s linear reverse infinite; 
 }
     
+@keyframes rotate { 
+    0% { transform:rotate(0deg);}
+    25% { transform:rotate(90deg);}
+    50% { transform:rotate(180deg);}
+    75% { transform:rotate(270deg);}
+    100% { transform:rotate(360deg);} 
+}
+
 @-webkit-keyframes rotate { 
     0% { -webkit-transform:rotate(0deg);}
     25% { -webkit-transform:rotate(90deg);}
@@ -234,6 +247,8 @@ body{
     100% { -webkit-transform:rotate(360deg);} 
 }
 
+
+@keyframes rotate2 { 100% { transform:rotate(-360deg); } }
 @-webkit-keyframes rotate2 { 100% { -webkit-transform:rotate(-360deg); } }
 
 
