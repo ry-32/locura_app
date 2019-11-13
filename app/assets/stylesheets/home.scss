@@ -177,7 +177,7 @@ body{
 
 
 
-// .animation-item1{bottom: 36%;right: 14%}
+.animation-item1{bottom: 36%;right: 14%}
 .animation-item2{top: 10%;right: 38%;}
 .animation-item3{top: 16%;left: 12%;}
 .animation-item4{top: 30%;left: 29%;}
@@ -186,7 +186,7 @@ body{
 
 
 @media screen and(max-width: 480px){
-    // .animation-item1{bottom: 36%;right: 35%}
+    .animation-item1{bottom: 36%;right: 35%}
     .animation-item2{top: 10%;right: 38%;}
     .animation-item3{top: 16%;right: 12%;}
     .animation-item4{top: 30%;left: 29%;}
@@ -201,7 +201,7 @@ body{
     transform-origin: 200% center;
     animation:rotate 7s linear infinite;
     -webkit-animation:rotate 7s linear infinite;
-    -webkit-transform-origin: 200% center;
+    -webkit-transform-origin: 5% center;
     position: absolute;
 }
     
