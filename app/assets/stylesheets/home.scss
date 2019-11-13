@@ -179,23 +179,37 @@ body{
 }
 
 .animation {
-    width:25px; 
+    width:25px;
     height:25px;
     margin-top:80px; 
-    transform-origin:200% center; 
+    transform-origin: 45px center; 
     animation:rotate 7s linear infinite;
     position: absolute;
-    }
+}
+    
+.animation img { 
+    content:''; 
+    height: 32px; 
+    width: 32px; 
+    animation:rotate 7s linear reverse infinite;
+}
 
 .animation2 {
     width: 32px; 
     height: 32px;
     margin-top:80px; 
-    transform-origin:200% center; 
+    transform-origin: 200% center; 
     animation:rotate2 7s linear infinite;
     position: absolute;
-    }
+}
     
+.animation2 img {
+    content:''; 
+    height: 32px; 
+    width: 32px;
+    animation:rotate2 7s linear reverse infinite; 
+}
+
 .animation3 {
     width: 26px; 
     height: 26px;
@@ -204,24 +218,12 @@ body{
     animation:rotate2 7s linear infinite;
     position: absolute;
 }
-    
-.animation img { 
-    content:''; 
-    height: 32px; 
-    width: 32px; 
-    animation:rotate 7s linear reverse infinite; }
-    
-.animation2 img {
-    content:''; 
-    height: 32px; 
-    width: 32px;
-    animation:rotate2 7s linear reverse infinite; }
-    
 .animation3 img {
     content:''; 
     height: 26px; 
     width: 26px;
-    animation:rotate2 7s linear reverse infinite; }
+    animation:rotate2 7s linear reverse infinite; 
+}
     
 @keyframes rotate { 100% { transform:rotate(360deg); } }
 @keyframes rotate2 { 100% { transform:rotate(-360deg); } }
