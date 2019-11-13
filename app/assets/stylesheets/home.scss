@@ -182,8 +182,8 @@ body{
     width:25px;
     height:25px;
     margin-top:80px; 
-    transform-origin: 45px center; 
-    animation:rotate 7s linear infinite;
+    transform-origin: 200% center; 
+    -webkit-animation:rotate 7s linear infinite;
     position: absolute;
 }
     
@@ -191,7 +191,7 @@ body{
     content:''; 
     height: 32px; 
     width: 32px; 
-    animation:rotate 7s linear reverse infinite;
+    -webkit-animation:rotate 7s linear reverse infinite;
 }
 
 .animation2 {
@@ -220,13 +220,13 @@ body{
 }
 .animation3 img {
     content:''; 
-    height: 26px; 
+    height: 26px;
     width: 26px;
     animation:rotate2 7s linear reverse infinite; 
 }
     
-@keyframes rotate { 100% { transform:rotate(360deg); } }
-@keyframes rotate2 { 100% { transform:rotate(-360deg); } }
+@-webkit-keyframes rotate { 100% { -webkit-transform:rotate(360deg); } }
+@-webkit-keyframes rotate2 { 100% { -webkit-transform:rotate(-360deg); } }
 
 
 
