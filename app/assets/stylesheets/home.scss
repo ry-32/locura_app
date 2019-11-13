@@ -1870,14 +1870,15 @@ footer a{
     
     .error-message-wrapper{
         border: .12em solid #FE4A1D;
-        width: 417px;
-        margin: auto;
+        width: 99%;
+        margin: 12% auto;
         font-size: .85em;
         
     }
     
     .error-message-ul{
         margin-top: 7px;
+        padding: 0;
     }
     
     .error-message-wrapper li{
