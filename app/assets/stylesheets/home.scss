@@ -281,9 +281,13 @@ body{
 
 
 #animation{
-    -webkit-perspective: 500px;
+    // -webkit-perspective: 500px;
 }
 
+.animation-container{
+    -webkit-perspective: 500px;
+    perspective: 500px;
+}
 
 .middle-wrapper{
     font-size: 0px;
