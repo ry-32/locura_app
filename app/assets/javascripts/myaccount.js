@@ -226,29 +226,23 @@ document.addEventListener("turbolinks:load", function() {
     
     
     
-    // img rotation
-    /*
-    $.fn.animate2 = function (properties, duration, ease) {
-        ease = ease || 'ease';
-        var $this = this;
-        var cssOrig = { transition: $this.css('transition') };
-        return $this.queue(next => {
-            properties['transition'] = 'all ' + duration + 'ms ' + ease;
-            $this.css(properties);
-            setTimeout(function () {
-                $this.css(cssOrig);
-                next();
-            }, duration);
-        });
-    };
+    // // img rotation
     
+    // $.fn.animate2 = function (properties, duration, ease) {
+    //     ease = ease || 'ease';
+    //     var $this = this;
+    //     var cssOrig = { transition: $this.css('transition') };
+    //     return $this.queue(next => {
+    //         properties['transition'] = 'all ' + duration + 'ms ' + ease;
+    //         $this.css(properties);
+    //         setTimeout(function () {
+    //             $this.css(cssOrig);
+    //             next();
+    //         }, duration);
+    //     });
+    // };
     
-    function LoopForever() {
-        // $(function() {
-        $('#animation-js').animate2({ transform: 'rotate(360deg)' }, 7000)
-        $('#animation-js img').animate2({ transform: 'rotate(-360deg)' }, 7000)
-        // });
-        window.setTimeout(LoopForever, 100);
-    }*/
+    // $('#animation-js').animate2({ transform: 'rotate(360deg)' }, 7000)
+    // $('#animation-js img').animate2({ transform: 'rotate(-360deg)' }, 7000)
 })
     

@@ -1,0 +1,97 @@
+
+
+.animation-item1{bottom: 36%;right: 14%}
+.animation-item2{top: 10%;right: 38%;}
+.animation-item3{top: 16%;left: 12%;}
+.animation-item4{top: 30%;left: 29%;}
+.animation-item5{top: 50%;right: 29%;}
+.animation-item6{top: 50%;right: 50%;}
+
+@media screen and(max-width: 480px){
+    .animation-item1{bottom: 36%;right: 35%}
+    .animation-item2{top: 10%;right: 38%;}
+    .animation-item3{top: 16%;right: 12%;}
+    .animation-item4{top: 30%;left: 29%;}
+    .animation-item5{top: 50%;right: 29%;}
+    .animation-item6{top: 50%;right: 50%;}
+}
+
+
+
+
+.animation {
+    width:25px;
+    height:25px;
+    margin-top:80px; 
+    transform-origin: 200% center;
+    animation:rotate 7s linear infinite;
+    -webkit-transform-origin: 200% center; 
+    -webkit-animation:rotate 7s linear infinite;
+    position: absolute;
+}
+    
+.animation img { 
+    content:''; 
+    height: 32px; 
+    width: 32px;
+    animation:rotate 7s linear reverse infinite;
+    -webkit-animation:rotate 7s linear reverse infinite;
+}
+
+.animation2 {
+    width: 32px; 
+    height: 32px;
+    margin-top:80px; 
+    transform-origin: 200% center;
+    animation:rotate2 7s linear infinite;
+    -webkit-animation:rotate2 7s linear infinite;
+    -webkit-transform-origin: 200% center;
+    position: absolute;
+}
+    
+.animation2 img {
+    content:''; 
+    height: 32px; 
+    width: 32px;
+    animation:rotate2 7s linear reverse infinite;
+    -webkit-animation:rotate2 7s linear reverse infinite;
+}
+
+.animation3 {
+    width: 26px; 
+    height: 26px;
+    margin-top:80px; 
+    transform-origin:200% center; 
+    animation:rotate2 7s linear infinite;
+    -webkit-transform-origin:200% center; 
+    -webkit-animation:rotate2 7s linear infinite;
+    position: absolute;
+}
+.animation3 img {
+    content:''; 
+    height: 26px;
+    width: 26px;
+    animation:rotate2 7s linear reverse infinite;
+    -webkit-animation:rotate2 7s linear reverse infinite; 
+}
+    
+@keyframes rotate { 
+    0% { transform:rotate(0deg);}
+    25% { transform:rotate(90deg);}
+    50% { transform:rotate(180deg);}
+    75% { transform:rotate(270deg);}
+    100% { transform:rotate(360deg);} 
+}
+
+@-webkit-keyframes rotate { 
+    0% { -webkit-transform:rotate(0deg);}
+    25% { -webkit-transform:rotate(90deg);}
+    50% { -webkit-transform:rotate(180deg);}
+    75% { -webkit-transform:rotate(270deg);}
+    100% { -webkit-transform:rotate(360deg);} 
+}
+
+
+@keyframes rotate2 { 100% { transform:rotate(-360deg); } }
+@-webkit-keyframes rotate2 { 100% { -webkit-transform:rotate(-360deg); } }
+
