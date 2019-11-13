@@ -182,7 +182,7 @@ body{
     width:25px;
     height:25px;
     margin-top:80px; 
-    transform-origin: 200% center; 
+    -webkit-transform-origin: 200% center; 
     -webkit-animation:rotate 7s linear infinite;
     position: absolute;
 }
@@ -225,7 +225,14 @@ body{
     animation:rotate2 7s linear reverse infinite; 
 }
     
-@-webkit-keyframes rotate { 100% { -webkit-transform:rotate(360deg); } }
+@-webkit-keyframes rotate { 
+    0% { -webkit-transform:rotate(0deg);}
+    25% { -webkit-transform:rotate(90deg);}
+    50% { -webkit-transform:rotate(180deg);}
+    75% { -webkit-transform:rotate(270deg);}
+    100% { -webkit-transform:rotate(360deg);} 
+}
+
 @-webkit-keyframes rotate2 { 100% { -webkit-transform:rotate(-360deg); } }
 
 
