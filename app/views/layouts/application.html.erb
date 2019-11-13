@@ -78,7 +78,13 @@
     
     <script src="app.js"></script>
     <script src="myaccount.js"></script>
-
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var style = '<link rel="stylesheet" href="style.css">';
+            $('head link:last').after(style);
+        });
+    </script>
     <%= yield %>
   </body>
 </html>
