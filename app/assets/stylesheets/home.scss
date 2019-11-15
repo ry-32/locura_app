@@ -197,7 +197,7 @@ body{
 }
     
 .animation img { 
-    content:''; 
+     
     height: 32px; 
     width: 32px;
     animation: rotate 7s linear reverse infinite;
@@ -216,7 +216,7 @@ body{
 }
     
 .animation2 img {
-    content:''; 
+     
     height: 32px; 
     width: 32px;
     animation: rotate2 7s linear reverse infinite;
@@ -234,7 +234,7 @@ body{
     position: absolute;
 }
 .animation3 img {
-    content:''; 
+     
     height: 26px;
     width: 26px;
     animation: rotate2 7s linear reverse infinite;
@@ -273,8 +273,8 @@ body{
     
     
     .animation{
-        width:25px;
-        height:25px;
+        height: 30px;
+        width: 30px;
         margin-top:80px;
         -webkit-animation:rotate 7s linear infinite;
         -webkit-transform-origin: 1% center;
@@ -282,15 +282,14 @@ body{
     }
         
     .animation img { 
-        content:''; 
-        height: 32px; 
-        width: 32px;
+        height: 30px;
+        width: 30px;
         -webkit-animation: rotate 7s linear reverse infinite;
     }
     
     .animation2 {
-        width: 32px; 
-        height: 32px;
+        height: 30px;
+        width: 30px;
         margin-top:80px; 
         -webkit-animation: rotate2 7s linear infinite;
         -webkit-transform-origin: 1% center;
@@ -298,24 +297,23 @@ body{
     }
         
     .animation2 img {
-        content:''; 
-        height: 32px; 
-        width: 32px;
+         
+        height: 30px;
+        width: 30px;
         -webkit-animation: rotate2 7s linear reverse infinite;
     }
     
     .animation3 {
-        width: 26px; 
-        height: 26px;
+        height: 30px;
+        width: 30px;
         margin-top: 80px; 
         -webkit-transform-origin: 1% center; 
         -webkit-animation: rotate2 7s linear infinite;
         position: absolute;
     }
     .animation3 img {
-        content:''; 
-        height: 26px;
-        width: 26px;
+        height: 30px;
+        width: 30px;
         -webkit-animation: rotate2 7s linear reverse infinite; 
     }
         
@@ -354,7 +352,7 @@ body{
 }
     
 .animation img { 
-    content:''; 
+     
     height: 32px; 
     width: 32px;
     -webkit-animation: rotate 7s linear reverse infinite;
@@ -364,7 +362,7 @@ body{
 
 // このコードだと走る。
 // 1)クラス自体外しているから元のコードは適用しない
-
+/*
 #animation-test{
     position: absolute;
     bottom: 36%;
@@ -374,14 +372,14 @@ body{
 }
 
 #animation-test img{
-    // content:'';
+    // 
     -webkit-animation: rotate2 7s linear infinite;
     height: 24px;
     width: 24px;
 }
 
 @-webkit-keyframes rotate2 { 100% { -webkit-transform: rotate(-360deg); } }
-
+*/
 
 
 
