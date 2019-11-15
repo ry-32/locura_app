@@ -271,6 +271,14 @@ body{
     .animation-item5{top: -12%;right: 45%;}
     .animation-item6{top: 17%;left: 63%;}
     
+
+    .ad-animation-item1{top: -13%;right: 19%;}
+    .ad-animation-item2{top: 8%;left: 63%;}
+    .ad-animation-item3{bottom: 46%;right: 12%}
+    .ad-animation-item4{top: -5%;left: 21%;}
+    .ad-animation-item5{top: 53%;right: 45%;}
+    .ad-animation-item6{top: 60%;right: 10%;}
+    
     
     .animation{
         height: 30px;
@@ -337,12 +345,7 @@ body{
     @keyframes rotate2 { 100% { transform: rotate(-360deg); } }
     @-webkit-keyframes rotate2 { 100% { -webkit-transform: rotate(-360deg); } }
 
-
 }
-
-
-
-
 
 
 .animation-container{
