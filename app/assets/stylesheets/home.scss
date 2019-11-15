@@ -273,9 +273,9 @@ body{
     
     
     .animation{
-        width: auto;
-        height: auto;
-        margin: 0px;
+        width:25px;
+        height:25px;
+        margin-top: 0;
         -webkit-animation:rotate 7s linear infinite;
         -webkit-transform-origin: 1% center;
         position: absolute;
@@ -283,8 +283,8 @@ body{
         
     .animation img { 
         content:''; 
-        height: auto; 
-        width: auto;
+        height: 32px; 
+        width: 32px;
         -webkit-animation: rotate 7s linear reverse infinite;
     }
     
