@@ -191,8 +191,8 @@ body{
     margin-top:80px; 
     transform-origin: 200% center;
     animation:rotate 7s linear infinite;
-    -webkit-animation:rotate 7s linear infinite;
-    -webkit-transform-origin: 1% center;
+    // -webkit-animation:rotate 7s linear infinite;
+    // -webkit-transform-origin: 1% center;
     position: absolute;
 }
     
@@ -201,7 +201,7 @@ body{
     height: 32px; 
     width: 32px;
     animation: rotate 7s linear reverse infinite;
-    -webkit-animation: rotate 7s linear reverse infinite;
+    // -webkit-animation: rotate 7s linear reverse infinite;
 }
 
 .animation2 {
@@ -210,8 +210,8 @@ body{
     margin-top:80px; 
     transform-origin: 200% center;
     animation: rotate2 7s linear infinite;
-    -webkit-animation: rotate2 7s linear infinite;
-    -webkit-transform-origin: 1% center;
+    // -webkit-animation: rotate2 7s linear infinite;
+    // -webkit-transform-origin: 1% center;
     position: absolute;
 }
     
@@ -220,7 +220,7 @@ body{
     height: 32px; 
     width: 32px;
     animation: rotate2 7s linear reverse infinite;
-    -webkit-animation: rotate2 7s linear reverse infinite;
+    // -webkit-animation: rotate2 7s linear reverse infinite;
 }
 
 .animation3 {
@@ -229,8 +229,8 @@ body{
     margin-top: 80px; 
     transform-origin: 200% center; 
     animation: rotate2 7s linear infinite;
-    -webkit-transform-origin: 1% center; 
-    -webkit-animation: rotate2 7s linear infinite;
+    // -webkit-transform-origin: 1% center; 
+    // -webkit-animation: rotate2 7s linear infinite;
     position: absolute;
 }
 .animation3 img {
@@ -238,7 +238,7 @@ body{
     height: 26px;
     width: 26px;
     animation: rotate2 7s linear reverse infinite;
-    -webkit-animation: rotate2 7s linear reverse infinite; 
+    // -webkit-animation: rotate2 7s linear reverse infinite; 
 }
     
 @keyframes rotate { 
@@ -270,6 +270,75 @@ body{
     .animation-item4{top: -5%;left: 21%;}
     .animation-item5{top: -12%;right: 45%;}
     .animation-item6{top: 17%;left: 63%;}
+    
+    
+    .animation{
+    width:25px;
+    height:25px;
+    margin-top:80px;
+    -webkit-animation:rotate 7s linear infinite;
+    -webkit-transform-origin: 1% center;
+    position: absolute;
+    }
+        
+    .animation img { 
+        content:''; 
+        height: 32px; 
+        width: 32px;
+        -webkit-animation: rotate 7s linear reverse infinite;
+    }
+    
+    .animation2 {
+        width: 32px; 
+        height: 32px;
+        margin-top:80px; 
+        -webkit-animation: rotate2 7s linear infinite;
+        -webkit-transform-origin: 1% center;
+        position: absolute;
+    }
+        
+    .animation2 img {
+        content:''; 
+        height: 32px; 
+        width: 32px;
+        -webkit-animation: rotate2 7s linear reverse infinite;
+    }
+    
+    .animation3 {
+        width: 26px; 
+        height: 26px;
+        margin-top: 80px; 
+        -webkit-transform-origin: 1% center; 
+        -webkit-animation: rotate2 7s linear infinite;
+        position: absolute;
+    }
+    .animation3 img {
+        content:''; 
+        height: 26px;
+        width: 26px;
+        -webkit-animation: rotate2 7s linear reverse infinite; 
+    }
+        
+    @keyframes rotate { 
+        0% { transform:rotate(0deg);}
+        25% { transform:rotate(90deg);}
+        50% { transform:rotate(180deg);}
+        75% { transform:rotate(270deg);}
+        100% { transform:rotate(360deg);} 
+    }
+    
+    @-webkit-keyframes rotate { 
+        0% { -webkit-transform:rotate(0deg);}
+        25% { -webkit-transform:rotate(90deg);}
+        50% { -webkit-transform:rotate(180deg);}
+        75% { -webkit-transform:rotate(270deg);}
+        100% { -webkit-transform:rotate(360deg);} 
+    }
+    
+    
+    @keyframes rotate2 { 100% { transform: rotate(-360deg); } }
+    @-webkit-keyframes rotate2 { 100% { -webkit-transform: rotate(-360deg); } }
+
 
 }
 
