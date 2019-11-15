@@ -273,18 +273,18 @@ body{
     
     
     .animation{
-    width:25px;
-    height:25px;
-    margin-top:80px;
-    -webkit-animation:rotate 7s linear infinite;
-    -webkit-transform-origin: 1% center;
-    position: absolute;
+        // width:25px;
+        // height:25px;
+        // margin-top:80px;
+        -webkit-animation:rotate 7s linear infinite;
+        -webkit-transform-origin: 1% center;
+        position: absolute;
     }
         
     .animation img { 
         content:''; 
-        height: 32px; 
-        width: 32px;
+        // height: 32px; 
+        // width: 32px;
         -webkit-animation: rotate 7s linear reverse infinite;
     }
     
