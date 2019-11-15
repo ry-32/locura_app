@@ -342,46 +342,6 @@ body{
 
 
 
-/*.animation{
-    width:25px;
-    height:25px;
-    margin-top:80px;
-    -webkit-animation:rotate 7s linear infinite;
-    -webkit-transform-origin: 1% center;
-    position: absolute;
-}
-    
-.animation img { 
-     
-    height: 32px; 
-    width: 32px;
-    -webkit-animation: rotate 7s linear reverse infinite;
-}*/
-
-
-
-// このコードだと走る。
-// 1)クラス自体外しているから元のコードは適用しない
-/*
-#animation-test{
-    position: absolute;
-    bottom: 36%;
-    right: 34%;
-    -webkit-transform-origin: 2% center;
-    -webkit-animation: rotate 7s linear infinite;
-}
-
-#animation-test img{
-    // 
-    -webkit-animation: rotate2 7s linear infinite;
-    height: 24px;
-    width: 24px;
-}
-
-@-webkit-keyframes rotate2 { 100% { -webkit-transform: rotate(-360deg); } }
-*/
-
-
 
 
 
