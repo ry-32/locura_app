@@ -185,15 +185,6 @@ body{
 .animation-item6{top: 50%;right: 50%;}
 
 
-@media screen and(max-width: 480px){
-    .animation-item1{bottom: 36%;right: 35%}
-    .animation-item2{top: 10%;right: 38%;}
-    .animation-item3{top: 16%;right: 12%;}
-    .animation-item4{top: 30%;left: 29%;}
-    .animation-item5{top: 50%;right: 29%;}
-    .animation-item6{top: 50%;right: 50%;}
-}
-
 .animation{
     width:25px;
     height:25px;
@@ -201,7 +192,7 @@ body{
     transform-origin: 200% center;
     animation:rotate 7s linear infinite;
     -webkit-animation:rotate 7s linear infinite;
-    -webkit-transform-origin: 200% center;
+    -webkit-transform-origin: 1% center;
     position: absolute;
 }
     
@@ -220,7 +211,7 @@ body{
     transform-origin: 200% center;
     animation: rotate2 7s linear infinite;
     -webkit-animation: rotate2 7s linear infinite;
-    -webkit-transform-origin: 200% center;
+    -webkit-transform-origin: 1% center;
     position: absolute;
 }
     
@@ -238,7 +229,7 @@ body{
     margin-top: 80px; 
     transform-origin: 200% center; 
     animation: rotate2 7s linear infinite;
-    -webkit-transform-origin: 200% center; 
+    -webkit-transform-origin: 1% center; 
     -webkit-animation: rotate2 7s linear infinite;
     position: absolute;
 }
@@ -271,31 +262,19 @@ body{
 @-webkit-keyframes rotate2 { 100% { -webkit-transform: rotate(-360deg); } }
 
 
+@media screen and(max-width: 480px){
+    
+    .animation-item1{top: -13%;right: 19%;}
+    .animation-item2{top: 60%;right: 10%;}
+    .animation-item3{bottom: 46%;right: 12%}
+    .animation-item4{top: -5%;left: 21%;}
+    .animation-item5{top: -12%;right: 45%;}
+    .animation-item6{top: 17%;left: 63%;}
 
-// #animation{
-//     opacity: 0;
-//     animation: fade-in 2s;
-//     animation-delay: 250ms ;
-//     animation-fill-mode: both;
-// }
-
-
-#animation-test{
-    position: absolute;
-    bottom: 36%;
-    right: 34%;
-    -webkit-transform-origin: 2% center;
-    -webkit-animation: rotate 7s linear infinite;
 }
 
 
-#animation-test img{
-    height: 20px;
-    width: 20px;
-    -webkit-animation: rotate2 7s linear infinite;
-}
 
-@-webkit-keyframes rotate2 { 100% { -webkit-transform: rotate(-360deg); } }
 
 .animation-container{
     -webkit-perspective: 500px;
