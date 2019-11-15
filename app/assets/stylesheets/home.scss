@@ -284,11 +284,15 @@ body{
     position: absolute;
     bottom: 36%;
     right: 34%;
+    -webkit-transform-origin: 2% center;
+    -webkit-animation: rotate 7s linear infinite;
 }
 
 
 #animation-test img{
-    -webkit-animation: rotate2 7s linear reverse infinite;
+    height: 20px;
+    width: 20px;
+    -webkit-animation: rotate2 7s linear infinite;
 }
 
 @-webkit-keyframes rotate2 { 100% { -webkit-transform: rotate(-360deg); } }
