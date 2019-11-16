@@ -462,6 +462,7 @@ body{
 .middle2-wrapper{
     margin: 42px 0 40px 0;
     font-size: 14px;
+    padding: 0 1.5em;
     text-align: center;
 }
 
@@ -570,7 +571,7 @@ footer a{
 
 @media screen and (max-width:480px){
     .ad-middle-w{
-        padding: 0;
+        padding: 0 1.5em;
     }
 }
 
@@ -1572,7 +1573,8 @@ footer a{
     
     .form-container label{
         margin-right: 1em;
-        width: 30%;
+        width: 27%;
+        text-align: left;
         padding: 0;
     }
     
@@ -1642,7 +1644,7 @@ footer a{
     }
 
     .contact-form{
-        width:100%;
+        width:105%;
     }
     
     .contact-form-content{
