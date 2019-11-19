@@ -34,9 +34,14 @@ class HomeController < ApplicationController
     # 番組ホスト
     elsif @podcaster
       if @podcaster.authenticate(params[:password])
-        session[:user_id] = @podcaster.id
-        flash[:notice] = "ログインしました"
-        redirect_to('/myaccount')
+        if @podcaster.approval == "approved"
+          session[:user_id] = @podcaster.id
+          flash[:notice] = "ログインしました"
+          redirect_to('/myaccount')
+        else
+          flash[:notice] = "登録の審査が完了するまでもう少々お待ちください"
+          redirect_to('/')
+        end
       else
         @error_messages.push("パスワードが違います")
         render action: :login_form

@@ -26,11 +26,12 @@ class PodcasterController < ApplicationController
     end
     
     if @podcaster.save
-      @program = Program.new(name: account_params[:podcast_name], host_id: @podcaster.id)
+      @program = Program.new(name: account_params[:podcast_name], host_id: @podcaster.id,
+                  dl: account_params[:dl] )
       @program.save
-      session[:user_id] = @podcaster.id
-      flash[:notice] = "ご登録が完了しました"
-      redirect_to ('/myaccount')
+      # session[:user_id] = @podcaster.id
+      flash[:notice] = "Podcastチームが確認後、ご登録の可否に関してメールアドレスにご連絡差し上げます。"
+      redirect_to ('/')
     else
       render(new_podcaster_path)
     end
@@ -72,7 +73,7 @@ class PodcasterController < ApplicationController
   
   private
   def account_params
-    params.require(:podcaster).permit(:name, :email,:password, :podcast_name,:prof_file)
+    params.require(:podcaster).permit(:name, :email,:password, :podcast_name,:prof_file,:dl)
   end
     
     

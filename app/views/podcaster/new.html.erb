@@ -29,7 +29,10 @@
     <section class="contact-wrapper">
         <div class="contact-container">
             <h2 class="contact-title">番組の収益化を始める</h2>
-            <p>まずは簡単な情報を入力いただき登録をしていただき、<br>その後番組の詳細の情報をご提供ください。</p>
+            <p>情報を送信いただいた後弊社で内容の確認を行います
+                <br>只今ご登録はダウンロード数が3,000以上ある番組に限っております
+                <br>ご登録の可否が決まり次第ご登録いただいメールアドレスにご連絡差し上げます
+            </p>
             
             <% if @podcaster.errors.any? or @error_message.present? %>
                 <div class="error-message-wrapper">
@@ -56,7 +59,7 @@
                 <div class="contact-form-wrapper">
                 <div class="form-body">
                     <%= form_for(@podcaster,  url: {controller: 'podcaster', action: 'create'}, html: {method: "post"}) do |f| %>
-                        <div class="form-items">
+                        <div class="form-items podcaster-form-items">
                             <div class="form-name-wrapper form-container">
                                 <%= f.label :name, "お名前" , :class => "form-item form-new-item" %>
                                 <%= f.text_field :name, :class => "form-text-area form-item" %>
@@ -64,6 +67,10 @@
                             <div class="form-podcast-name-wrapper form-container">
                                 <%= f.label :podcast_name, "番組名" , :class => "form-item form-new-item" %>
                                 <%= f.text_field :podcast_name, :class => "form-text-area form-item" %>
+                            </div>
+                            <div class="form-dl-name-wrapper form-container">
+                                <%= f.label :dl, "平均ダウンロード数" , :class => "form-item form-new-item" %>
+                                <%= f.text_field :dl, :class => "form-text-area form-item" %>
                             </div>
                             <div class="form-email-wrapper form-container">
                                 <%= f.label :email, "メール" , :class => "form-item form-new-item" %>

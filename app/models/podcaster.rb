@@ -3,6 +3,7 @@ class Podcaster < ApplicationRecord
     VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
     attr_accessor :podcast_name
+    attr_accessor :dl
     attr_accessor :password_confirmation
     
     validates :name, presence: true
